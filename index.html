@@ -3,228 +3,323 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VG-SVEG - Stylish Names</title>
-<
-* {
-  box-sizing: border-box;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07110b">
+<meta name="description" content="VG-SVEG Free Fire Stylish Names, Brazil Pro Names, Fonts and Symbols">
+<title>VG-SVEG | Free Fire Name Generator</title>
 
-body {
-  margin: 0;
-  background: #050b08;
-  color: #f4fff6;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  text-align: center;
-  padding: 35px 15px;
-  background: linear-gradient(135deg, #0b2c19, #176b36, #07110b);
-  border-bottom: 1px solid #35e875;
-}
-
-h1 {
-  color: #65ff94;
-  font-size: 38px;
-  margin: 0;
-  letter-spacing: 3px;
-  text-shadow: 0 0 18px #20d95b;
-}
-
-header p {
-  color: #d1f9dc;
-  margin-bottom: 0;
-}
-
-main {
-  max-width: 720px;
-  margin: auto;
-  padding: 18px;
-}
-
-.section {
-  background: linear-gradient(145deg, #12271a, #0b1710);
-  border: 1px solid #245b36;
-  padding: 18px;
-  border-radius: 18px;
-  margin: 18px 0;
-  box-shadow: 0 8px 24px #0008;
-}
-
-h3 {
-  color: #72ff9c;
-  margin-top: 0;
-}
-
-input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #38d76b;
-  background: #07110b;
-  color: white;
-  font-size: 16px;
-  margin: 8px 0 12px;
-  outline: none;
-}
-
-input:focus {
-  box-shadow: 0 0 0 3px #25d45b33;
-}
-
-button {
-  padding: 11px 15px;
-  border: 1px solid #50ff85;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #52ff86, #18bc50);
-  color: #041109;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform .15s, filter .15s;
-}
-
-button:active {
-  transform: scale(.96);
-}
-
-button:hover {
-  filter: brightness(1.12);
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  background: #14271b;
-  border: 1px solid #254b31;
-  padding: 12px;
-  border-radius: 12px;
-  margin: 10px 0;
-}
-
-.name {
-  flex: 1;
-  overflow-wrap: anywhere;
-  line-height: 1.6;
-}
-
-.small {
-  font-size: 13px;
-  color: #a9e7b9;
-}
-
-@media (max-width: 420px) {
-  main {
-    padding: 10px;
-  }
-
-  .section {
-    padding: 13px;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  button {
-    padding: 10px 12px;
-  }
-}
-  >
+<style>
 *{box-sizing:border-box}
-body{margin:0;background:#07110b;color:white;font-family:Arial,sans-serif}
-header{text-align:center;padding:25px 12px;background:#123d20}
-h1{color:#58ff83;margin:0}
-main{max-width:700px;margin:auto;padding:15px}
-input{width:100%;padding:14px;border-radius:10px;border:1px solid #39d86b;background:#101d14;color:white;margin:8px 0}
-button{padding:10px 13px;border:0;border-radius:8px;background:#20c957;color:#06130a;font-weight:bold}
-.section{background:#102016;padding:14px;border-radius:12px;margin:15px 0}
-.item{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#192c20;padding:10px;border-radius:8px;margin:8px 0}
-.name{flex:1;overflow-wrap:anywhere}
-.small{font-size:13px;color:#b9e9c5}
+body{margin:0;background:#050b08;color:#f4fff6;font-family:Arial,sans-serif}
+header{text-align:center;padding:32px 14px;background:linear-gradient(135deg,#0b2c19,#176b36,#07110b);border-bottom:1px solid #35e875}
+.logo{font-size:36px;font-weight:900;letter-spacing:3px;color:#65ff94;text-shadow:0 0 18px #20d95b}
+header p{color:#d1f9dc}
+.tag{display:inline-block;border:1px solid #35e875;color:#65ff94;border-radius:20px;padding:7px 12px;font-size:12px}
+main{max-width:780px;margin:auto;padding:15px}
+.section{background:linear-gradient(145deg,#12271a,#0b1710);border:1px solid #245b36;padding:17px;border-radius:17px;margin:17px 0;box-shadow:0 8px 24px #0005}
+h2{font-size:20px;color:#72ff9c;margin-top:0}
+.small{font-size:13px;color:#a9e7b9;line-height:1.6}
+input{width:100%;padding:14px;border-radius:11px;border:1px solid #38d76b;background:#07110b;color:white;font-size:16px;margin:9px 0 13px}
+button{padding:10px 13px;border:1px solid #50ff85;border-radius:9px;background:linear-gradient(135deg,#52ff86,#18bc50);color:#041109;font-weight:bold;cursor:pointer}
+button:active{transform:scale(.97)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.item{display:flex;align-items:center;justify-content:space-between;gap:9px;background:#14271b;border:1px solid #254b31;padding:10px;border-radius:11px;margin:8px 0}
+.name{flex:1;overflow-wrap:anywhere;line-height:1.6;user-select:text}
+.copy-btn{flex-shrink:0}
+.symbols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.symbol-btn{background:#14271b;color:#72ff9c;border:1px solid #286b3d;font-size:20px;padding:12px 4px}
+.count{color:#72ff9c;font-size:13px;margin:8px 0}
+footer{text-align:center;padding:24px 10px;border-top:1px solid #245b36;color:#a9e7b9;font-size:13px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#52ff86;color:#041109;padding:12px 16px;border-radius:10px;font-weight:bold;display:none;z-index:10;width:max-content;max-width:90%}
+@media(max-width:420px){main{padding:9px}.section{padding:12px}.logo{font-size:30px}.item{gap:6px}.copy-btn{padding:9px}.symbols{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
+
 <body>
-<header><h1>VG-SVEG</h1><p>Free Fire Stylish Name Generator</p></header>
+<header>
+  <div class="logo">VG-SVEG</div>
+  <p>Free Fire Stylish Name Generator</p>
+  <span class="tag">🇧🇷 BRAZIL PRO STYLE</span>
+</header>
+
 <main>
-<div class="section">
-<h3>अपना नाम लिखें</h3>
-<input id="username" placeholder="जैसे Karan" value="Karan">
-<button onclick="generate()">नाम बनाओ</button>
-<button onclick="copySection('generated')">Copy All</button>
-<div id="generated"></div>
-</div>
-<div class="section"><h3>🔥 Popular Names</h3><div id="popular"></div></div>
-<div class="section"><h3>✨ Stylish Fonts</h3><div id="fonts"></div></div>
-<div class="section"><h3>⚡ Symbols Library</h3><div id="symbols"></div></div>
-<p id="status" class="small"></p>
+<section class="section">
+  <h2>🎮 Stylish Name Generator</h2>
+  <p class="small">अपना नाम लिखो और गेमिंग स्टाइल में बदलो।</p>
+  <input id="username" value="Karan" maxlength="30" placeholder="अपना नाम लिखें">
+  <div class="actions">
+    <button id="generateBtn">✨ नाम बनाओ</button>
+    <button id="copyAllBtn">📋 Copy All</button>
+  </div>
+  <div id="generated"></div>
+</section>
+
+<section class="section">
+  <h2>🇧🇷 Brazil Pro Player Names</h2>
+  <p class="small">Brazilian Free Fire esports नामों से प्रेरित 200 फैन-मेड विकल्प। नाम खोजो और Copy दबाओ। ये आधिकारिक खिलाड़ी नामों की सूची नहीं है।</p>
+  <input id="brazilSearch" placeholder="🔎 Brazil नाम खोजें...">
+  <div class="actions">
+    <button id="brazilCopyAll">📋 Copy दिखाई देने वाले नाम</button>
+  </div>
+  <div id="brazilCount" class="count"></div>
+  <div id="brazilNames"></div>
+</section>
+
+<section class="section">
+  <h2>🔥 Popular Names</h2>
+  <div id="popular"></div>
+</section>
+
+<section class="section">
+  <h2>✨ Stylish Fonts</h2>
+  <div id="fonts"></div>
+</section>
+
+<section class="section">
+  <h2>⚡ Symbols Library</h2>
+  <p class="small">सिंबल कॉपी करने के लिए उस पर टैप करो।</p>
+  <div id="symbols" class="symbols"></div>
+</section>
 </main>
+
+<footer>
+  <strong>VG-SVEG</strong>
+  <p>Stylish Names • Brazil Pro Names • Fonts • Symbols</p>
+  <p>Made for gamers 💚</p>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
 <script>
-const popular=['亗 KING 亗','꧁༒☬PRO☬༒꧂','么 DESTROYER 么','乂 DANGER 乂','亗 LEGEND 亗'];
-const fonts=['ＫＡＲＡＮ','𝓚𝓪𝓻𝓪𝓷','𝕂𝕒𝕣𝕒𝕟','𝐊𝐚𝐫𝐚𝐧','ᴋᴀʀᴀɴ'];
-const symbols=['亗','么','乂','ツ','〆','々','彡','★','☆','꧁','꧂','༒','☬','♛','⚡','࿐'];
+const $ = id => document.getElementById(id);
+let generatedNames = [];
+let visibleBrazilNames = [];
 
-function addItems(id,arr){
-  const container=document.getElementById(id);
-  container.replaceChildren();
-  arr.forEach(text=>{
-    const item=document.createElement('div');
-    item.className='item';
-    const name=document.createElement('span');
-    name.className='name';
-    name.textContent=text;
-    const btn=document.createElement('button');
-    btn.textContent='Copy';
-    btn.onclick=()=>copyText(text);
-    item.append(name,btn);
-    container.appendChild(item);
-  });
-}
-
-function generate(){
-  const n=document.getElementById('username').value.trim()||'Player';
-  addItems('generated',['亗 '+n+' 亗','꧁༒'+n+'༒꧂','乂 '+n+' 乂','『'+n+'』','★彡'+n+'彡★','么 '+n+' 么','ツ '+n+' ツ']);
+function toast(message){
+  const el=$("toast");
+  el.textContent=message;
+  el.style.display="block";
+  clearTimeout(toast.timer);
+  toast.timer=setTimeout(()=>el.style.display="none",1800);
 }
 
 async function copyText(text){
-  const status=document.getElementById('status');
   try{
     if(navigator.clipboard && window.isSecureContext){
       await navigator.clipboard.writeText(text);
     }else{
-      const box=document.createElement('textarea');
-      box.value=text;
-      box.style.position='fixed';
-      box.style.left='-9999px';
-      document.body.appendChild(box);
-      box.focus();
-      box.select();
-      const ok=document.execCommand('copy');
-      box.remove();
-      if(!ok) throw new Error('Copy failed');
+      const area=document.createElement("textarea");
+      area.value=text;
+      area.style.position="fixed";
+      area.style.left="-9999px";
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      const ok=document.execCommand("copy");
+      area.remove();
+      if(!ok) throw new Error("Copy failed");
     }
-    status.textContent='✅ कॉपी हो गया! अब जहाँ चाहिए वहाँ Paste करो।';
+    toast("✅ कॉपी हो गया!");
   }catch(e){
-    window.prompt('यह नाम कॉपी करें:',text);
+    toast("कॉपी नहीं हुआ। नाम को दबाकर कॉपी करें।");
   }
 }
 
-function copySection(id){
-  const texts=[...document.querySelectorAll('#'+id+' .name')].map(e=>e.textContent);
-  if(!texts.length){
-    document.getElementById('status').textContent='पहले नाम बनाओ।';
-    return;
-  }
-  copyText(texts.join('\n'));
-  
+function makeItem(text){
+  const row=document.createElement("div");
+  row.className="item";
+  const name=document.createElement("span");
+  name.className="name";
+  name.textContent=text;
+  const btn=document.createElement("button");
+  btn.className="copy-btn";
+  btn.textContent="Copy";
+  btn.addEventListener("click",()=>copyText(text));
+  row.append(name,btn);
+  return row;
 }
 
-addItems('popular',popular);
-addItems('fonts',fonts);
-addItems('symbols',symbols);
-generate();
+function renderList(id,items){
+  const container=$(id);
+  container.replaceChildren();
+  items.forEach(item=>container.appendChild(makeItem(item)));
+}
+
+// Stylish name generator
+function generateNames(){
+  const input=$("username").value.trim();
+  if(!input){toast("पहले अपना नाम लिखो!");return;}
+  generatedNames=[
+    `亗 ${input} 亗`,
+    `꧁༒${input}༒꧂`,
+    `乂 ${input} 乂`,
+    `『${input}』`,
+    `★彡${input}彡★`,
+    `么 ${input} 么`,
+    `ツ ${input} ツ`,
+    `〆${input}࿐`,
+    `♛ ${input} ♛`,
+    `꧁☬${input}☬꧂`,
+    `༺${input}༻`,
+    `⚡${input}⚡`,
+    `彡${input}彡`,
+    `◥${input}◤`,
+    `★${input}★`,
+    `࿐${input}࿐`
+  ];
+  renderList("generated",generatedNames);
+}
+
+// 20 player-inspired nicknames × 10 formats = 200 options
+const brazilBases=[
+  "NOBRU","CEROL","BAK","THURZIN","LEVELUP",
+  "TWO9","YAGO","R7","JAPABKR","FEDERAL",
+  "KROONOS","BUXEXA","MTS","PIRES","DANTES",
+  "LZINN","WEEDZAO","GODKILL","BRABO","CRIA"
+];
+
+const brazilFormats=[
+  n=>`亗 ${n} 亗`,
+  n=>`꧁༒${n}༒꧂`,
+  n=>`乂 ${n} 乂`,
+  n=>`『${n}』`,
+  n=>`么 ${n} 么`,
+  n=>`★彡${n}彡★`,
+  n=>`ᵀᴹ ${n}`,
+  n=>`${n} 亗 BR`,
+  n=>`⚡${n}⚡`,
+  n=>`꧁ঔৣ${n}ঔৣ꧂`
+];
+
+const brazilAll=[];
+brazilBases.forEach(base=>{
+  brazilFormats.forEach(format=>{
+    brazilAll.push(format(base));
+  });
+});
+
+function renderBrazil(){
+  const query=$("brazilSearch").value.trim().toLowerCase();
+  visibleBrazilNames=brazilAll.filter(name=>
+    name.toLowerCase().includes(query)
+  );
+  const container=$("brazilNames");
+  container.replaceChildren();
+
+  visibleBrazilNames.forEach(name=>{
+    container.appendChild(makeItem(name));
+  });
+
+  $("brazilCount").textContent=
+    `दिखाए जा रहे हैं ${visibleBrazilNames.length} / ${brazilAll.length} नाम`;
+}
+
+$("brazilSearch").addEventListener("input",renderBrazil);
+$("brazilCopyAll").addEventListener("click",()=>{
+  if(visibleBrazilNames.length){
+    copyText(visibleBrazilNames.join("\n"));
+  }else{
+    toast("कॉपी करने के लिए नाम नहीं हैं।");
+  }
+});
+
+$("generateBtn").addEventListener("click",generateNames);
+$("copyAllBtn").addEventListener("click",()=>{
+  if(!generatedNames.length) generateNames();
+  if(generatedNames.length) copyText(generatedNames.join("\n"));
+});
+$("username").addEventListener("keydown",e=>{
+  if(e.key==="Enter") generateNames();
+});
+
+// Popular names
+const popular=[
+  "亗 KING 亗",
+  "꧁༒☬PRO☬༒꧂",
+  "么 DESTROYER 么",
+  "乂 DANGER 乂",
+  "亗 LEGEND 亗",
+  "꧁༒DARK༒꧂",
+  "『HEADSHOT』",
+  "⚡ NO MERCY ⚡",
+  "亗 SHADOW 亗",
+  "♛ ROYAL ♛"
+];
+renderList("popular",popular);
+
+// Stylish font conversions
+function convertFont(text,type){
+  return Array.from(text).map(ch=>{
+    const c=ch.codePointAt(0);
+    if(type==="wide" && c>=33 && c<=126)
+      return String.fromCodePoint(c+0xFEE0);
+    const starts={
+      bold:[0x1D400,0x1D41A,0x1D7CE],
+      double:[0x1D538,0x1D552,0x1D7D8]
+    };
+    if(starts[type]){
+      const [u,l,d]=starts[type];
+      if(c>=65&&c<=90)return String.fromCodePoint(u+c-65);
+      if(c>=97&&c<=122)return String.fromCodePoint(l+c-97);
+      if(c>=48&&c<=57)return String.fromCodePoint(d+c-48);
+    }
+    if(type==="small"){
+      const m={a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",f:"ғ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",y:"ʏ",z:"ᴢ"};
+      return m[ch.toLowerCase()]||ch;
+    }
+    return ch;
+  }).join("");
+}
+
+function renderFonts(){
+  const input=$("username").value.trim()||"Karan";
+  const options=[
+    ["Full Width","wide"],
+    ["Bold","bold"],
+    ["Double Struck","double"],
+    ["Small Caps","small"]
+  ];
+  const container=$("fonts");
+  container.replaceChildren();
+  options.forEach(([label,type])=>{
+    const row=document.createElement("div");
+    row.className="item";
+    const left=document.createElement("span");
+    left.className="name";
+    const title=document.createElement("div");
+    title.className="small";
+    title.textContent=label;
+    const value=document.createElement("div");
+    value.textContent=convertFont(input,type);
+    left.append(title,value);
+    const btn=document.createElement("button");
+    btn.textContent="Copy";
+    btn.addEventListener("click",()=>copyText(convertFont(input,type)));
+    row.append(left,btn);
+    container.appendChild(row);
+  });
+}
+$("username").addEventListener("input",renderFonts);
+
+// Symbols library
+const symbols=[
+  "亗","么","乂","ツ","〆","々","彡","★",
+  "☆","꧁","꧂","༒","☬","♛","⚡","࿐",
+  "『","』","༺","༻","◥","◤","♕","✿"
+];
+const symbolContainer=$("symbols");
+symbols.forEach(symbol=>{
+  const btn=document.createElement("button");
+  btn.className="symbol-btn";
+  btn.textContent=symbol;
+  btn.addEventListener("click",()=>copyText(symbol));
+  symbolContainer.appendChild(btn);
+});
+
+generateNames();
+renderBrazil();
+renderFonts();
 </script>
 </body>
-</html>
+  </html>
+    
