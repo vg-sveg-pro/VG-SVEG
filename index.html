@@ -3,138 +3,100 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VG-SVEG - Stylish Names</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#07110b;color:white;font-family:Arial,sans-serif}
 header{text-align:center;padding:25px 12px;background:#123d20}
 h1{color:#58ff83;margin:0}
-header p{color:#d3ffdc}
 main{max-width:700px;margin:auto;padding:15px}
-input{width:100%;padding:14px;border-radius:10px;border:1px solid #39d86b;background:#101d14;color:white;font-size:16px;margin:8px 0}
-button{padding:10px 13px;border:0;border-radius:8px;background:#20c957;color:#06130a;font-weight:bold;cursor:pointer}
+input{width:100%;padding:14px;border-radius:10px;border:1px solid #39d86b;background:#101d14;color:white;margin:8px 0}
+button{padding:10px 13px;border:0;border-radius:8px;background:#20c957;color:#06130a;font-weight:bold}
 .section{background:#102016;padding:14px;border-radius:12px;margin:15px 0}
-.item{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#192c20;padding:10px;border-radius:8px;margin:8px 0;overflow-wrap:anywhere}
+.item{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#192c20;padding:10px;border-radius:8px;margin:8px 0}
 .name{flex:1;overflow-wrap:anywhere}
-.small{font-size:12px;color:#b9e9c5}
-footer{text-align:center;padding:20px;color:#b9e9c5}
+.small{font-size:13px;color:#b9e9c5}
 </style>
 </head>
 <body>
-<header>
-<h1>VG-SVEG</h1>
-<p>Free Fire Stylish Name Generator</p>
-</header>
+<header><h1>VG-SVEG</h1><p>Free Fire Stylish Name Generator</p></header>
 <main>
 <div class="section">
 <h3>अपना नाम लिखें</h3>
 <input id="username" placeholder="जैसे Karan" value="Karan">
 <button onclick="generate()">नाम बनाओ</button>
-<button onclick="copyAllGenerated()">Copy All</button>
+<button onclick="copySection('generated')">Copy All</button>
 <div id="generated"></div>
 </div>
-
-<div class="section">
-<h3>🔥 Popular Free Fire Names</h3>
-<div id="popular"></div>
-<button onclick="copySection('popular')">Copy All Popular Names</button>
-</div>
-
-<div class="section">
-<h3>✨ Stylish Fonts</h3>
-<div id="fonts"></div>
-<button onclick="copySection('fonts')">Copy All Fonts</button>
-</div>
-
-<div class="section">
-<h3>⚡ Symbols Library</h3>
-<div id="symbols"></div>
-<button onclick="copySection('symbols')">Copy All Symbols</button>
-</div>
-
+<div class="section"><h3>🔥 Popular Names</h3><div id="popular"></div></div>
+<div class="section"><h3>✨ Stylish Fonts</h3><div id="fonts"></div></div>
+<div class="section"><h3>⚡ Symbols Library</h3><div id="symbols"></div></div>
 <p id="status" class="small"></p>
 </main>
-<footer>VG-SVEG © 2026 | Made for gamers</footer>
-
 <script>
-const popular=[
-'亗 KING 亗','꧁༒☬PRO☬༒꧂','么 DESTROYER 么',
-'『ᏒᎧᎩᎪᏞ』','乂 DANGER 乂','亗 LEGEND 亗',
-'꧁༺BOSS༻꧂','★彡[HUNTER]彡★',
-'ᎠᎬᎪᎠㅤSHOT','么ㅤGAMERㅤ么'
-];
-const fonts=[
-'ＫＡＲＡＮ','𝓚𝓪𝓻𝓪𝓷','𝕂𝕒𝕣𝕒𝕟','𝐊𝐚𝐫𝐚𝐧',
-'𝙆𝙖𝙧𝙖𝙣','ᴋᴀʀᴀɴ','Ⓚⓐⓡⓐⓝ',
-'꧁༒Karan༒꧂','亗 Karan 亗','乂 Karan 乂'
-];
-const symbols=[
-'亗','么','乂','ツ','〆','々','彡','★','☆','꧁','꧂',
-'༒','☬','♛','♚','⚡','✓','࿐','『』','【】','𓆩𓆪','ঔৣ'
-];
+const popular=['亗 KING 亗','꧁༒☬PRO☬༒꧂','么 DESTROYER 么','乂 DANGER 乂','亗 LEGEND 亗'];
+const fonts=['ＫＡＲＡＮ','𝓚𝓪𝓻𝓪𝓷','𝕂𝕒𝕣𝕒𝕟','𝐊𝐚𝐫𝐚𝐧','ᴋᴀʀᴀɴ'];
+const symbols=['亗','么','乂','ツ','〆','々','彡','★','☆','꧁','꧂','༒','☬','♛','⚡','࿐'];
 
-function escapeHTML(s){
-return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
 function addItems(id,arr){
-document.getElementById(id).innerHTML=arr.map((s,i)=>
-`<div class="item"><span class="name">${escapeHTML(s)}</span><button onclick="copyText(${JSON.stringify(s).replace(/</g,'\\u003c')})">Copy</button></div>`
-).join('');
+  const container=document.getElementById(id);
+  container.replaceChildren();
+  arr.forEach(text=>{
+    const item=document.createElement('div');
+    item.className='item';
+    const name=document.createElement('span');
+    name.className='name';
+    name.textContent=text;
+    const btn=document.createElement('button');
+    btn.textContent='Copy';
+    btn.onclick=()=>copyText(text);
+    item.append(name,btn);
+    container.appendChild(item);
+  });
 }
+
 function generate(){
-const n=document.getElementById('username').value.trim()||'Player';
-const list=[
-'亗 '+n+' 亗','꧁༒'+n+'༒꧂','乂 '+n+' 乂',
-'『'+n+'』','★彡'+n+'彡★','么 '+n+' 么',
-'ツ '+n+' ツ','♛ '+n+' ♛','〆'+n+'〆',
-'『ᏒᎾYᎪᏞ』'+n
-];
-addItems('generated',list);
+  const n=document.getElementById('username').value.trim()||'Player';
+  addItems('generated',['亗 '+n+' 亗','꧁༒'+n+'༒꧂','乂 '+n+' 乂','『'+n+'』','★彡'+n+'彡★','么 '+n+' 么','ツ '+n+' ツ']);
 }
+
 async function copyText(text){
-try{
-await navigator.clipboard.writeText(text);
-document.getElementById('status').textContent='✅ कॉपी हो गया: '+text;
-}catch(e){
-const t=document.createElement('textarea');
-t.value=text;document.body.appendChild(t);t.select();
-const ok=document.execCommand('copy');t.remove();
-document.getElementById('status').textContent=ok?'✅ कॉपी हो गया!':'कॉपी नहीं हुआ, टेक्स्ट चुनकर कॉपी करें।';
+  const status=document.getElementById('status');
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+    }else{
+      const box=document.createElement('textarea');
+      box.value=text;
+      box.style.position='fixed';
+      box.style.left='-9999px';
+      document.body.appendChild(box);
+      box.focus();
+      box.select();
+      const ok=document.execCommand('copy');
+      box.remove();
+      if(!ok) throw new Error('Copy failed');
+    }
+    status.textContent='✅ कॉपी हो गया! अब जहाँ चाहिए वहाँ Paste करो।';
+  }catch(e){
+    window.prompt('यह नाम कॉपी करें:',text);
+  }
 }
-}
-function copyAllGenerated(){
-copySection('generated');
-}
+
 function copySection(id){
-const texts=[...document.querySelectorAll('#'+id+' .name')].map(e=>e.textContent);
-if(!texts.length){document.getElementById('status').textContent='पहले नाम बनाओ।';return;}
-copyText(texts.join('\n'));
+  const texts=[...document.querySelectorAll('#'+id+' .name')].map(e=>e.textContent);
+  if(!texts.length){
+    document.getElementById('status').textContent='पहले नाम बनाओ।';
+    return;
+  }
+  copyText(texts.join('\n'));
 }
+
 addItems('popular',popular);
 addItems('fonts',fonts);
 addItems('symbols',symbols);
 generate();
-  async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    alert("Copied successfully!");
-  } catch (err) {
-    const box = document.createElement("textarea");
-    box.value = text;
-    document.body.appendChild(box);
-    box.select();
-    const copied = document.execCommand("copy");
-    box.remove();
-
-    if (copied) {
-      alert("Copied successfully!");
-    } else {
-      prompt("Copy this text:", text);
-    }
-  }
-  }
 </script>
 </body>
-  </html>
-                    
+</html>
