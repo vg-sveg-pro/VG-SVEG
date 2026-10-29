@@ -115,6 +115,25 @@ addItems('popular',popular);
 addItems('fonts',fonts);
 addItems('symbols',symbols);
 generate();
+  async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    alert("Copied successfully!");
+  } catch (err) {
+    const box = document.createElement("textarea");
+    box.value = text;
+    document.body.appendChild(box);
+    box.select();
+    const copied = document.execCommand("copy");
+    box.remove();
+
+    if (copied) {
+      alert("Copied successfully!");
+    } else {
+      prompt("Copy this text:", text);
+    }
+  }
+  }
 </script>
 </body>
   </html>
