@@ -4,364 +4,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#06120d">
-<meta name="description" content="VG-SVEG PRO - Free Fire Stylish Names, Symbols, Bio और Sensitivity Generator">
 <title>VG-SVEG PRO | Free Fire Tools</title>
+<meta name="theme-color" content="#080d0b">
 <style>
-:root{--bg:#06120d;--panel:#0d1e16;--green:#39ff88;--text:#effff5;--muted:#a6c4b1;--border:#214532}
+:root{--bg:#080d0b;--panel:#111a15;--green:#a3ff12;--muted:#aab5ad}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#123823 0%,var(--bg) 55%);color:var(--text);font-family:Arial,sans-serif}
-header{text-align:center;padding:25px 14px 18px;border-bottom:1px solid var(--border)}
-.logo{font-size:30px;font-weight:900;color:var(--green);text-shadow:0 0 18px #19d967}
-header p{color:var(--muted);margin:8px 0 0}
-nav{display:flex;gap:8px;overflow-x:auto;padding:12px;position:sticky;top:0;background:#06120df2;z-index:5;border-bottom:1px solid var(--border)}
-nav a{flex-shrink:0;text-decoration:none;color:var(--text);border:1px solid var(--border);padding:10px 13px;border-radius:10px;font-size:13px}
-nav a:hover{border-color:var(--green);color:var(--green)}
-main{max-width:850px;margin:auto;padding:14px}
-.panel{background:linear-gradient(145deg,#10271a,#09150e);border:1px solid var(--border);border-radius:17px;padding:17px;margin:15px 0;box-shadow:0 8px 24px #0003}
-h2{color:var(--green);font-size:21px;margin:0 0 8px}
-h3{font-size:16px;margin:12px 0 8px}
-.desc{color:var(--muted);font-size:13px;line-height:1.6}
-label{display:block;font-size:13px;color:#d6f4e0;margin:13px 0 6px}
-input,select{width:100%;padding:12px;background:#06120d;color:white;border:1px solid #315640;border-radius:10px;font-size:15px;outline:none}
-input:focus,select:focus{border-color:var(--green)}
-button{background:var(--green);color:#04130a;font-weight:800;border:0;border-radius:10px;padding:12px 14px;font-size:14px;cursor:pointer}
+body{margin:0;background:var(--bg);color:white;font-family:Arial,sans-serif}
+header{padding:25px 15px;text-align:center;background:linear-gradient(135deg,#122b19,#080d0b);border-bottom:1px solid #263b2b}
+.logo{font-size:30px;font-weight:900;color:var(--green)}
+header p{color:var(--muted);margin-bottom:0}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px;background:#0c130e;position:sticky;top:0;z-index:5}
+nav a{color:white;text-decoration:none;background:#1a271d;padding:9px 12px;border-radius:9px;font-size:13px}
+main{max-width:760px;margin:auto;padding:15px}
+section{background:var(--panel);padding:18px;margin:18px 0;border:1px solid #263b2b;border-radius:16px;scroll-margin-top:80px}
+h2{font-size:21px;margin-top:0}
+h2 span{color:var(--green)}
+p{line-height:1.5}
+label{display:block;margin:13px 0 6px;color:#d7e4da}
+input,select{width:100%;padding:13px;border:1px solid #35483a;border-radius:10px;background:#080d0b;color:white;font-size:15px}
+button{border:0;border-radius:10px;background:var(--green);color:#10170d;font-weight:bold;padding:12px 15px;cursor:pointer}
 button:active{transform:scale(.98)}
-button.secondary{background:#163523;color:#eafff0;border:1px solid #315640}
-button.full{width:100%;margin-top:13px}
-button.small{padding:8px 11px;font-size:12px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.output{margin-top:13px}
-.item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px;margin:8px 0;background:#07170e;border:1px solid var(--border);border-radius:10px;overflow-wrap:anywhere}
-.item span{font-size:14px;overflow-wrap:anywhere;min-width:0}
-.item button{flex-shrink:0}
-.stat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:13px}
-.stat div{background:#07170e;border:1px solid var(--border);padding:12px;border-radius:10px}
-.stat strong{display:block;color:var(--green);font-size:21px}
-.stat small{color:var(--muted)}
-.notice{padding:12px;background:#17251a;border-left:3px solid #ffd166;border-radius:8px;color:#f5e8c4;font-size:12px;line-height:1.6;margin-top:12px}
-.result-card{background:#07170e;border:1px solid var(--border);border-radius:12px;padding:13px;margin-top:12px}
-.result-card h3{color:var(--green);margin-top:0}
-.value-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.value{background:#10271a;padding:10px;border-radius:8px}
-.value span{display:block;color:var(--muted);font-size:12px}
-.value strong{display:block;font-size:21px;margin-top:4px}
-footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
-@media(min-width:600px){.row{grid-template-columns:1fr 1fr}.stat{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.secondary{background:#26372a;color:white}
+.result{margin-top:14px;display:grid;gap:10px}
+.item{background:#0a100c;border:1px solid #2b3c30;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;overflow-wrap:anywhere}
+.item button{flex-shrink:0;padding:9px}
+.small{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+footer{text-align:center;color:var(--muted);padding:25px;font-size:13px}
+@media(max-width:420px){.grid{grid-template-columns:1fr}section{padding:14px}.logo{font-size:26px}}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">VG-SVEG PRO</div>
-  <p>Free Fire Names • Stylish Bio • Sensitivity Tools</p>
+  <p>Free Fire Stylish Names, Sensi & Gaming Tools</p>
 </header>
 
 <nav>
-  <a href="#sensi">🎯 Sensitivity</a>
-  <a href="#names">🔥 Stylish Names</a>
-  <a href="#bio">📝 Bio</a>
-  <a href="#symbols">✦ Symbols</a>
+  <a href="#names">Stylish Names</a>
+  <a href="#sensitivity">Sensitivity</a>
+  <a href="#bio">Stylish Bio</a>
+  <a href="#symbols">Symbols</a>
 </nav>
 
 <main>
-<section class="panel" id="sensi">
-  <h2>🎯 Sensitivity Generator</h2>
-  <p class="desc">अपना फोन और खेलने का तरीका चुनो। यह तुम्हें शुरुआती Sensitivity सेटिंग्स सुझाएगा।</p>
-
-  <label for="phone">📱 अपना फोन चुनो</label>
-  <select id="phone">
-    <option value="low">कम क्षमता वाला फोन / 2–3 GB RAM</option>
-    <option value="mid" selected>सामान्य फोन / 4–6 GB RAM</option>
-    <option value="high">अच्छा फोन / 8 GB+ RAM</option>
-    <option value="custom">मेरा फोन सूची में नहीं है</option>
-  </select>
-
-  <div id="customPhoneBox" hidden>
-    <label for="customPhone">फोन का नाम</label>
-    <input id="customPhone" placeholder="जैसे: LAVA LZG410">
+<section id="names">
+  <h2>🔥 <span>Stylish Name Generator</span></h2>
+  <p class="small">अपना नाम लिखो और स्टाइलिश नाम बनाओ।</p>
+  <label for="nameInput">अपना नाम</label>
+  <input id="nameInput" placeholder="जैसे Karan" maxlength="24">
+  <div class="actions">
+    <button onclick="makeNames()">नाम बनाओ</button>
+    <button class="secondary" onclick="document.getElementById('nameInput').value='' ; document.getElementById('nameResults').innerHTML=''">Clear</button>
   </div>
+  <div id="nameResults" class="result"></div>
+</section>
 
-  <div class="row">
+<!-- Sensitivity section is immediately below Stylish Names -->
+<section id="sensitivity">
+  <h2>🎯 <span>Free Fire Sensitivity Generator</span></h2>
+  <p class="small">अपने फोन और खेलने के तरीके के हिसाब से शुरुआती sensi सेटिंग बनाओ। ये सुझाव हैं, गारंटीड हेडशॉट सेटिंग नहीं।</p>
+
+  <div class="grid">
     <div>
-      <label for="gameplay">🎮 Gameplay</label>
-      <select id="gameplay">
-        <option value="all">सभी / All-rounder</option>
-        <option value="headshot">One Tap / Headshot</option>
-        <option value="rush">Rush Gameplay</option>
+      <label for="phone">फोन की क्षमता</label>
+      <select id="phone">
+        <option value="low">Low-end फोन</option>
+        <option value="mid" selected>Mid-range फोन</option>
+        <option value="high">High-end फोन</option>
+      </select>
+    </div>
+    <div>
+      <label for="style">गेमिंग स्टाइल</label>
+      <select id="style">
+        <option value="rush">Rush</option>
+        <option value="headshot">Headshot</option>
         <option value="balanced">Balanced</option>
         <option value="sniper">Sniper</option>
       </select>
     </div>
     <div>
-      <label for="controls">🕹️ Controls</label>
-      <select id="controls">
+      <label for="fingers">कितनी उंगलियाँ?</label>
+      <select id="fingers">
         <option value="2">2 Finger</option>
         <option value="3" selected>3 Finger</option>
         <option value="4">4 Finger</option>
       </select>
     </div>
-  </div>
-
-  <div class="row">
     <div>
-      <label for="screen">📐 Screen / Touch</label>
-      <select id="screen">
-        <option value="normal">सामान्य</option>
-        <option value="smooth">Touch तेज लगता है</option>
-        <option value="slow">Touch धीमा लगता है</option>
+      <label for="touch">टच फील</label>
+      <select id="touch">
+        <option value="slow">Slow</option>
+        <option value="normal" selected>Normal</option>
+        <option value="smooth">Smooth</option>
       </select>
     </div>
-    <div>
-      <label for="dpi">DPI (वैकल्पिक)</label>
-      <input id="dpi" type="number" min="0" max="1000" placeholder="खाली छोड़ सकते हो">
-    </div>
   </div>
 
-  <button class="full" onclick="generateSensi()">⚡ Sensitivity बनाओ</button>
-  <div id="sensiOutput" class="output" aria-live="polite"></div>
+  <label for="dpi">DPI (अगर पता हो; वैकल्पिक)</label>
+  <input id="dpi" type="number" min="200" max="800" placeholder="खाली भी छोड़ सकते हो">
 
-  <div class="notice">
-    नोट: ये शुरुआती सुझाव हैं, किसी खिलाड़ी की गारंटीड या आधिकारिक सेटिंग्स नहीं। गेम की Sensitivity और फोन के Touch के अनुसार इन्हें Training Ground में टेस्ट करके समायोजित करना होगा। यह वेबसाइट गेम की सेटिंग अपने-आप नहीं बदल सकती।
+  <div class="actions">
+    <button onclick="makeSensi()">Generate Sensitivity</button>
+    <button class="secondary" onclick="copySensi()">Copy All</button>
   </div>
+  <div id="sensiResults" class="result"></div>
+  <p class="small">ध्यान दें: Sensitivity की अधिकतम सीमा गेम के मौजूदा वर्जन पर निर्भर करती है। ये वैल्यू Training Ground में टेस्ट करके एडजस्ट करें। यह टूल गेम की सेटिंग अपने आप नहीं बदलता।</p>
 </section>
 
-<section class="panel" id="names">
-  <h2>🔥 Stylish Free Fire Names</h2>
-  <p class="desc">अपना नाम लिखो और स्टाइल वाले नाम बनाओ। हर नाम का Copy बटन काम करेगा।</p>
-  <label for="baseName">अपना नाम</label>
-  <input id="baseName" maxlength="18" placeholder="जैसे KARAN">
-  <button class="full" onclick="generateNames()">✨ Stylish Names बनाओ</button>
-  <div id="nameOutput" class="output"></div>
+<section id="bio">
+  <h2>✨ <span>Stylish Bio</span></h2>
+  <div class="result" id="bioResults"></div>
 </section>
 
-<section class="panel" id="bio">
-  <h2>📝 Stylish Bio Generator</h2>
-  <p class="desc">Free Fire प्रोफाइल के लिए Bio टेम्पलेट।</p>
-  <button class="full" onclick="generateBio()">नई Bio बनाओ</button>
-  <div id="bioOutput" class="output"></div>
-</section>
-
-<section class="panel" id="symbols">
-  <h2>✦ Symbols Library</h2>
-  <p class="desc">अपनी पसंद का Symbol कॉपी करो। सभी Symbols हर गेम में सपोर्ट हों, यह ज़रूरी नहीं।</p>
-  <div id="symbolOutput" class="output"></div>
+<section id="symbols">
+  <h2>⚡ <span>Symbols Library</span></h2>
+  <p class="small">किसी भी सिंबल को कॉपी करने के लिए दबाओ।</p>
+  <div id="symbolResults" class="result"></div>
 </section>
 </main>
 
-<footer>© <span id="year"></span> VG-SVEG PRO • Made for mobile gamers</footer>
+<footer>© 2026 VG-SVEG PRO · Made for gamers 🎮</footer>
 
 <script>
-const $ = id => document.getElementById(id);
-
-$("year").textContent = new Date().getFullYear();
-
-$("phone").addEventListener("change", () => {
-  $("customPhoneBox").hidden = $("phone").value !== "custom";
-});
-
-async function copyText(text, button) {
-  const original = button ? button.textContent : "";
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-    } else {
-      const area = document.createElement("textarea");
-      area.value = text;
-      area.style.position = "fixed";
-      area.style.opacity = "0";
-      document.body.appendChild(area);
-      area.focus();
-      area.select();
-      const ok = document.execCommand("copy");
-      area.remove();
-      if (!ok) throw new Error("Copy failed");
-    }
-    if (button) {
-      button.textContent = "Copied ✓";
-      setTimeout(() => button.textContent = original, 1300);
-    }
-  } catch (e) {
-    window.prompt("यह टेक्स्ट कॉपी करो:", text);
+function copyText(text,button){
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(()=>{
+      const old=button.textContent;
+      button.textContent="Copied!";
+      setTimeout(()=>button.textContent=old,1200);
+    }).catch(()=>fallbackCopy(text,button));
+  }else{
+    fallbackCopy(text,button);
   }
 }
-
-function makeCopyButton(text, label = "📋 Copy") {
-  const button = document.createElement("button");
-  button.className = "small";
-  button.textContent = label;
-  button.addEventListener("click", () => copyText(text, button));
-  return button;
+function fallbackCopy(text,button){
+  const area=document.createElement("textarea");
+  area.value=text;
+  area.style.position="fixed";
+  area.style.left="-9999px";
+  document.body.appendChild(area);
+  area.select();
+  let ok=false;
+  try{ok=document.execCommand("copy")}catch(e){}
+  area.remove();
+  const old=button.textContent;
+  button.textContent=ok?"Copied!":"Select manually";
+  if(!ok) alert("कॉपी नहीं हुआ। टेक्स्ट को चुनकर कॉपी करें:\n"+text);
+  setTimeout(()=>button.textContent=old,1500);
 }
-
-function makeItem(text) {
-  const div = document.createElement("div");
-  div.className = "item";
-  const span = document.createElement("span");
-  span.textContent = text;
-  div.append(span, makeCopyButton(text));
-  return div;
+function addItem(container,text){
+  const row=document.createElement("div");
+  row.className="item";
+  const span=document.createElement("span");
+  span.textContent=text;
+  const btn=document.createElement("button");
+  btn.textContent="Copy";
+  btn.onclick=()=>copyText(text,btn);
+  row.append(span,btn);
+  container.appendChild(row);
 }
-
-function clamp(n, min = 0, max = 200) {
-  return Math.max(min, Math.min(max, Math.round(n)));
-}
-
-function buildProfile(style, device, control, touch, dpi) {
-  // Starting-point recommendations, not measured device-specific settings.
-  let general = 175, red = 168, scope2 = 158, scope4 = 145, sniper = 95, free = 135;
-
-  if (device === "low") {
-    general -= 8; red -= 8; scope2 -= 7; scope4 -= 6; free -= 5;
-  }
-  if (device === "high") {
-    general += 5; red += 5; scope2 += 4; scope4 += 4; free += 4;
-  }
-
-  if (style === "headshot") {
-    general += 8; red += 10; scope2 += 4;
-  } else if (style === "rush") {
-    general += 10; red += 6; free += 8;
-  } else if (style === "balanced") {
-    general -= 5; red -= 3; scope2 -= 2;
-  } else if (style === "sniper") {
-    general -= 10; red -= 8; scope2 -= 7; scope4 -= 12; sniper -= 12;
-  }
-
-  if (control === "2") { general -= 3; red -= 2; }
-  if (control === "4") { general += 2; red += 2; }
-
-  if (touch === "smooth") {
-    general -= 5; red -= 4; scope2 -= 3;
-  } else if (touch === "slow") {
-    general += 5; red += 5; scope2 += 3;
-  }
-
-  // DPI is only a rough optional adjustment; it does not set Android DPI.
-  if (dpi > 0) {
-    if (dpi < 350) { general += 3; red += 2; }
-    else if (dpi > 500) { general -= 3; red -= 2; }
-  }
-
-  return {
-    "General": clamp(general),
-    "Red Dot": clamp(red),
-    "2x Scope": clamp(scope2),
-    "4x Scope": clamp(scope4),
-    "Sniper Scope": clamp(sniper),
-    "Free Look": clamp(free)
-  };
-}
-
-const styleLabels = {
-  headshot: "One Tap / Headshot",
-  rush: "Rush Gameplay",
-  balanced: "Balanced",
-  sniper: "Sniper",
-  all: "All-rounder"
-};
-
-function renderProfile(title, profile, phoneName) {
-  const card = document.createElement("div");
-  card.className = "result-card";
-  const heading = document.createElement("h3");
-  heading.textContent = "🎯 " + title;
-  const note = document.createElement("p");
-  note.className = "desc";
-  note.textContent = "फोन: " + phoneName + " • ये शुरुआती सुझाई गई वैल्यू हैं";
-  const grid = document.createElement("div");
-  grid.className = "value-grid";
-  Object.entries(profile).forEach(([key, value]) => {
-    const cell = document.createElement("div");
-    cell.className = "value";
-    const name = document.createElement("span");
-    name.textContent = key;
-    const val = document.createElement("strong");
-    val.textContent = value;
-    cell.append(name, val);
-    grid.append(cell);
-  });
-  const text = Object.entries(profile).map(([k,v]) => `${k}: ${v}`).join("\n");
-  const copy = makeCopyButton(text, "📋 सभी Settings Copy");
-  copy.className = "full";
-  card.append(heading, note, grid, copy);
-  return card;
-}
-
-function generateSensi() {
-  const device = $("phone").value;
-  const phoneName = device === "custom"
-    ? ($("customPhone").value.trim() || "Custom Phone")
-    : ({low:"Low-end phone",mid:"Mid-range phone",high:"High-end phone"}[device]);
-  const style = $("gameplay").value;
-  const control = $("controls").value;
-  const touch = $("screen").value;
-  const dpi = Number($("dpi").value) || 0;
-  const output = $("sensiOutput");
-  output.replaceChildren();
-
-  const heading = document.createElement("h3");
-  heading.textContent = "तुम्हारी Sensitivity Settings";
-  output.append(heading);
-
-  const styles = style === "all"
-    ? ["headshot", "rush", "balanced", "sniper"]
-    : [style];
-
-  styles.forEach(s => {
-    const profile = buildProfile(s, device === "custom" ? "mid" : device, control, touch, dpi);
-    output.append(renderProfile(styleLabels[s], profile, phoneName));
-  });
-
-  const regen = document.createElement("button");
-  regen.className = "full secondary";
-  regen.textContent = "🔄 फिर से बनाओ";
-  regen.addEventListener("click", generateSensi);
-  output.append(regen);
-}
-
-function generateNames() {
-  const base = $("baseName").value.trim().replace(/\s+/g, "") || "KARAN";
-  const output = $("nameOutput");
-  output.replaceChildren();
-  const formats = [
-    "亗{n}亗", "么{n}么", "乂{n}乂", "『{n}』", "꧁{n}꧂",
-    "★彡{n}彡★", "ツ{n}ツ", "メ{n}メ", "ᏙᏀ〆{n}", "亗〆{n}"
+function makeNames(){
+  const name=document.getElementById("nameInput").value.trim();
+  const out=document.getElementById("nameResults");
+  out.replaceChildren();
+  if(!name){alert("पहले अपना नाम लिखो!");return}
+  const variants=[
+    "亗 "+name+" 亗",
+    "꧁༒"+name+"༒꧂",
+    "『"+name+"』",
+    "乂"+name+"乂",
+    "★彡"+name+"彡★",
+    "ツ "+name+" ツ",
+    "么"+name+"么",
+    "〆"+name+"〆",
+    "♛ "+name+" ♛",
+    "꧁ঔৣ☬"+name+"☬ঔৣ꧂"
   ];
-  formats.forEach(format => output.append(makeItem(format.replaceAll("{n}", base))));
-  const all = formats.map(f => f.replaceAll("{n}", base)).join("\n");
-  const copyAll = makeCopyButton(all, "📋 Copy All Names");
-  copyAll.className = "full";
-  output.append(copyAll);
+  variants.forEach(x=>addItem(out,x));
 }
-
-const bios = [
-  "亗 PRO PLAYER 亗\nNO HATE • ONLY GAMEPLAY",
-  "꧁༒ GAMER ༒꧂\nPLAY • LEARN • WIN",
-  "⚡ HEADSHOT MODE ON ⚡\n亗 VG-SVEG PRO 亗",
-  "『 DREAM BIG 』\n『 PLAY SMART 』",
-  "亗 RESPECT ALL 亗\nFEAR NONE"
-];
-
-function generateBio() {
-  const output = $("bioOutput");
-  output.replaceChildren();
-  const bio = bios[Math.floor(Math.random() * bios.length)];
-  const pre = document.createElement("div");
-  pre.className = "result-card";
-  pre.style.whiteSpace = "pre-line";
-  pre.textContent = bio;
-  const copy = makeCopyButton(bio, "📋 Copy Bio");
-  copy.className = "full";
-  output.append(pre, copy);
+const sensiBase={
+  low:[185,175,165,150,60,130],
+  mid:[190,180,170,155,65,140],
+  high:[195,185,175,160,70,145]
+};
+let lastSensi="";
+function makeSensi(){
+  const phone=document.getElementById("phone").value;
+  const style=document.getElementById("style").value;
+  const touch=document.getElementById("touch").value;
+  const fingers=Number(document.getElementById("fingers").value);
+  const dpiInput=Number(document.getElementById("dpi").value);
+  let vals=[...sensiBase[phone]];
+  if(style==="rush"){vals[0]+=5;vals[1]+=5;vals[2]+=3}
+  if(style==="headshot"){vals[0]+=5;vals[1]+=3}
+  if(style==="balanced"){vals[0]-=5;vals[1]-=3}
+  if(style==="sniper"){vals[0]-=10;vals[1]-=8;vals[2]-=5;vals[3]-=10;vals[4]-=10}
+  if(touch==="slow"){vals=vals.map(v=>v+5)}
+  if(touch==="smooth"){vals=vals.map(v=>v-3)}
+  if(fingers===4){vals[0]-=2}
+  if(fingers===2){vals[0]+=2}
+  if(dpiInput>=200 && dpiInput<=800){
+    if(dpiInput>=500){vals[0]-=5;vals[1]-=3}
+    else if(dpiInput<350){vals[0]+=3;vals[1]+=2}
+  }
+  vals=vals.map(v=>Math.max(0,Math.min(200,v)));
+  const labels=["General","Red Dot","2x Scope","4x Scope","Sniper Scope","Free Look"];
+  const out=document.getElementById("sensiResults");
+  out.replaceChildren();
+  lastSensi=labels.map((label,i)=>label+": "+vals[i]).join("\n");
+  labels.forEach((label,i)=>addItem(out,label+": "+vals[i]));
 }
+function copySensi(){
+  if(!lastSensi){makeSensi()}
+  const btn=document.querySelector("#sensitivity .actions button:nth-child(2)");
+  copyText(lastSensi,btn);
+}
+[
+  "꧁༒☬༒꧂","亗","乂","么","〆","ツ","♛","★","彡","『』","♡","࿐","☯","⚡","✓","✿","ঔৣ","☠"
+].forEach(s=>addItem(document.getElementById("symbolResults"),s));
 
-const symbols = ["亗","乂","么","ツ","メ","〆","々","★","☆","彡","꧁","꧂","『","』","⚡","♛","♕","✓","✦","✧","☯","♠","♣","♥","♦","×","࿐","ঔৣ","༒","シ"];
-symbols.forEach(symbol => $("symbolOutput").append(makeItem(symbol)));
-
-generateSensi();
-generateNames();
-generateBio();
+[
+  "亗 PRO PLAYER 亗",
+  "⚡ BORN TO WIN ⚡",
+  "♛ KING OF GAME ♛",
+  "꧁༒ NO MERCY ༒꧂",
+  "🔥 HEADSHOT KING 🔥"
+].forEach(s=>addItem(document.getElementById("bioResults"),s));
 </script>
 </body>
-                                             </html>
-        
+    </html>
+          
