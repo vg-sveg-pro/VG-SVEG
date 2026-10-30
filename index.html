@@ -4,254 +4,420 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VG-SVEG PRO</title>
+<title>VG-SVEG PRO | Free Fire Gaming Tools</title>
 
 <style>
+:root{
+--pink:#ff00e6;
+--blue:#00eaff;
+--purple:#8b00ff;
+--green:#00ff88;
+--gold:#ffae00;
+--bg:#08051f;
+}
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
+html{scroll-behavior:smooth}
+
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
 color:white;
-background:#080622;
 overflow-x:hidden;
 }
 
-body:before{
-content:"";
-position:fixed;
-inset:0;
-z-index:-2;
-background:
-radial-gradient(circle at 20% 20%,#8500ff88,transparent 35%),
-radial-gradient(circle at 80% 40%,#00bfffff,transparent 35%),
-radial-gradient(circle at 50% 80%,#ff00cc66,transparent 40%),
-linear-gradient(135deg,#05051c,#12082e,#06142f);
-animation:bgGlow 8s infinite alternate;
-}
-
-@keyframes bgGlow{
-from{filter:hue-rotate(0deg)}
-to{filter:hue-rotate(35deg)}
-}
-
-.light{
-position:fixed;
-width:4px;
-height:4px;
-border-radius:50%;
-background:#00eaff;
-box-shadow:0 0 15px #00eaff,0 0 30px #ff00e6;
-animation:float 7s linear infinite;
-z-index:-1;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh);opacity:0}
-20%,80%{opacity:1}
-100%{transform:translateY(-10vh);opacity:0}
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:12px;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px;
-border:2px solid #00eaff;
-border-radius:18px;
-background:#080622dd;
-box-shadow:0 0 15px #00eaff;
-}
-
-.logo{
-font-size:23px;
-font-weight:900;
-color:#ff48ef;
-text-shadow:0 0 15px #ff00ff;
-}
-
-.logo span{
-color:#00eaff;
-}
-
-.join{
-padding:10px 16px;
-border-radius:30px;
-border:2px solid #ff00ff;
-color:white;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 0 15px #ff00ff;
-}
-
-.hero{
-margin-top:16px;
-padding:25px 16px;
-border:2px solid #00eaff;
-border-radius:20px;
-background:linear-gradient(120deg,#190040dd,#001b48dd);
-box-shadow:0 0 20px #00eaff;
-}
-
-.hero h1{
-font-size:35px;
-color:#ff00e6;
-text-shadow:0 0 15px #ff00e6;
-margin:12px 0;
-}
-
-.hero p{
-line-height:1.5;
-}
-
-.badges{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:18px;
-}
-
-.badge{
-padding:10px;
-border:1px solid #00eaff;
-border-radius:12px;
-background:#09072a;
-font-size:12px;
-box-shadow:0 0 10px #00eaff;
-}
-
-h2{
-text-align:center;
-margin:25px 0 15px;
-font-size:27px;
-color:#fff;
-text-shadow:0 0 15px #ff00e6;
-}
-
-.tools{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-
-.card{
-padding:15px;
-border-radius:20px;
-background:#090725e8;
-border:2px solid var(--glow);
-box-shadow:0 0 12px var(--glow);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 25px var(--glow);
-}
-
-.card h3{
-font-size:15px;
-margin-bottom:10px;
-}
-
-.card p{
-font-size:12px;
-line-height:1.5;
-margin-bottom:12px;
+button,input,select,textarea{
+font:inherit;
 }
 
 button{
 cursor:pointer;
 }
 
-.open{
-padding:11px 17px;
-border:none;
-border-radius:30px;
-background:linear-gradient(90deg,var(--glow),#7000ff);
-color:white;
-font-weight:bold;
-box-shadow:0 0 12px var(--glow);
+#particles{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+overflow:hidden;
+background:
+radial-gradient(ellipse at 10% 20%,#6200ff55,transparent 45%),
+radial-gradient(ellipse at 90% 30%,#00eaff33,transparent 45%),
+radial-gradient(ellipse at 50% 90%,#ff00cc33,transparent 45%),
+linear-gradient(135deg,#08051f,#13062c,#061532);
 }
 
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+border-radius:50%;
+background:var(--blue);
+box-shadow:0 0 12px var(--blue),0 0 25px var(--pink);
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(110vh);opacity:0}
+15%,85%{opacity:1}
+100%{transform:translateY(-10vh);opacity:0}
+}
+
+.container{
+max-width:900px;
+width:100%;
+margin:auto;
+padding:12px;
+}
+
+/* HEADER */
+header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:13px 15px;
+border:2px solid var(--blue);
+border-radius:24px;
+background:#08051fee;
+box-shadow:0 0 10px var(--blue),inset 0 0 15px #5400ff55;
+}
+
+.logo{
+font-size:clamp(18px,4vw,30px);
+font-weight:900;
+color:var(--pink);
+text-shadow:0 0 15px var(--pink);
+white-space:nowrap;
+}
+
+.logo span{color:var(--blue)}
+
+.join{
+padding:12px 17px;
+border:2px solid var(--pink);
+border-radius:30px;
+color:white;
+background:#100326;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 15px var(--pink);
+white-space:nowrap;
+}
+
+/* HERO */
+.hero{
+position:relative;
+margin-top:15px;
+padding:25px 18px;
+border:2px solid var(--blue);
+border-radius:28px;
+background:
+radial-gradient(circle at 90% 15%,#6900ff66,transparent 35%),
+linear-gradient(135deg,#10042c,#071e4a);
+box-shadow:0 0 20px #00eaff77;
+overflow:hidden;
+}
+
+.hero:after{
+content:"✦  ⚡  ♛  ✦";
+position:absolute;
+right:12px;
+bottom:12px;
+font-size:32px;
+color:#00eaff66;
+text-shadow:0 0 20px var(--blue);
+}
+
+.hero h3{
+font-size:clamp(19px,4vw,27px);
+margin-bottom:12px;
+}
+
+.hero h1{
+font-size:clamp(30px,7vw,52px);
+color:var(--pink);
+text-shadow:0 0 20px var(--pink);
+margin-bottom:14px;
+}
+
+.hero .sub{
+font-size:clamp(19px,4vw,26px);
+font-weight:bold;
+margin-bottom:8px;
+}
+
+.hero p{
+font-size:15px;
+line-height:1.65;
+max-width:650px;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
+
+.badge{
+padding:12px 15px;
+border:1px solid var(--blue);
+border-radius:15px;
+background:#08051fe8;
+box-shadow:0 0 12px #00eaff77;
+font-size:13px;
+}
+
+/* SECTION */
+.section-title{
+text-align:center;
+margin:28px 0 18px;
+font-size:clamp(25px,6vw,38px);
+font-weight:900;
+text-shadow:0 0 15px var(--pink);
+}
+
+.section-sub{
+text-align:center;
+font-size:14px;
+margin:-8px 0 20px;
+color:#d5dcff;
+}
+
+/* TOOLS */
+.tools{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:13px;
+}
+
+.card{
+min-width:0;
+position:relative;
+padding:17px 14px;
+border-radius:24px;
+border:2px solid var(--glow);
+background:linear-gradient(145deg,#0c0828f5,#08051ff5);
+box-shadow:0 0 13px var(--glow);
+overflow:hidden;
+transition:transform .25s,box-shadow .25s;
+}
+
+.card:before{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at 100% 0%,var(--glow),transparent 55%);
+opacity:.13;
+pointer-events:none;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 0 25px var(--glow);
+}
+
+.card h3{
+position:relative;
+font-size:clamp(14px,3.5vw,19px);
+line-height:1.35;
+margin-bottom:13px;
+}
+
+.card p{
+position:relative;
+font-size:13px;
+line-height:1.6;
+min-height:60px;
+margin-bottom:12px;
+color:#e6e7ff;
+}
+
+.open{
+position:relative;
+width:100%;
+padding:12px 8px;
+border:0;
+border-radius:30px;
+background:linear-gradient(100deg,var(--glow),#6600ff);
+color:white;
+font-weight:bold;
+font-size:13px;
+box-shadow:0 0 14px var(--glow);
+}
+
+.open:active,.action:active{
+transform:scale(.96);
+}
+
+/* PANELS */
 .panel{
 margin-top:18px;
-padding:16px;
-border:2px solid #00eaff;
-border-radius:18px;
-background:#080622ee;
-box-shadow:0 0 18px #00eaff;
+padding:19px;
+border:2px solid var(--blue);
+border-radius:23px;
+background:linear-gradient(145deg,#10042df5,#071b3bf5);
+box-shadow:0 0 20px #00eaff66;
+scroll-margin-top:15px;
+}
+
+.panel[hidden]{display:none}
+
+.panel h2{
+font-size:22px;
+margin-bottom:15px;
+color:var(--blue);
+text-shadow:0 0 12px var(--blue);
 }
 
 .panel h3{
-margin-bottom:12px;
+font-size:17px;
+margin:15px 0 8px;
+}
+
+.panel label{
+display:block;
+font-size:13px;
+margin-top:10px;
+color:#dceaff;
 }
 
 input,select,textarea{
 width:100%;
-padding:12px;
-margin:8px 0;
-border:1px solid #00eaff;
-border-radius:10px;
-background:#100b36;
+padding:13px;
+margin-top:8px;
+border:1px solid var(--blue);
+border-radius:12px;
+background:#08051f;
 color:white;
+outline:none;
 }
 
 textarea{
-min-height:100px;
+min-height:110px;
+resize:vertical;
+}
+
+input:focus,select:focus,textarea:focus{
+box-shadow:0 0 12px var(--blue);
 }
 
 .action{
-padding:12px 18px;
+padding:12px 16px;
+margin:8px 5px 0 0;
 border:0;
-border-radius:12px;
-background:linear-gradient(90deg,#ff00cc,#7000ff);
+border-radius:13px;
+background:linear-gradient(100deg,var(--pink),#6500ff);
 color:white;
 font-weight:bold;
-margin:5px 0;
+box-shadow:0 0 12px #ff00e655;
 }
 
 .result{
+padding:14px;
 margin-top:12px;
-padding:12px;
-border:1px dashed #ff00e6;
+border:1px dashed var(--pink);
 border-radius:12px;
+background:#05031b;
+white-space:pre-wrap;
 overflow-wrap:anywhere;
+line-height:1.7;
 }
 
+.result:empty{display:none}
+
+.list-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:8px;
+margin-top:10px;
+}
+
+.item-btn{
+padding:12px 5px;
+border:1px solid var(--blue);
+border-radius:12px;
+background:#08051f;
+color:white;
+font-size:14px;
+box-shadow:0 0 8px #00eaff44;
+}
+
+/* SOCIAL */
 .social{
 margin-top:20px;
 padding:20px;
-border:2px solid #00eaff;
-border-radius:18px;
-background:#090725;
-box-shadow:0 0 15px #00eaff;
+border:2px solid var(--blue);
+border-radius:22px;
+background:linear-gradient(135deg,#08051f,#071a42);
+box-shadow:0 0 18px #00eaff66;
 }
 
-.social a{
-color:#00eaff;
-margin:10px;
+.social h3{
+margin-bottom:15px;
+font-size:20px;
+}
+
+.social-links{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.social-links a{
+flex:1;
+min-width:130px;
+text-align:center;
+padding:14px;
+border-radius:15px;
+border:1px solid var(--pink);
+background:#100426;
+color:white;
 text-decoration:none;
 font-weight:bold;
+box-shadow:0 0 12px #ff00e655;
+}
+
+/* THEME */
+.theme-panel{
+margin-top:20px;
+padding:17px;
+border:2px solid var(--blue);
+border-radius:20px;
+background:#08051feF;
+box-shadow:0 0 16px #00eaff66;
+}
+
+.theme-panel h3{
+text-align:center;
+margin-bottom:15px;
 }
 
 .themes{
 display:flex;
 justify-content:space-around;
 flex-wrap:wrap;
-gap:10px;
-margin-top:15px;
+gap:15px;
 }
 
-.theme{
+.theme-choice{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+background:none;
+border:0;
+color:white;
+font-size:12px;
+}
+
+.theme-dot{
 width:35px;
 height:35px;
 border-radius:50%;
@@ -259,268 +425,381 @@ border:3px solid white;
 box-shadow:0 0 15px currentColor;
 }
 
+/* BOTTOM NAV */
 .bottom{
 position:fixed;
-bottom:10px;
+bottom:12px;
 left:50%;
 transform:translateX(-50%);
-padding:10px 30px;
-background:#080622ee;
-border:2px solid #ff00e6;
-border-radius:30px;
-box-shadow:0 0 20px #ff00e6;
+z-index:20;
 }
 
 .bottom button{
-border:0;
-background:transparent;
+padding:13px 34px;
+border:2px solid var(--pink);
+border-radius:35px;
+background:#08051ff5;
 color:white;
-font-size:18px;
+font-size:17px;
 font-weight:bold;
+box-shadow:0 0 20px var(--pink);
 }
 
 footer{
 text-align:center;
-padding:30px 10px 90px;
-color:#00eaff;
+padding:25px 10px 100px;
+font-size:13px;
+color:#dceaff;
 }
 
-@media(max-width:400px){
-.hero h1{font-size:27px}
-.card{padding:11px}
-.card h3{font-size:13px}
-.open{font-size:11px;padding:10px}
+/* MOBILE */
+@media(max-width:390px){
+.container{padding:9px}
+header{padding:11px}
+.join{padding:10px;font-size:12px}
+.hero{padding:20px 13px}
+.badge{padding:10px;font-size:11px}
+.card{padding:13px 10px}
+.card p{font-size:12px}
+.open{font-size:12px}
+.panel{padding:14px}
+}
+
+@media(min-width:650px){
+.tools{gap:18px}
+.card{padding:22px}
+.card p{font-size:15px}
+.open{width:auto;min-width:145px}
 }
 </style>
 </head>
 
 <body>
 
-<div id="lights"></div>
+<div id="particles"></div>
 
 <div class="container">
 
+<!-- HEADER -->
 <header>
 <div class="logo">♛ VG-SVEG <span>PRO</span></div>
-<a class="join" href="https://t.me/vgsvegpro" target="_blank">♛ Join Now</a>
+<a class="join" href="https://t.me/vgsvegpro" target="_blank" rel="noopener">♛ Join Now</a>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <h3>Welcome To</h3>
 <h1>VG-SVEG PRO</h1>
-<h3>Free Fire Gaming Tools</h3>
+<div class="sub">Free Fire Gaming Tools</div>
+
 <p>Apne Game Ko Banaye Aur Bhi Khaas!</p>
 <p>Yahan Aapko Milenge Sabhi Free Fire Tools Ek Hi Jagah Par.</p>
 
 <div class="badges">
-<div class="badge">🛡 100% Free</div>
+<div class="badge">🛡️ 100% Free</div>
 <div class="badge">⚡ Fast & Easy</div>
 <div class="badge">📱 Mobile Friendly</div>
 <div class="badge">🏆 Play Improve Win</div>
 </div>
 </section>
 
-<h2>♛ OUR TOOLS ♛</h2>
+<!-- TOOL CARDS -->
+<h2 class="section-title">♛ OUR TOOLS ♛</h2>
+<p class="section-sub">Free Fire gaming tools all in one place!</p>
 
 <div class="tools">
 
-<div class="card" style="--glow:#ff00ff">
+<div class="card" style="--glow:#ff00e6">
 <h3>✧ Stylish Nickname Generator</h3>
-<p>Apne liye unique aur stylish nickname banao.</p>
+<p>Create unique stylish nicknames for your game.</p>
 <button class="open" onclick="openTool('nick')">Open Tool ➜</button>
 </div>
 
 <div class="card" style="--glow:#00eaff">
 <h3>🎯 Sensitivity Generator</h3>
-<p>Apni device ke hisaab se settings banao.</p>
+<p>Get recommended sensitivity starting settings.</p>
 <button class="open" onclick="openTool('sens')">Open Tool ➜</button>
 </div>
 
-<div class="card" style="--glow:#ff9900">
+<div class="card" style="--glow:#ffae00">
 <h3>🔥 Free Fire Name & Logo Maker</h3>
-<p>Apna naam stylish design karo.</p>
+<p>Create stylish gaming names and logo text.</p>
 <button class="open" onclick="openTool('logo')">Open Tool ➜</button>
 </div>
 
 <div class="card" style="--glow:#00ff88">
 <h3>▤ Gaming Bio Generator</h3>
-<p>Apne profile ke liye best bio banao.</p>
+<p>Create a unique bio for your gaming profile.</p>
 <button class="open" onclick="openTool('bio')">Open Tool ➜</button>
 </div>
 
 <div class="card" style="--glow:#bb00ff">
 <h3>★ Symbols Library</h3>
-<p>50+ stylish symbols aur characters.</p>
+<p>Explore stylish symbols and copy them instantly.</p>
 <button class="open" onclick="openTool('symbols')">Open Tool ➜</button>
 </div>
 
 <div class="card" style="--glow:#ff00cc">
 <h3>🎨 Bio Color Codes</h3>
-<p>Apne bio ko stylish color codes ke saath banao.</p>
+<p>Choose and copy popular bio color codes.</p>
 <button class="open" onclick="openTool('colors')">Open Tool ➜</button>
 </div>
 
 <div class="card" style="--glow:#00ccff">
 <h3>🎮 Theme Selector</h3>
-<p>Apne hisaab se theme choose karein.</p>
+<p>Change the website's glowing accent colors.</p>
 <button class="open" onclick="openTool('theme')">Open Tool ➜</button>
 </div>
 
 <div class="card" style="--glow:#ff0055">
 <h3>▶ YouTube & Telegram</h3>
-<p>Hamare channel ko join karein.</p>
+<p>Follow VG-SVEG PRO on social media.</p>
 <button class="open" onclick="openTool('social')">Join Now ➜</button>
 </div>
 
 <div class="card" style="--glow:#00ffff">
 <h3>APP HAI BHAIYON CODE COPY</h3>
-<p>Apna code copy karein.</p>
+<p>Paste text and copy it exactly as entered.</p>
 <button class="open" onclick="openTool('code')">Open Tool ➜</button>
 </div>
 
 </div>
 
-<!-- Nickname Tool -->
+<!-- NICKNAME -->
 <section class="panel" id="nick" hidden>
-<h3>✧ Stylish Nickname Generator</h3>
-<input id="nickName" placeholder="Enter Your Name">
-<select id="nickStyle">
-<option>Royal</option>
-<option>Attitude</option>
-<option>Pro Player</option>
-<option>Killer</option>
+<h2>✧ Stylish Nickname Generator</h2>
+
+<label>Your Name</label>
+<input id="nickName" placeholder="Enter your name">
+
+<label>Name Category</label>
+<select id="nickCategory">
+<option>Brazil Player Names</option>
+<option>Pro Player Names</option>
+<option>Free Fire Stylish Names</option>
+<option>Attitude Names</option>
+<option>Killer Names</option>
+<option>Royal Names</option>
+<option>Gaming Names</option>
+<option>Custom Names</option>
+<option>Random Names</option>
 </select>
+
+<label>Nickname Style</label>
+<select id="nickStyle">
+<option>Neon</option>
+<option>Royal</option>
+<option>Pro</option>
+<option>Attitude</option>
+<option>Symbols</option>
+<option>Minimal</option>
+</select>
+
 <button class="action" onclick="generateNick()">Generate Nickname</button>
+<button class="action" onclick="generateNick()">Random Generate</button>
+<button class="action" onclick="generate20()">Generate 20 Names</button>
+
+<label>Search Nicknames</label>
+<input id="nickSearch" placeholder="Search generated names" oninput="searchNick()">
+
 <div class="result" id="nickResult"></div>
-<button class="action" onclick="copyResult('nickResult')">Copy Name</button>
+<button class="action" onclick="copyText('nickResult')">Copy Names</button>
 </section>
 
-<!-- Sensitivity Tool -->
+<!-- SENSITIVITY -->
 <section class="panel" id="sens" hidden>
-<h3>🎯 Sensitivity Generator</h3>
-<select id="brand">
-<option>Samsung</option><option>Vivo</option><option>OPPO</option>
-<option>Realme</option><option>Redmi</option><option>Xiaomi</option>
-<option>POCO</option><option>iQOO</option><option>OnePlus</option>
-<option>Motorola</option><option>Infinix</option><option>Tecno</option>
-<option>Nothing</option><option>iPhone</option>
+<h2>🎯 Sensitivity Generator</h2>
+
+<label>Select Phone Brand</label>
+<select id="brand" onchange="updateModels()">
+<option>Samsung</option>
+<option>Vivo</option>
+<option>OPPO</option>
+<option>Realme</option>
+<option>Redmi</option>
+<option>Xiaomi</option>
+<option>POCO</option>
+<option>iQOO</option>
+<option>OnePlus</option>
+<option>Motorola</option>
+<option>Infinix</option>
+<option>Tecno</option>
+<option>Nothing</option>
+<option>iPhone</option>
 </select>
+
+<label>Select Phone Model</label>
+<select id="model"></select>
+
+<label>Gaming Profile</label>
 <select id="profile">
+<option>Low-End Device</option>
+<option>Mid-Range Device</option>
+<option>High-End Device</option>
 <option>One Tap Headshot</option>
 <option>Drag Headshot</option>
 <option>Sniper Settings</option>
 <option>Rush Gameplay</option>
+<option>Custom Sensitivity</option>
 </select>
-<button class="action" onclick="generateSens()">Generate Settings</button>
+
+<label>Controls</label>
+<select id="fingers">
+<option>2 Finger</option>
+<option>3 Finger</option>
+<option>4 Finger</option>
+<option>5 Finger</option>
+</select>
+
+<label>Fire Button Size</label>
+<input id="fireSize" type="range" min="30" max="70" value="50">
+
+<button class="action" onclick="generateSens()">Generate Sensitivity</button>
+<button class="action" onclick="resetSens()">Reset</button>
+
 <div class="result" id="sensResult"></div>
-<button class="action" onclick="copyResult('sensResult')">Copy Settings</button>
+<button class="action" onclick="copyText('sensResult')">Copy All Settings</button>
+<p style="font-size:12px;margin-top:10px">These are suggested starting settings, not guaranteed results. Test and adjust them for your device and play style.</p>
 </section>
 
-<!-- Logo Tool -->
+<!-- NAME LOGO -->
 <section class="panel" id="logo" hidden>
-<h3>✎ Name & Logo Maker</h3>
-<input id="logoName" placeholder="Enter your name">
-<button class="action" onclick="generateLogo()">Generate Logo</button>
+<h2>🔥 Name & Logo Maker</h2>
+<input id="logoName" placeholder="Enter your gaming name">
+
+<select id="logoStyle">
+<option>Royal</option>
+<option>Fire</option>
+<option>Neon</option>
+<option>Minimal</option>
+<option>Symbols</option>
+</select>
+
+<button class="action" onclick="generateLogo()">Generate Logo Text</button>
 <div class="result" id="logoResult"></div>
-<button class="action" onclick="copyResult('logoResult')">Copy</button>
+<button class="action" onclick="copyText('logoResult')">Copy Logo Text</button>
 </section>
 
-<!-- Bio Tool -->
+<!-- BIO -->
 <section class="panel" id="bio" hidden>
-<h3>▤ Gaming Bio Generator</h3>
+<h2>▤ Gaming Bio Generator</h2>
+
+<label>Bio Category</label>
 <select id="bioType">
-<option>Attitude</option><option>Pro Player</option>
-<option>Killer</option><option>Royal</option>
+<option>Attitude</option>
+<option>Pro Player</option>
+<option>Killer</option>
+<option>Royal</option>
 <option>Stylish</option>
+<option>Custom Bio</option>
 </select>
-<input id="bioName" placeholder="Your name">
+
+<input id="bioName" placeholder="Enter your gaming name">
+
 <button class="action" onclick="generateBio()">Generate Bio</button>
 <div class="result" id="bioResult"></div>
-<button class="action" onclick="copyResult('bioResult')">Copy Bio</button>
+<button class="action" onclick="copyText('bioResult')">Copy Bio</button>
 </section>
 
-<!-- Symbols -->
+<!-- SYMBOLS -->
 <section class="panel" id="symbols" hidden>
-<h3>★ Symbols Library</h3>
-<div id="symbolList"></div>
+<h2>★ Symbols Library</h2>
+<p>Tap a symbol to copy it.</p>
+<div class="list-grid" id="symbolList"></div>
 </section>
 
-<!-- Colors -->
+<!-- COLOR CODES -->
 <section class="panel" id="colors" hidden>
-<h3>🎨 Bio Color Codes</h3>
-<div id="colorList"></div>
+<h2>🎨 Bio Color Codes</h2>
+<div class="list-grid" id="colorList"></div>
 </section>
 
-<!-- Theme -->
+<!-- THEME SELECTOR -->
 <section class="panel" id="theme" hidden>
-<h3>Choose Your Theme</h3>
+<h2>🎮 Theme Selector</h2>
 <div class="themes">
-<button class="theme" style="background:#a000ff" onclick="setTheme('#a000ff','#ff00ff')"></button>
-<button class="theme" style="background:#00ccff" onclick="setTheme('#00ccff','#0077ff')"></button>
-<button class="theme" style="background:#ff0033" onclick="setTheme('#ff0033','#ff6600')"></button>
-<button class="theme" style="background:#00ff66" onclick="setTheme('#00ff66','#00cc88')"></button>
-<button class="theme" style="background:#ff9900" onclick="setTheme('#ff9900','#ff3300')"></button>
-<button class="theme" style="background:#ff00cc" onclick="setTheme('#ff00cc','#9900ff')"></button>
+<button class="theme-choice" onclick="setTheme('#ff00e6','#8b00ff')"><span class="theme-dot" style="background:#ff00e6"></span>Pink Purple</button>
+<button class="theme-choice" onclick="setTheme('#00eaff','#0077ff')"><span class="theme-dot" style="background:#00eaff"></span>Ice Blue</button>
+<button class="theme-choice" onclick="setTheme('#ffae00','#ff3300')"><span class="theme-dot" style="background:#ffae00"></span>Gold Fire</button>
+<button class="theme-choice" onclick="setTheme('#00ff88','#00cc66')"><span class="theme-dot" style="background:#00ff88"></span>Emerald</button>
 </div>
 </section>
 
-<!-- Social -->
+<!-- SOCIAL -->
 <section class="panel" id="social" hidden>
-<h3>Follow Us On</h3>
-<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">▶ YouTube</a><br><br>
-<a href="https://t.me/vgsvegpro" target="_blank">✈ Telegram</a>
+<h2>▶ YouTube & Telegram</h2>
+<div class="social-links">
+<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank" rel="noopener">▶ YouTube</a>
+<a href="https://t.me/vgsvegpro" target="_blank" rel="noopener">✈ Telegram</a>
+</div>
 </section>
 
-<!-- Code Copy -->
+<!-- COPY TOOL -->
 <section class="panel" id="code" hidden>
-<h3>APP HAI BHAIYON CODE COPY</h3>
-<input id="codeInput" placeholder="Code title">
-<textarea id="codeText" placeholder="Enter your code"></textarea>
+<h2>APP HAI BHAIYON CODE COPY</h2>
+
+<label>Code Title (Optional)</label>
+<input id="codeInput" placeholder="Enter code title">
+
+<label>Text or Code</label>
+<textarea id="codeText" placeholder="Paste your text or code here"></textarea>
+
 <button class="action" onclick="copyCode()">Copy Code</button>
 <button class="action" onclick="clearCode()">Clear</button>
+
 <div class="result" id="codeResult"></div>
 </section>
 
+<!-- SOCIAL SECTION -->
 <div class="social">
 <h3>Follow Us On</h3>
-<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">▶ YouTube</a>
-<a href="https://t.me/vgsvegpro" target="_blank">✈ Telegram</a>
+<div class="social-links">
+<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank" rel="noopener">▶ YouTube</a>
+<a href="https://t.me/vgsvegpro" target="_blank" rel="noopener">✈ Telegram</a>
+</div>
 </div>
 
-<h3 style="text-align:center;margin-top:20px">Choose Your Theme</h3>
+<!-- THEME SECTION -->
+<div class="theme-panel">
+<h3>🎨 Choose Your Theme</h3>
 <div class="themes">
-<button class="theme" style="background:#a000ff" onclick="setTheme('#a000ff','#ff00ff')"></button>
-<button class="theme" style="background:#00ccff" onclick="setTheme('#00ccff','#0077ff')"></button>
-<button class="theme" style="background:#ff0033" onclick="setTheme('#ff0033','#ff6600')"></button>
-<button class="theme" style="background:#00ff66" onclick="setTheme('#00ff66','#00cc88')"></button>
-<button class="theme" style="background:#ff9900" onclick="setTheme('#ff9900','#ff3300')"></button>
-<button class="theme" style="background:#ff00cc" onclick="setTheme('#ff00cc','#9900ff')"></button>
+<button class="theme-choice" onclick="setTheme('#ff00e6','#8b00ff')"><span class="theme-dot" style="background:#ff00e6"></span>Pink Purple</button>
+<button class="theme-choice" onclick="setTheme('#00eaff','#0077ff')"><span class="theme-dot" style="background:#00eaff"></span>Ice Blue</button>
+<button class="theme-choice" onclick="setTheme('#ffae00','#ff3300')"><span class="theme-dot" style="background:#ffae00"></span>Gold Fire</button>
+<button class="theme-choice" onclick="setTheme('#00ff88','#00cc66')"><span class="theme-dot" style="background:#00ff88"></span>Emerald</button>
+</div>
 </div>
 
-<footer>♛ VG-SVEG PRO | Free Fire Gaming Tools</footer>
+<footer>
+♛ VG-SVEG PRO | Free Fire Gaming Tools
+</footer>
+
 </div>
 
+<!-- ONLY HOME BUTTON -->
 <div class="bottom">
 <button onclick="home()">⌂ HOME</button>
 </div>
 
 <script>
-// Animated particles
-for(let i=0;i<40;i++){
-let p=document.createElement("div");
-p.className="light";
+// Animated floating particles
+const particleBox=document.getElementById("particles");
+
+for(let i=0;i<55;i++){
+const p=document.createElement("div");
+p.className="particle";
 p.style.left=Math.random()*100+"%";
-p.style.animationDelay=Math.random()*7+"s";
-p.style.animationDuration=5+Math.random()*8+"s";
-document.getElementById("lights").appendChild(p);
+p.style.animationDelay=Math.random()*8+"s";
+p.style.animationDuration=(5+Math.random()*9)+"s";
+particleBox.appendChild(p);
 }
 
-// Tool panel navigation
+// Tool panels
 function openTool(id){
 document.querySelectorAll(".panel").forEach(p=>p.hidden=true);
-let panel=document.getElementById(id);
+const panel=document.getElementById(id);
 panel.hidden=false;
-panel.scrollIntoView({behavior:"smooth"});
+panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function home(){
@@ -528,95 +807,289 @@ document.querySelectorAll(".panel").forEach(p=>p.hidden=true);
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
-// Nickname Generator
-function generateNick(){
-let name=document.getElementById("nickName").value||"PLAYER";
-let style=document.getElementById("nickStyle").value;
-let symbols=["亗","乂","么","꧁","彡","♛","ツ","⚡"];
-let s=symbols[Math.floor(Math.random()*symbols.length)];
-document.getElementById("nickResult").textContent=
-s+name.toUpperCase()+s;
+// Copy helper
+async function copyText(id){
+const text=document.getElementById(id).textContent.trim();
+if(!text){alert("Generate something first!");return;}
+try{
+await navigator.clipboard.writeText(text);
+alert("Copied successfully!");
+}catch(e){
+alert("Copy unavailable. Please select and copy manually.");
+}
 }
 
-// Sensitivity Generator
+// Nickname generator data
+const brazilNames=[
+"Neymar Jr","Ronaldinho","Ronaldo Nazário","Pelé","Vinícius Jr",
+"Rodrygo","Kaká","Marcelo","Roberto Carlos","Thiago Silva",
+"Richarlison","Alisson Becker","Casemiro","Raphinha","Gabriel Jesus",
+"Endrick","Cafu","Rivaldo","Romário","Adriano"
+];
+
+const proNames=[
+"Legend","Clutch","Sniper","Shadow","Phantom","Ace","Venom",
+"Blaze","Reaper","Hunter","Storm","Fury","Ghost","Savage",
+"Rogue","Viper","Titan","Nova","Drift","Wolf"
+];
+
+const nicknameStyles={
+Neon:["亗","乂","么","彡","ツ"],
+Royal:["♛","♕","꧁","꧂","♔"],
+Pro:["乂","么","〆","⚡","★"],
+Attitude:["☠","♠","乂","亗","⚡"],
+Symbols:["꧁༒","༒꧂","彡","〆","★"],
+Minimal:["•","丨","×","_","."]
+};
+
+let generatedNames=[];
+
+function randomItem(arr){
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function makeNickname(name,style){
+let symbols=nicknameStyles[style]||nicknameStyles.Neon;
+let a=randomItem(symbols);
+let b=randomItem(symbols);
+return a+name+b;
+}
+
+function generateNick(){
+let name=document.getElementById("nickName").value.trim();
+let category=document.getElementById("nickCategory").value;
+let style=document.getElementById("nickStyle").value;
+
+if(category==="Brazil Player Names"&&!name){
+name=randomItem(brazilNames);
+}
+else if(category==="Pro Player Names"&&!name){
+name=randomItem(proNames);
+}
+else if(!name){
+name="PLAYER";
+}
+
+if(category==="Brazil Player Names" && name==="PLAYER"){
+name=randomItem(brazilNames);
+}
+
+let result=makeNickname(name,style);
+generatedNames.unshift(result);
+document.getElementById("nickResult").textContent=result;
+}
+
+function generate20(){
+let name=document.getElementById("nickName").value.trim()||"PLAYER";
+let style=document.getElementById("nickStyle").value;
+let category=document.getElementById("nickCategory").value;
+let list=[];
+
+for(let i=0;i<20;i++){
+let base=name;
+if(category==="Brazil Player Names")base=randomItem(brazilNames);
+if(category==="Pro Player Names")base=randomItem(proNames);
+list.push(makeNickname(base,style));
+}
+
+generatedNames=list;
+document.getElementById("nickResult").textContent=list.join("\n");
+}
+
+function searchNick(){
+let q=document.getElementById("nickSearch").value.toLowerCase();
+let found=generatedNames.filter(n=>n.toLowerCase().includes(q));
+document.getElementById("nickResult").textContent=found.join("\n");
+}
+
+// Sensitivity model database
+const models={
+Samsung:["Galaxy A15","Galaxy A25","Galaxy A35","Galaxy A55","Galaxy S23","Galaxy S24","Galaxy S25","Other / Custom Phone"],
+Vivo:["Y18","Y28","T3","T3x","V30","V40","X100","Other / Custom Phone"],
+OPPO:["A3x","A58","A78","A79","Reno 11","Reno 12","Find X7","Other / Custom Phone"],
+Realme:["C55","C65","Narzo 60","Narzo 70","GT Neo","GT 6","Other / Custom Phone"],
+Redmi:["Redmi 12","Redmi 13C","Redmi Note 12","Redmi Note 13","Redmi Note 14","Other / Custom Phone"],
+Xiaomi:["Xiaomi 13","Xiaomi 14","Xiaomi 14T","Xiaomi 15","Other / Custom Phone"],
+POCO:["POCO M6","POCO X6","POCO X6 Pro","POCO X7","POCO F6","Other / Custom Phone"],
+iQOO:["iQOO Z9","iQOO Neo 9","iQOO Neo 10","iQOO 12","Other / Custom Phone"],
+OnePlus:["Nord CE 3","Nord CE 4","Nord 4","OnePlus 12","OnePlus 13","Other / Custom Phone"],
+Motorola:["Moto G54","Moto G84","Edge 50","Edge 50 Pro","Other / Custom Phone"],
+Infinix:["Hot 40","Hot 50","Note 40","GT 20 Pro","Other / Custom Phone"],
+Tecno:["Spark 20","Spark 30","Pova 6","Camon 30","Other / Custom Phone"],
+Nothing:["Nothing Phone 2a","Nothing Phone 2","Nothing Phone 3","Other / Custom Phone"],
+iPhone:["iPhone 11","iPhone 12","iPhone 13","iPhone 14","iPhone 15","iPhone 16","Other / Custom Phone"]
+};
+
+function updateModels(){
+let brand=document.getElementById("brand").value;
+let model=document.getElementById("model");
+model.innerHTML="";
+(models[brand]||["Other / Custom Phone"]).forEach(m=>{
+let opt=document.createElement("option");
+opt.textContent=m;
+model.appendChild(opt);
+});
+}
+
+updateModels();
+
 function generateSens(){
 let profile=document.getElementById("profile").value;
-let base=profile==="Sniper Settings"?65:95;
-let result=
-"General: "+base+
-"\nRed Dot: "+(base-5)+
-"\n2X Scope: "+(base-10)+
-"\n4X Scope: "+(base-15)+
-"\nSniper Scope: "+(base-30)+
+let brand=document.getElementById("brand").value;
+let model=document.getElementById("model").value;
+let fingers=document.getElementById("fingers").value;
+let fire=Number(document.getElementById("fireSize").value);
+
+let base=90;
+
+if(profile==="Low-End Device")base=80;
+if(profile==="Mid-Range Device")base=90;
+if(profile==="High-End Device")base=100;
+if(profile==="One Tap Headshot")base=100;
+if(profile==="Drag Headshot")base=95;
+if(profile==="Sniper Settings")base=70;
+if(profile==="Rush Gameplay")base=100;
+if(profile==="Custom Sensitivity")base=90;
+
+let settings=
+"Phone Brand: "+brand+
+"\nPhone Model: "+model+
+"\nProfile: "+profile+
+"\nControls: "+fingers+
+"\n\nGeneral: "+base+
+"\nRed Dot: "+Math.max(0,base-5)+
+"\n2X Scope: "+Math.max(0,base-10)+
+"\n4X Scope: "+Math.max(0,base-20)+
+"\nSniper Scope: "+Math.max(0,base-35)+
 "\nFree Look: 75"+
-"\nFire Button: 50";
-document.getElementById("sensResult").textContent=result;
+"\nAim Precision: Default"+
+"\nFire Button Size: "+fire+
+"\nDPI: Test your device's default DPI first"+
+"\nHUD: Customize for your finger layout";
+
+document.getElementById("sensResult").textContent=settings;
 }
 
-// Logo Maker
+function resetSens(){
+document.getElementById("brand").selectedIndex=0;
+updateModels();
+document.getElementById("profile").selectedIndex=0;
+document.getElementById("fingers").selectedIndex=0;
+document.getElementById("fireSize").value=50;
+document.getElementById("sensResult").textContent="";
+}
+
+// Logo text generator
 function generateLogo(){
-let name=document.getElementById("logoName").value||"PLAYER";
-document.getElementById("logoResult").textContent="꧁༒ "+name+" ༒꧂";
+let name=document.getElementById("logoName").value.trim()||"PLAYER";
+let style=document.getElementById("logoStyle").value;
+
+let designs={
+Royal:"꧁༒ "+name+" ༒꧂",
+Fire:"🔥 "+name.toUpperCase()+" 🔥",
+Neon:"亗『 "+name+" 』亗",
+Minimal:"乂 "+name+" 乂",
+Symbols:"♛彡 "+name+" 彡♛"
+};
+
+document.getElementById("logoResult").textContent=designs[style];
 }
 
-// Bio Generator
+// Bio generator
 function generateBio(){
-let name=document.getElementById("bioName").value||"PLAYER";
+let name=document.getElementById("bioName").value.trim()||"PLAYER";
 let type=document.getElementById("bioType").value;
+
 let bios={
 Attitude:"No rivals. Only levels.",
 "Pro Player":"Practice • Focus • Clutch",
 Killer:"Cold aim. Calm mind.",
 Royal:"Crown earned, never borrowed.",
-Stylish:"✦ Play your style ✦"
+Stylish:"✦ Play your style ✦",
+"Custom Bio":"Free Fire • Gaming • Dreams"
 };
-document.getElementById("bioResult").textContent=name+" | "+bios[type];
+
+document.getElementById("bioResult").textContent=
+name+" | "+bios[type];
 }
 
-// Copy helper
-function copyResult(id){
-let text=document.getElementById(id).textContent;
-navigator.clipboard.writeText(text)
-.then(()=>alert("Copied successfully!"))
-.catch(()=>alert("Please copy manually: "+text));
-}
+// Symbols library
+const symbols=[
+"亗","乂","么","꧁","꧂","♛","ツ","彡","★","☆",
+"✦","✧","⚡","☠","☯","♠","♣","♦","♥","〆",
+"々","۝","〄","۞","✪","✯","✵","❖","♚","♕",
+"༒","࿐","࿇","࿊","࿋","࿌","࿍","࿎","࿏","⚔",
+"☄","☣","☢","♜","♞","♟","✿","❀","❁","∞"
+];
 
-// Symbol library
-let symbols=["亗","乂","么","꧁","꧂","♛","ツ","彡","★","☆","✦","✧","⚡","☠","☯","♠","♣","♦","♥","〆"];
-let symbolList=document.getElementById("symbolList");
+const symbolList=document.getElementById("symbolList");
+
 symbols.forEach(s=>{
 let b=document.createElement("button");
-b.className="action";
+b.className="item-btn";
 b.textContent=s;
-b.onclick=()=>navigator.clipboard.writeText(s);
+b.onclick=()=>copySymbol(s);
 symbolList.appendChild(b);
 });
 
-// Bio color codes
-let colors=["#FF0000","#00FF00","#0000FF","#FFFF00","#FF69B4","#A020F0","#00FFFF","#FFFFFF","#FFA500"];
-let colorList=document.getElementById("colorList");
+async function copySymbol(s){
+try{
+await navigator.clipboard.writeText(s);
+alert("Copied: "+s);
+}catch(e){
+alert("Select and copy: "+s);
+}
+}
+
+// Color codes
+const colors=[
+["Red","#FF0000"],
+["Green","#00FF00"],
+["Blue","#0000FF"],
+["Yellow","#FFFF00"],
+["Pink","#FF00FF"],
+["Purple","#A020F0"],
+["Cyan","#00FFFF"],
+["White","#FFFFFF"],
+["Orange","#FFA500"]
+];
+
+const colorList=document.getElementById("colorList");
+
 colors.forEach(c=>{
 let b=document.createElement("button");
-b.className="action";
-b.textContent=c;
-b.onclick=()=>navigator.clipboard.writeText(c);
+b.className="item-btn";
+b.style.color=c[1];
+b.textContent=c[0]+"\n"+c[1];
+b.onclick=()=>copySymbol(c[1]);
 colorList.appendChild(b);
 });
 
 // Theme selector
 function setTheme(a,b){
+document.documentElement.style.setProperty("--pink",a);
+document.documentElement.style.setProperty("--blue",b);
 document.documentElement.style.setProperty("--glow",a);
-document.body.style.background=
-"radial-gradient(circle at top,"+a+"44,#080622 70%)";
 }
 
-// Exact text copy
-function copyCode(){
+// Copy Code Tool
+async function copyCode(){
 let text=document.getElementById("codeText").value;
-navigator.clipboard.writeText(text)
-.then(()=>document.getElementById("codeResult").textContent="Copied successfully!")
-.catch(()=>document.getElementById("codeResult").textContent="Copy manually: "+text);
+let result=document.getElementById("codeResult");
+
+if(!text){
+result.textContent="Please enter some text or code first.";
+return;
 }
+
+try{
+await navigator.clipboard.writeText(text);
+result.textContent="Copied successfully!";
+}catch(e){
+result.textContent="Clipboard unavailable. Select and copy the text manually.";
+}
+}
+
 function clearCode(){
 document.getElementById("codeInput").value="";
 document.getElementById("codeText").value="";
@@ -625,5 +1098,4 @@ document.getElementById("codeResult").textContent="Cleared.";
 </script>
 
 </body>
-                                        </html>
-  
+</html>
