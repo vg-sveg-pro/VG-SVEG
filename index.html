@@ -1,274 +1,181 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VG-SVEG-PRO Gaming</title>
-
+<title>VG-SVEG PRO</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- background:#050713;
- color:white;
- font-family:Arial,sans-serif;
- text-align:center;
- overflow-x:hidden;
-}
-:root{--neon:#00eaff}
-body:before{
- content:"";
- position:fixed;
- inset:0;
- z-index:-1;
- background:radial-gradient(circle,#17265c,#050713 70%);
-}
-header{padding:35px 10px}
-.logo{
- font-size:clamp(32px,8vw,55px);
- font-weight:1000;
- color:var(--neon);
- text-shadow:0 0 15px var(--neon),0 0 35px purple;
- animation:glow 2s infinite alternate;
-}
-@keyframes glow{
- from{filter:brightness(.8)}
- to{filter:brightness(1.7)}
-}
-.card{
- background:#101b35;
- border:1px solid var(--neon);
- border-radius:15px;
- padding:18px;
- margin:15px auto;
- max-width:500px;
- box-shadow:0 0 15px #00eaff33;
- animation:appear 1s ease;
-}
-@keyframes appear{
- from{opacity:0;transform:translateY(25px)}
- to{opacity:1;transform:translateY(0)}
-}
-h2{color:var(--neon)}
-button{
- background:var(--neon);
- color:#00121a;
- border:0;
- padding:11px 15px;
- margin:5px;
- border-radius:9px;
- font-weight:bold;
- cursor:pointer;
-}
-button:hover{box-shadow:0 0 18px var(--neon)}
-input,select{
- width:90%;
- padding:12px;
- margin:8px;
- border-radius:8px;
- border:1px solid var(--neon);
- background:#050713;
- color:white;
-}
-a{
- display:inline-block;
- text-decoration:none;
- padding:13px 18px;
- margin:7px;
- border-radius:10px;
- color:white;
- font-weight:bold;
-}
-.youtube{background:#ed1235}
-.telegram{background:#168aca}
-.output{
- padding:12px;
- margin:10px;
- background:#050713;
- border-radius:8px;
- overflow-wrap:anywhere;
-}
-footer{padding:25px;color:#8da4bc}
+body{margin:0;background:#070a12;color:#fff;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 12px;background:#101a2d}
+h1{color:#00eaff;text-shadow:0 0 15px #00eaff}
+button{background:#00d9ff;color:#001018;border:0;border-radius:10px;padding:12px 16px;font-weight:bold;cursor:pointer}
+section{padding:16px;margin:14px;background:#111c30;border:1px solid #17465d;border-radius:15px}
+input,select{width:100%;padding:12px;margin:8px 0;background:#07101e;color:white;border:1px solid #00cfff;border-radius:9px}
+.item{display:flex;gap:8px;align-items:center;margin:8px 0}
+.item span{flex:1;overflow-wrap:anywhere}
+#home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column}
+#app{display:none}
+nav{position:sticky;bottom:0;background:#08101d;padding:12px;display:flex;justify-content:space-around}
+nav button{padding:10px;font-size:12px}
 </style>
 </head>
-
 <body>
 
+<div id="home">
+<h1>VG-SVEG PRO</h1>
+<p>FREE FIRE GAMING TOOLS</p>
+<button onclick="startApp()">START NOW</button>
+</div>
+
+<div id="app">
 <header>
-<div class="logo">VG-SVEG-PRO</div>
-<p>🔥 FREE FIRE GAMING TOOLKIT 🔥</p>
-<p>BIGGER • BETTER • PRO</p>
+<h1>VG-SVEG PRO</h1>
+<p>ULTIMATE GAMING TOOLS</p>
 </header>
 
-<div class="card">
-<h2>🎵 Background Music</h2>
-<button onclick="music()">PLAY / PAUSE MUSIC</button>
-</div>
+<section id="names">
+<h2>🔥 Stylish Name Generator</h2>
+<input id="playerName" placeholder="अपना नाम लिखो">
+<button onclick="makeNames()">Generate Names</button>
+<div id="nameResults"></div>
+</section>
 
-<div class="card">
-<h2>🌐 Our Social Channels</h2>
-<a class="youtube"
-href="https://www.youtube.com/@Karan_live_ffx"
-target="_blank">▶ Subscribe to YouTube</a>
+<section id="bio">
+<h2>💎 Gaming Bio</h2>
+<div id="bioResults"></div>
+</section>
 
-<a class="telegram"
-href="https://t.me/vgsvegpro"
-target="_blank">✈ Join Telegram</a>
-</div>
+<section>
+<h2>🌍 Country Name Styles</h2>
+<div id="countryResults"></div>
+</section>
 
-<div class="card">
-<h2>👑 Stylish Name Generator</h2>
-<input id="name" placeholder="Enter Your Name">
-<button onclick="names()">Generate Names</button>
-<div class="output" id="nameout"></div>
-</div>
-
-<div class="card">
-<h2>🎮 Gaming Bio</h2>
-<div id="bioout" class="output">
-亗 Born To Play • Built To Win 亗
-</div>
-<button onclick="copy('bioout')">Copy Bio</button>
-</div>
-
-<div class="card">
-<h2>⚡ Symbols Library</h2>
-<div id="symbols"></div>
-</div>
-
-<div class="card">
-<h2>🌈 Bio Color Codes</h2>
-<input id="biotext" value="VG-SVEG-PRO">
-<input type="color" id="color" value="#00eaff">
-<div class="output" id="colorout"></div>
-<button onclick="copy('colorout')">Copy Color Bio</button>
-</div>
-
-<div class="card">
-<h2>🎯 Sensitivity Generator</h2>
-<select id="device">
-<option value="190">Low End Device</option>
-<option value="180">Medium Device</option>
-<option value="170">High End Device</option>
+<section>
+<h2>🎨 Bio Color Codes</h2>
+<select id="color">
+<option value="[FF0000]">Red</option>
+<option value="[00FF00]">Green</option>
+<option value="[00FFFF]">Cyan</option>
+<option value="[FFFF00]">Yellow</option>
+<option value="[FF00FF]">Pink</option>
+<option value="[FFFFFF]">White</option>
 </select>
-<button onclick="sensitivity()">Generate</button>
-<div class="output" id="sensout"></div>
-</div>
+<input id="bioText" placeholder="अपना Bio लिखो">
+<button onclick="makeColorBio()">Create Bio</button>
+<div id="colorResult"></div>
+</section>
 
-<div class="card">
-<h2>🌍 Country Names</h2>
-<button onclick="country('India')">🇮🇳 India</button>
-<button onclick="country('Brazil')">🇧🇷 Brazil</button>
-<button onclick="country('Japan')">🇯🇵 Japan</button>
-<div class="output" id="countryout"></div>
-</div>
+<section>
+<h2>🎯 Sensitivity Settings</h2>
+<select id="device">
+<option>Low End Phone</option>
+<option>Mid Range Phone</option>
+<option>High End Phone</option>
+</select>
+<select id="style">
+<option>Headshot</option>
+<option>Balanced</option>
+<option>Rush Gameplay</option>
+</select>
+<button onclick="getSensitivity()">Get Settings</button>
+<div id="sensitivityResult"></div>
+</section>
 
-<div class="card">
-<h2>🎨 Neon Theme Selector</h2>
-<button onclick="theme('#00eaff')">Cyan</button>
-<button onclick="theme('#39ff88')">Green</button>
-<button onclick="theme('#bd39ff')">Purple</button>
-<button onclick="theme('#ff4fb8')">Pink</button>
-<button onclick="theme('#ffd447')">Yellow</button>
-</div>
+<section>
+<h2>✨ Gaming Symbols</h2>
+<div id="symbols"></div>
+</section>
 
-<footer>
-VG-SVEG-PRO © 2026<br>
-BIGGER • BETTER • PRO
-</footer>
+<section>
+<h2>🔗 Follow Us</h2>
+<p><a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">YouTube Channel</a></p>
+<p><a href="https://t.me/vgsvegpro" target="_blank">Telegram Channel</a></p>
+</section>
+
+<nav>
+<button onclick="go('names')">Names</button>
+<button onclick="go('bio')">Bio</button>
+<button onclick="go('symbols')">Symbols</button>
+<button onclick="go('sensitivityResult')">Settings</button>
+</nav>
+</div>
 
 <script>
-function copy(id){
- let text=document.getElementById(id).innerText;
- navigator.clipboard.writeText(text)
- .then(()=>alert("Copied Successfully!"))
- .catch(()=>alert("Copy not supported"));
+function startApp(){
+ document.getElementById('home').style.display='none';
+ document.getElementById('app').style.display='block';
 }
-
-function names(){
- let n=document.getElementById("name").value||"PLAYER";
- let styles=[
- "亗 "+n+" 亗",
- "꧁༒"+n+"༒꧂",
- "『"+n+"』",
- "乂"+n+"乂",
- "★彡"+n+"彡★",
- "ツ"+n+"ツ"
- ];
- document.getElementById("nameout").innerHTML=
- styles.map(x=>`<p>${x}
- <button onclick="navigator.clipboard.writeText('${x.replace(/'/g,"\\'")}')">Copy</button></p>`).join("");
+function copyText(text){
+ if(navigator.clipboard){
+  navigator.clipboard.writeText(text).then(()=>alert('Copied!'));
+ }else{
+  let t=document.createElement('textarea');
+  t.value=text;document.body.appendChild(t);
+  t.select();document.execCommand('copy');t.remove();
+  alert('Copied!');
+ }
 }
-
-let symbols=["亗","么","乂","ツ","彡","꧁","꧂","༒","★","♛","⚡","☠","࿐","々"];
-document.getElementById("symbols").innerHTML=
- symbols.map(s=>`<button onclick="navigator.clipboard.writeText('${s}')">${s}</button>`).join("");
-
-function theme(c){
- document.documentElement.style.setProperty("--neon",c);
+function addItem(parent,text){
+ let div=document.createElement('div');
+ div.className='item';
+ let span=document.createElement('span');
+ span.textContent=text;
+ let btn=document.createElement('button');
+ btn.textContent='COPY';
+ btn.onclick=()=>copyText(text);
+ div.append(span,btn);
+ parent.appendChild(div);
 }
-
-function sensitivity(){
- let v=Number(document.getElementById("device").value);
- document.getElementById("sensout").innerHTML=
- `General: ${v}<br>
- Red Dot: ${v-5}<br>
- 2X Scope: ${v-15}<br>
- 4X Scope: ${v-30}<br>
- Sniper: 85<br>
- Free Look: 150`;
+function makeNames(){
+ let n=document.getElementById('playerName').value.trim();
+ if(!n)return alert('नाम लिखो');
+ let box=document.getElementById('nameResults');
+ box.innerHTML='';
+ ['꧁༒'+n+'༒꧂','亗'+n+'亗','『'+n+'』','★彡'+n+'彡★','乂'+n+'乂','么'+n+'么'].forEach(x=>addItem(box,x));
 }
+let bios=[
+'亗 NO MERCY 亗','⚡ BORN TO WIN ⚡',
+'꧁ KING OF HEADSHOT ꧂','🔥 NEVER GIVE UP 🔥',
+'『 PRO PLAYER 』','亗 ONE TAP MASTER 亗'
+];
+bios.forEach(x=>addItem(document.getElementById('bioResults'),x));
 
-function country(c){
- let data={
- India:["亗 INDIAN 亗","『DESI KING』","꧁BHARAT꧂"],
- Brazil:["亗 BRASIL 亗","『SAMURAI BR』","꧁LENDÁRIO꧂"],
- Japan:["亗 SAMURAI 亗","『NINJA』","꧁東京꧂"]
+['🇮🇳 INDIA','🇧🇷 BRAZIL','🇯🇵 JAPAN'].forEach(x=>addItem(document.getElementById('countryResults'),x));
+
+function makeColorBio(){
+ let text=document.getElementById('bioText').value;
+ let color=document.getElementById('color').value;
+ if(!text)return alert('Bio लिखो');
+ let result=color+text;
+ let box=document.getElementById('colorResult');
+ box.innerHTML='';
+ addItem(box,result);
+}
+function getSensitivity(){
+ let d=document.getElementById('device').value;
+ let s=document.getElementById('style').value;
+ let values={
+ 'Low End Phone':[185,180,170,160,100],
+ 'Mid Range Phone':[190,185,175,165,100],
+ 'High End Phone':[195,190,180,170,100]
  };
- document.getElementById("countryout").innerText=data[c].join("\n");
+ let v=values[d];
+ if(s==='Rush Gameplay')v=[195,190,185,175,100];
+ if(s==='Balanced')v=[180,175,165,155,100];
+ let labels=['General','Red Dot','2x Scope','4x Scope','Free Look'];
+ let box=document.getElementById('sensitivityResult');
+ box.innerHTML='<p>Starter settings — अपने गेम में टेस्ट करके एडजस्ट करें।</p>';
+ labels.forEach((x,i)=>addItem(box,x+': '+v[i]));
 }
+let symbols=['亗','么','乂','〆','彡','★','☆','ツ','࿐','꧁','꧂','༒','♛','♕','⚡','🔥','『','』','✿','✓'];
+symbols.forEach(x=>addItem(document.getElementById('symbols'),x));
 
-let audio=null,playing=false,loop=null,step=0;
-function music(){
- if(playing){
-  playing=false;
-  clearTimeout(loop);
-  return;
- }
- let AC=window.AudioContext||window.webkitAudioContext;
- if(!AC){alert("Audio not supported");return}
- audio=audio||new AC();
- audio.resume();
- playing=true;
- let notes=[110,164,220,196,146,220,261,196];
- function play(){
-  if(!playing)return;
-  let osc=audio.createOscillator();
-  let gain=audio.createGain();
-  osc.type="triangle";
-  osc.frequency.value=notes[step++%notes.length];
-  gain.gain.setValueAtTime(.08,audio.currentTime);
-  gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.3);
-  osc.connect(gain);
-  gain.connect(audio.destination);
-  osc.start();
-  osc.stop(audio.currentTime+.3);
-  loop=setTimeout(play,350);
- }
- play();
+function go(id){
+ let el=document.getElementById(id);
+ if(el)el.scrollIntoView({behavior:'smooth'});
 }
-
-function updateColor(){
- let c=document.getElementById("color").value;
- let t=document.getElementById("biotext").value;
- document.getElementById("colorout").innerText=
- "["+c.substring(1).toUpperCase()+"]"+t;
-}
-document.getElementById("color").oninput=updateColor;
-document.getElementById("biotext").oninput=updateColor;
-updateColor();
 </script>
 </body>
- </html>
- 
+</html>
