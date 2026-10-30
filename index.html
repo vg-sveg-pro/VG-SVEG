@@ -4,869 +4,626 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#160c35">
-<title>VG-SVEG PRO | Free Fire Gaming Tools</title>
+<title>VG-SVEG PRO</title>
+
 <style>
-:root{
---a:#c76cff;
---b:#54d8ff;
---c:#ff62cf;
---bg:#100d2b;
---panel:rgba(31,25,67,.72);
---text:#f8f5ff;
---muted:#c5bde2;
---line:rgba(190,142,255,.3);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
 body{
-margin:0;color:var(--text);
-font-family:Arial,system-ui,sans-serif;
+font-family:Arial,sans-serif;
+color:white;
+background:#080622;
+overflow-x:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-2;
 background:
-radial-gradient(ellipse at 15% 10%,#51267b,transparent 35%),
-radial-gradient(ellipse at 85% 22%,#123d79,transparent 34%),
-radial-gradient(ellipse at 60% 90%,#5b174c,transparent 40%),
-linear-gradient(135deg,#100d2b,#1a1040 55%,#081c3d);
-min-height:100vh;overflow-x:hidden
+radial-gradient(circle at 20% 20%,#8500ff88,transparent 35%),
+radial-gradient(circle at 80% 40%,#00bfffff,transparent 35%),
+radial-gradient(circle at 50% 80%,#ff00cc66,transparent 40%),
+linear-gradient(135deg,#05051c,#12082e,#06142f);
+animation:bgGlow 8s infinite alternate;
 }
-body:before,body:after{
-content:"";position:fixed;inset:-30%;
-pointer-events:none;z-index:-1;
-background:conic-gradient(from 0deg,transparent,var(--a),transparent,var(--b),transparent,var(--c),transparent);
-filter:blur(90px);opacity:.16;
-animation:spin 32s linear infinite
+
+@keyframes bgGlow{
+from{filter:hue-rotate(0deg)}
+to{filter:hue-rotate(35deg)}
 }
-body:after{animation-direction:reverse;animation-duration:48s}
-@keyframes spin{to{transform:rotate(360deg)}}
-#particles{position:fixed;inset:0;pointer-events:none;z-index:-1}
-.particle{
-position:absolute;width:3px;height:3px;border-radius:50%;
-background:var(--b);box-shadow:0 0 12px var(--b);
-animation:float 9s linear infinite
+
+.light{
+position:fixed;
+width:4px;
+height:4px;
+border-radius:50%;
+background:#00eaff;
+box-shadow:0 0 15px #00eaff,0 0 30px #ff00e6;
+animation:float 7s linear infinite;
+z-index:-1;
 }
+
 @keyframes float{
-0%{transform:translateY(110vh);opacity:0}
-15%,80%{opacity:.8}
-100%{transform:translateY(-15vh);opacity:0}
+0%{transform:translateY(100vh);opacity:0}
+20%,80%{opacity:1}
+100%{transform:translateY(-10vh);opacity:0}
 }
-.wrap{max-width:1100px;margin:auto;padding:16px 16px 100px}
-.topbar{
-display:flex;align-items:center;justify-content:space-between;
-gap:12px;padding:12px 14px;
-border:1px solid var(--line);
-background:rgba(18,14,48,.72);
-backdrop-filter:blur(16px);border-radius:20px;
-position:sticky;top:8px;z-index:10
+
+.container{
+max-width:900px;
+margin:auto;
+padding:12px;
 }
-.brand{display:flex;align-items:center;gap:10px;font-weight:950}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px;
+border:2px solid #00eaff;
+border-radius:18px;
+background:#080622dd;
+box-shadow:0 0 15px #00eaff;
+}
+
 .logo{
-width:42px;height:42px;display:grid;place-items:center;
-border-radius:13px;background:linear-gradient(135deg,var(--a),var(--b));
-color:#140d30;font-weight:1000
+font-size:23px;
+font-weight:900;
+color:#ff48ef;
+text-shadow:0 0 15px #ff00ff;
 }
-.brand small{display:block;color:var(--b);font-size:10px;letter-spacing:2px}
+
+.logo span{
+color:#00eaff;
+}
+
 .join{
-border:0;border-radius:999px;padding:11px 16px;
-background:linear-gradient(110deg,var(--a),var(--c));
-color:#180b30;font-weight:900;text-decoration:none
+padding:10px 16px;
+border-radius:30px;
+border:2px solid #ff00ff;
+color:white;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 15px #ff00ff;
 }
+
 .hero{
-margin:24px 0;padding:28px 20px;
-border:1px solid var(--line);border-radius:28px;
-background:linear-gradient(120deg,rgba(35,23,83,.86),rgba(14,45,88,.65));
-box-shadow:0 15px 60px #07051c66;position:relative;overflow:hidden
+margin-top:16px;
+padding:25px 16px;
+border:2px solid #00eaff;
+border-radius:20px;
+background:linear-gradient(120deg,#190040dd,#001b48dd);
+box-shadow:0 0 20px #00eaff;
 }
-.eyebrow{color:var(--b);font-size:11px;letter-spacing:2px;font-weight:900}
+
 .hero h1{
-font-size:clamp(30px,7vw,58px);line-height:1.02;margin:12px 0;
-background:linear-gradient(90deg,#fff,var(--b),var(--c));
-background-clip:text;color:transparent
+font-size:35px;
+color:#ff00e6;
+text-shadow:0 0 15px #ff00e6;
+margin:12px 0;
 }
-.hero p{color:#e0d8ff;max-width:600px;line-height:1.6}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+
+.hero p{
+line-height:1.5;
+}
+
+.badges{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:18px;
+}
+
 .badge{
-font-size:10px;font-weight:900;letter-spacing:1px;
-border:1px solid var(--line);background:#ffffff0b;
-border-radius:999px;padding:9px 12px
+padding:10px;
+border:1px solid #00eaff;
+border-radius:12px;
+background:#09072a;
+font-size:12px;
+box-shadow:0 0 10px #00eaff;
 }
-.section-title{margin:24px 2px 14px}
-.section-title h2{margin:0;font-size:21px}
-.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.tool-card,.panel{
-background:var(--panel);border:1px solid var(--line);
-border-radius:20px;backdrop-filter:blur(14px);
-box-shadow:0 8px 30px #08051b55
+
+h2{
+text-align:center;
+margin:25px 0 15px;
+font-size:27px;
+color:#fff;
+text-shadow:0 0 15px #ff00e6;
 }
-.tool-card{
-padding:16px;min-height:172px;
-display:flex;flex-direction:column;align-items:flex-start
+
+.tools{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
 }
-.tool-card:hover{transform:translateY(-4px);border-color:var(--a)}
-.tool-icon{
-width:42px;height:42px;border-radius:14px;
-display:grid;place-items:center;
-background:linear-gradient(135deg,var(--a),var(--b));
-font-size:22px
+
+.card{
+padding:15px;
+border-radius:20px;
+background:#090725e8;
+border:2px solid var(--glow);
+box-shadow:0 0 12px var(--glow);
+transition:.3s;
 }
-.tool-card h3{font-size:14px;margin:12px 0 6px}
-.tool-card p{font-size:11px;color:var(--muted);line-height:1.45;margin:0 0 14px}
-.btn{
-border:1px solid var(--line);border-radius:12px;padding:11px 14px;
-color:#fff;background:#ffffff0b;font-weight:800;font-size:12px;
-cursor:pointer
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px var(--glow);
 }
-.btn.primary{
-background:linear-gradient(110deg,var(--a),var(--b));
-color:#120b2c;border:0
+
+.card h3{
+font-size:15px;
+margin-bottom:10px;
 }
-.panel{padding:16px;margin-top:18px;scroll-margin-top:90px}
-.panel[hidden]{display:none}
-.panel h2{margin:0 0 14px;font-size:20px}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.field{display:flex;flex-direction:column;gap:6px;min-width:0}
-.field.full{grid-column:1/-1}
-.field label{font-size:11px;color:var(--muted);font-weight:800}
-.field input,.field select,.field textarea{
-width:100%;min-width:0;border:1px solid var(--line);
-border-radius:12px;padding:12px;background:#100d2b;
-color:#fff;font:inherit;font-size:13px
+
+.card p{
+font-size:12px;
+line-height:1.5;
+margin-bottom:12px;
 }
-.field textarea{min-height:100px;resize:vertical}
-.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+
+button{
+cursor:pointer;
+}
+
+.open{
+padding:11px 17px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,var(--glow),#7000ff);
+color:white;
+font-weight:bold;
+box-shadow:0 0 12px var(--glow);
+}
+
+.panel{
+margin-top:18px;
+padding:16px;
+border:2px solid #00eaff;
+border-radius:18px;
+background:#080622ee;
+box-shadow:0 0 18px #00eaff;
+}
+
+.panel h3{
+margin-bottom:12px;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #00eaff;
+border-radius:10px;
+background:#100b36;
+color:white;
+}
+
+textarea{
+min-height:100px;
+}
+
+.action{
+padding:12px 18px;
+border:0;
+border-radius:12px;
+background:linear-gradient(90deg,#ff00cc,#7000ff);
+color:white;
+font-weight:bold;
+margin:5px 0;
+}
+
 .result{
-margin-top:14px;padding:12px;border:1px dashed var(--line);
-border-radius:14px;background:#ffffff08;
-white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.7
+margin-top:12px;
+padding:12px;
+border:1px dashed #ff00e6;
+border-radius:12px;
+overflow-wrap:anywhere;
 }
-.results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
-.name-item{
-display:flex;align-items:center;justify-content:space-between;gap:8px;
-padding:10px;border:1px solid var(--line);border-radius:12px;background:#ffffff08;font-size:12px
+
+.social{
+margin-top:20px;
+padding:20px;
+border:2px solid #00eaff;
+border-radius:18px;
+background:#090725;
+box-shadow:0 0 15px #00eaff;
 }
-.name-item span{overflow-wrap:anywhere}
-.symbol-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
-.symbol{
-font-size:20px;padding:12px 5px;text-align:center;
-border:1px solid var(--line);border-radius:11px;background:#ffffff08;cursor:pointer
-}
-.colors{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.color-item{border:1px solid var(--line);border-radius:12px;padding:12px;background:#ffffff08}
-.color-chip{height:18px;border-radius:7px;margin-bottom:8px}
-.social{display:flex;gap:12px;flex-wrap:wrap}
+
 .social a{
-display:flex;gap:8px;align-items:center;padding:12px;
-border:1px solid var(--line);border-radius:14px;
-text-decoration:none;color:white;background:#ffffff08;font-weight:800;font-size:12px
+color:#00eaff;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
 }
-.nav-bottom{
-position:fixed;bottom:10px;left:50%;transform:translateX(-50%);
-z-index:20;padding:8px 16px;border:1px solid var(--line);
-border-radius:22px;background:rgba(18,14,48,.82);backdrop-filter:blur(18px)
+
+.themes{
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+gap:10px;
+margin-top:15px;
 }
-.nav-bottom button{
-border:0;background:linear-gradient(110deg,var(--a),var(--b));
-color:#150b2e;font-weight:1000;padding:12px 38px;border-radius:16px;cursor:pointer
+
+.theme{
+width:35px;
+height:35px;
+border-radius:50%;
+border:3px solid white;
+box-shadow:0 0 15px currentColor;
 }
-.notice{color:var(--muted);font-size:11px;line-height:1.5;margin-top:10px}
-.toast{
-position:fixed;bottom:82px;left:50%;transform:translateX(-50%);
-padding:12px 18px;background:#141033;border:1px solid var(--b);
-border-radius:12px;z-index:30;font-size:12px;opacity:0;transition:opacity .2s
+
+.bottom{
+position:fixed;
+bottom:10px;
+left:50%;
+transform:translateX(-50%);
+padding:10px 30px;
+background:#080622ee;
+border:2px solid #ff00e6;
+border-radius:30px;
+box-shadow:0 0 20px #ff00e6;
 }
-.toast.show{opacity:1}
-@media(min-width:720px){
-.wrap{padding:24px 24px 100px}
-.hero{padding:48px}
-.tools{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.tool-card{padding:20px;min-height:185px}
-.panel{padding:22px}
-.results-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+.bottom button{
+border:0;
+background:transparent;
+color:white;
+font-size:18px;
+font-weight:bold;
 }
-@media(max-width:380px){
-.wrap{padding:10px 10px 90px}
-.brand{font-size:12px}
-.logo{width:36px;height:36px}
-.join{padding:10px 12px}
-.form-grid{grid-template-columns:1fr}
-.field.full{grid-column:auto}
-.symbol-grid{grid-template-columns:repeat(4,1fr)}
+
+footer{
+text-align:center;
+padding:30px 10px 90px;
+color:#00eaff;
+}
+
+@media(max-width:400px){
+.hero h1{font-size:27px}
+.card{padding:11px}
+.card h3{font-size:13px}
+.open{font-size:11px;padding:10px}
 }
 </style>
 </head>
-<body>
-<div id="particles"></div>
-<div class="wrap" id="home">
 
-<header class="topbar">
-<div class="brand">
-<div class="logo">VG</div>
-<div>VG-SVEG PRO<small>GAMING TOOLS</small></div>
-</div>
-<a class="join" href="https://t.me/vgsvegpro" target="_blank">JOIN NOW ↗</a>
+<body>
+
+<div id="lights"></div>
+
+<div class="container">
+
+<header>
+<div class="logo">♛ VG-SVEG <span>PRO</span></div>
+<a class="join" href="https://t.me/vgsvegpro" target="_blank">♛ Join Now</a>
 </header>
 
 <section class="hero">
-<div class="eyebrow">NEXT LEVEL FREE FIRE EXPERIENCE</div>
-<h1>PLAY • IMPROVE • WIN</h1>
-<p>Welcome to VG-SVEG PRO – Ultimate Free Fire Gaming Tools.</p>
+<h3>Welcome To</h3>
+<h1>VG-SVEG PRO</h1>
+<h3>Free Fire Gaming Tools</h3>
+<p>Apne Game Ko Banaye Aur Bhi Khaas!</p>
+<p>Yahan Aapko Milenge Sabhi Free Fire Tools Ek Hi Jagah Par.</p>
+
 <div class="badges">
-<span class="badge">✦ FREE TOOLS</span>
-<span class="badge">⚡ FAST & EASY</span>
-<span class="badge">◈ MOBILE FRIENDLY</span>
+<div class="badge">🛡 100% Free</div>
+<div class="badge">⚡ Fast & Easy</div>
+<div class="badge">📱 Mobile Friendly</div>
+<div class="badge">🏆 Play Improve Win</div>
 </div>
 </section>
 
-<div class="section-title"><h2>Our Tools</h2></div>
+<h2>♛ OUR TOOLS ♛</h2>
 
-<section class="tools">
-<article class="tool-card">
-<div class="tool-icon">✧</div>
-<h3>Stylish Nickname Generator</h3>
-<p>Discover 1000+ unique names, styles and symbols.</p>
-<button class="btn primary" data-open="nick">Open Tool ↗</button>
-</article>
+<div class="tools">
 
-<article class="tool-card">
-<div class="tool-icon">🎯</div>
-<h3>Sensitivity Generator</h3>
-<p>Personalized starting settings for your device.</p>
-<button class="btn primary" data-open="sens">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#ff00ff">
+<h3>✧ Stylish Nickname Generator</h3>
+<p>Apne liye unique aur stylish nickname banao.</p>
+<button class="open" onclick="openTool('nick')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">✎</div>
-<h3>Name & Logo Maker</h3>
-<p>Make standout gaming name text.</p>
-<button class="btn primary" data-open="logo">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#00eaff">
+<h3>🎯 Sensitivity Generator</h3>
+<p>Apni device ke hisaab se settings banao.</p>
+<button class="open" onclick="openTool('sens')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">▤</div>
-<h3>Gaming Bio Generator</h3>
-<p>Generate stylish bios for your profile.</p>
-<button class="btn primary" data-open="bio">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#ff9900">
+<h3>🔥 Free Fire Name & Logo Maker</h3>
+<p>Apna naam stylish design karo.</p>
+<button class="open" onclick="openTool('logo')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">❖</div>
-<h3>Symbols Library</h3>
-<p>Tap a symbol to copy it.</p>
-<button class="btn primary" data-open="symbols">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#00ff88">
+<h3>▤ Gaming Bio Generator</h3>
+<p>Apne profile ke liye best bio banao.</p>
+<button class="open" onclick="openTool('bio')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">◉</div>
-<h3>Bio Color Codes</h3>
-<p>Copy popular bio color codes.</p>
-<button class="btn primary" data-open="colors">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#bb00ff">
+<h3>★ Symbols Library</h3>
+<p>50+ stylish symbols aur characters.</p>
+<button class="open" onclick="openTool('symbols')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">◈</div>
-<h3>Theme Selector</h3>
-<p>Switch your preferred glow theme.</p>
-<button class="btn primary" data-open="theme">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#ff00cc">
+<h3>🎨 Bio Color Codes</h3>
+<p>Apne bio ko stylish color codes ke saath banao.</p>
+<button class="open" onclick="openTool('colors')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">▶</div>
-<h3>YouTube & Telegram</h3>
-<p>Connect with VG-SVEG PRO.</p>
-<button class="btn primary" data-open="social">Open Tool ↗</button>
-</article>
+<div class="card" style="--glow:#00ccff">
+<h3>🎮 Theme Selector</h3>
+<p>Apne hisaab se theme choose karein.</p>
+<button class="open" onclick="openTool('theme')">Open Tool ➜</button>
+</div>
 
-<article class="tool-card">
-<div class="tool-icon">⌘</div>
+<div class="card" style="--glow:#ff0055">
+<h3>▶ YouTube & Telegram</h3>
+<p>Hamare channel ko join karein.</p>
+<button class="open" onclick="openTool('social')">Join Now ➜</button>
+</div>
+
+<div class="card" style="--glow:#00ffff">
 <h3>APP HAI BHAIYON CODE COPY</h3>
-<p>Copy exact text entered by you.</p>
-<button class="btn primary" data-open="code">Open Tool ↗</button>
-</article>
-</section>
+<p>Apna code copy karein.</p>
+<button class="open" onclick="openTool('code')">Open Tool ➜</button>
+</div>
 
+</div>
+
+<!-- Nickname Tool -->
 <section class="panel" id="nick" hidden>
-<h2>✧ Stylish Nickname Generator</h2>
-<div class="form-grid">
-<div class="field full">
-<label for="nickName">Enter Your Name</label>
-<input id="nickName" placeholder="e.g. Shadow">
-</div>
-<div class="field">
-<label for="nickCat">Name Category</label>
-<select id="nickCat">
-<option>Random Names</option>
-<option>Brazil Player Names</option>
-<option>Pro Player Names</option>
-<option>Free Fire Stylish Names</option>
-<option>Attitude Names</option>
-<option>Killer Names</option>
-<option>Royal Names</option>
-<option>Gaming Names</option>
-<option>Custom Names</option>
-</select>
-</div>
-<div class="field">
-<label for="nickStyle">Nickname Style</label>
+<h3>✧ Stylish Nickname Generator</h3>
+<input id="nickName" placeholder="Enter Your Name">
 <select id="nickStyle">
-<option value="mix">Mixed Stylish</option>
-<option value="symbols">Symbols</option>
-<option value="clean">Clean</option>
-<option value="royal">Royal</option>
-<option value="pro">Pro Player</option>
-<option value="small">Small Caps</option>
+<option>Royal</option>
+<option>Attitude</option>
+<option>Pro Player</option>
+<option>Killer</option>
 </select>
-</div>
-<div class="field full">
-<label for="nickSearch">Search Names</label>
-<input id="nickSearch" placeholder="Search generated names">
-</div>
-</div>
-<div class="btn-row" style="margin-top:12px">
-<button class="btn primary" id="genNick">Generate Nickname</button>
-<button class="btn" id="randomNick">Random Generate</button>
-<button class="btn" id="twentyNick">Generate 20 Names</button>
-</div>
-<div class="result" id="nickResult">Your nickname will appear here.</div>
-<div class="results-grid" id="nickList"></div>
-<p class="notice">Brazilian football player names are included as name inspiration. Generated names are cosmetic.</p>
+<button class="action" onclick="generateNick()">Generate Nickname</button>
+<div class="result" id="nickResult"></div>
+<button class="action" onclick="copyResult('nickResult')">Copy Name</button>
 </section>
 
+<!-- Sensitivity Tool -->
 <section class="panel" id="sens" hidden>
-<h2>🎯 Advanced Sensitivity Generator</h2>
-<div class="form-grid">
-<div class="field">
-<label for="brand">Select Your Phone Brand</label>
-<select id="brand"></select>
-</div>
-<div class="field">
-<label for="model">Phone Model</label>
-<select id="model"></select>
-</div>
-<div class="field">
-<label for="performance">Device Performance</label>
-<select id="performance">
-<option>Low-End Device</option>
-<option>Mid-Range Device</option>
-<option>High-End Device</option>
+<h3>🎯 Sensitivity Generator</h3>
+<select id="brand">
+<option>Samsung</option><option>Vivo</option><option>OPPO</option>
+<option>Realme</option><option>Redmi</option><option>Xiaomi</option>
+<option>POCO</option><option>iQOO</option><option>OnePlus</option>
+<option>Motorola</option><option>Infinix</option><option>Tecno</option>
+<option>Nothing</option><option>iPhone</option>
 </select>
-</div>
-<div class="field">
-<label for="profile">Gaming Profile</label>
 <select id="profile">
 <option>One Tap Headshot</option>
 <option>Drag Headshot</option>
 <option>Sniper Settings</option>
 <option>Rush Gameplay</option>
-<option>Custom Sensitivity</option>
 </select>
-</div>
-<div class="field">
-<label for="fingers">Controls</label>
-<select id="fingers">
-<option>2 Finger</option>
-<option>3 Finger</option>
-<option>4 Finger</option>
-<option>5 Finger</option>
-</select>
-</div>
-<div class="field">
-<label for="fireSize">Fire Button Size</label>
-<input type="range" id="fireSize" min="35" max="70" value="50">
-<span id="fireLabel">50%</span>
-</div>
-<div class="field">
-<label for="aim">Aim Precision</label>
-<select id="aim">
-<option>Default</option>
-<option>Precise on Scope</option>
-<option>Full Control</option>
-</select>
-</div>
-</div>
-<div class="btn-row" style="margin-top:12px">
-<button class="btn primary" id="genSens">Generate Sensitivity</button>
-<button class="btn" id="copySens">Copy All Settings</button>
-<button class="btn" id="resetSens">Reset Settings</button>
-</div>
-<div class="form-grid" id="sensValues" style="margin-top:14px"></div>
-<p class="notice">These are suggested starting values, not guaranteed settings. Test and adjust in-game.</p>
+<button class="action" onclick="generateSens()">Generate Settings</button>
+<div class="result" id="sensResult"></div>
+<button class="action" onclick="copyResult('sensResult')">Copy Settings</button>
 </section>
 
+<!-- Logo Tool -->
 <section class="panel" id="logo" hidden>
-<h2>✎ Name & Logo Maker</h2>
-<div class="form-grid">
-<div class="field full">
-<label for="logoName">Gaming Name</label>
+<h3>✎ Name & Logo Maker</h3>
 <input id="logoName" placeholder="Enter your name">
-</div>
-<div class="field">
-<label for="logoStyle">Style</label>
-<select id="logoStyle">
-<option value="bold">Bold</option>
-<option value="royal">Royal</option>
-<option value="bracket">Bracket</option>
-<option value="star">Star</option>
-<option value="flame">Flame</option>
-<option value="minimal">Minimal</option>
-</select>
-</div>
-<div class="field">
-<label for="logoSymbol">Decoration</label>
-<select id="logoSymbol">
-<option>✦</option><option>亗</option><option>꧁</option>
-<option>♛</option><option>么</option><option>彡</option>
-<option>ツ</option><option>⚡</option>
-</select>
-</div>
-</div>
-<div class="btn-row" style="margin-top:12px">
-<button class="btn primary" id="genLogo">Generate Logo Text</button>
-<button class="btn" id="copyLogo">Copy</button>
-</div>
-<div class="result" id="logoResult">Your logo text appears here.</div>
+<button class="action" onclick="generateLogo()">Generate Logo</button>
+<div class="result" id="logoResult"></div>
+<button class="action" onclick="copyResult('logoResult')">Copy</button>
 </section>
 
+<!-- Bio Tool -->
 <section class="panel" id="bio" hidden>
-<h2>▤ Gaming Bio Generator</h2>
-<div class="form-grid">
-<div class="field">
-<label for="bioType">Bio Type</label>
+<h3>▤ Gaming Bio Generator</h3>
 <select id="bioType">
-<option>Attitude Bio</option>
-<option>Pro Player Bio</option>
-<option>Killer Bio</option>
-<option>Royal Bio</option>
-<option>Stylish Bio</option>
-<option>Custom Bio</option>
+<option>Attitude</option><option>Pro Player</option>
+<option>Killer</option><option>Royal</option>
+<option>Stylish</option>
 </select>
-</div>
-<div class="field">
-<label for="bioName">Your Name</label>
-<input id="bioName" placeholder="Your gaming name">
-</div>
-<div class="field full">
-<label for="bioCustom">Custom Bio Details</label>
-<input id="bioCustom" placeholder="Your motto or short phrase">
-</div>
-</div>
-<div class="btn-row" style="margin-top:12px">
-<button class="btn primary" id="genBio">Generate Bio</button>
-<button class="btn" id="copyBio">Copy Bio</button>
-</div>
-<div class="result" id="bioResult">Your bio will appear here.</div>
+<input id="bioName" placeholder="Your name">
+<button class="action" onclick="generateBio()">Generate Bio</button>
+<div class="result" id="bioResult"></div>
+<button class="action" onclick="copyResult('bioResult')">Copy Bio</button>
 </section>
 
+<!-- Symbols -->
 <section class="panel" id="symbols" hidden>
-<h2>❖ Symbols Library</h2>
-<div class="field">
-<label for="symbolCat">Symbol Category</label>
-<select id="symbolCat">
-<option>All Symbols</option>
-<option>Royal</option>
-<option>Stars</option>
-<option>Gaming</option>
-<option>Decorations</option>
-<option>Arrows</option>
-</select>
-</div>
-<div class="symbol-grid" id="symbolGrid" style="margin-top:12px"></div>
-<p class="notice">Tap any symbol to copy it.</p>
+<h3>★ Symbols Library</h3>
+<div id="symbolList"></div>
 </section>
 
+<!-- Colors -->
 <section class="panel" id="colors" hidden>
-<h2>◉ Bio Color Codes</h2>
-<div class="colors" id="colorGrid"></div>
-<p class="notice">Color codes are shown for reference.</p>
+<h3>🎨 Bio Color Codes</h3>
+<div id="colorList"></div>
 </section>
 
+<!-- Theme -->
 <section class="panel" id="theme" hidden>
-<h2>◈ Theme Selector</h2>
-<p class="notice">Choose a glow theme to update the accent colors.</p>
-<div class="form-grid">
-<button class="btn" data-theme="pink">💜 Pink Purple</button>
-<button class="btn" data-theme="ice">🧊 Ice Blue</button>
-<button class="btn" data-theme="gold">🔥 Gold Fire</button>
-<button class="btn" data-theme="emerald">💚 Emerald</button>
+<h3>Choose Your Theme</h3>
+<div class="themes">
+<button class="theme" style="background:#a000ff" onclick="setTheme('#a000ff','#ff00ff')"></button>
+<button class="theme" style="background:#00ccff" onclick="setTheme('#00ccff','#0077ff')"></button>
+<button class="theme" style="background:#ff0033" onclick="setTheme('#ff0033','#ff6600')"></button>
+<button class="theme" style="background:#00ff66" onclick="setTheme('#00ff66','#00cc88')"></button>
+<button class="theme" style="background:#ff9900" onclick="setTheme('#ff9900','#ff3300')"></button>
+<button class="theme" style="background:#ff00cc" onclick="setTheme('#ff00cc','#9900ff')"></button>
 </div>
 </section>
 
+<!-- Social -->
 <section class="panel" id="social" hidden>
-<h2>▶ YouTube & Telegram</h2>
-<div class="social">
-<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">▶ YouTube Channel ↗</a>
-<a href="https://t.me/vgsvegpro" target="_blank">✈ Telegram Community ↗</a>
-</div>
+<h3>Follow Us On</h3>
+<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">▶ YouTube</a><br><br>
+<a href="https://t.me/vgsvegpro" target="_blank">✈ Telegram</a>
 </section>
 
+<!-- Code Copy -->
 <section class="panel" id="code" hidden>
-<h2>⌘ APP HAI BHAIYON CODE COPY</h2>
-<div class="form-grid">
-<div class="field full">
-<label for="codeInput">Code Input Box</label>
-<input id="codeInput" placeholder="Optional code title">
-</div>
-<div class="field full">
-<label for="codeText">Text / Code</label>
-<textarea id="codeText" placeholder="Paste or type text here."></textarea>
-</div>
-</div>
-<div class="btn-row" style="margin-top:12px">
-<button class="btn primary" id="copyCode">Copy Code</button>
-<button class="btn" id="clearCode">Clear</button>
-</div>
-<div class="result" id="codeResult">Ready to copy your text.</div>
+<h3>APP HAI BHAIYON CODE COPY</h3>
+<input id="codeInput" placeholder="Code title">
+<textarea id="codeText" placeholder="Enter your code"></textarea>
+<button class="action" onclick="copyCode()">Copy Code</button>
+<button class="action" onclick="clearCode()">Clear</button>
+<div class="result" id="codeResult"></div>
 </section>
 
-<footer class="notice" style="text-align:center;margin-top:26px">
-VG-SVEG PRO • Fan-made gaming tools • Not affiliated with Garena or Free Fire.
-</footer>
+<div class="social">
+<h3>Follow Us On</h3>
+<a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">▶ YouTube</a>
+<a href="https://t.me/vgsvegpro" target="_blank">✈ Telegram</a>
 </div>
 
-<div class="nav-bottom">
-<button id="homeBtn">⌂ HOME</button>
+<h3 style="text-align:center;margin-top:20px">Choose Your Theme</h3>
+<div class="themes">
+<button class="theme" style="background:#a000ff" onclick="setTheme('#a000ff','#ff00ff')"></button>
+<button class="theme" style="background:#00ccff" onclick="setTheme('#00ccff','#0077ff')"></button>
+<button class="theme" style="background:#ff0033" onclick="setTheme('#ff0033','#ff6600')"></button>
+<button class="theme" style="background:#00ff66" onclick="setTheme('#00ff66','#00cc88')"></button>
+<button class="theme" style="background:#ff9900" onclick="setTheme('#ff9900','#ff3300')"></button>
+<button class="theme" style="background:#ff00cc" onclick="setTheme('#ff00cc','#9900ff')"></button>
 </div>
-<div class="toast" id="toast" role="status"></div>
+
+<footer>♛ VG-SVEG PRO | Free Fire Gaming Tools</footer>
+</div>
+
+<div class="bottom">
+<button onclick="home()">⌂ HOME</button>
+</div>
 
 <script>
-// Animated particle background
-(()=>{
-const host=document.getElementById('particles');
-for(let i=0;i<34;i++){
-const p=document.createElement('i');
-p.className='particle';
-p.style.left=Math.random()*100+'%';
-p.style.animationDelay=(-Math.random()*12)+'s';
-p.style.animationDuration=(7+Math.random()*10)+'s';
-host.appendChild(p);
-}
-})();
-
-const $=id=>document.getElementById(id);
-let toastTimer;
-function toast(msg){
-const t=$('toast');
-t.textContent=msg;
-t.classList.add('show');
-clearTimeout(toastTimer);
-toastTimer=setTimeout(()=>t.classList.remove('show'),1900);
-}
-async function copyText(text){
-try{
-if(navigator.clipboard&&window.isSecureContext){
-await navigator.clipboard.writeText(text);
-}else{
-const ta=document.createElement('textarea');
-ta.value=text;
-ta.style.position='fixed';
-ta.style.opacity='0';
-document.body.appendChild(ta);
-ta.select();
-document.execCommand('copy');
-ta.remove();
-}
-toast('Copied successfully!');
-}catch(e){toast('Copy failed. Please copy manually.')}
+// Animated particles
+for(let i=0;i<40;i++){
+let p=document.createElement("div");
+p.className="light";
+p.style.left=Math.random()*100+"%";
+p.style.animationDelay=Math.random()*7+"s";
+p.style.animationDuration=5+Math.random()*8+"s";
+document.getElementById("lights").appendChild(p);
 }
 
-const panels=[...document.querySelectorAll('.panel')];
-function openPanel(id){
-panels.forEach(p=>p.hidden=p.id!==id);
-if(id){$(id).scrollIntoView({behavior:'smooth',block:'start')}
-}else{$('home').scrollIntoView({behavior:'smooth'})}
+// Tool panel navigation
+function openTool(id){
+document.querySelectorAll(".panel").forEach(p=>p.hidden=true);
+let panel=document.getElementById(id);
+panel.hidden=false;
+panel.scrollIntoView({behavior:"smooth"});
 }
-document.querySelectorAll('[data-open]').forEach(b=>
-b.addEventListener('click',()=>openPanel(b.dataset.open))
-);
-$('homeBtn').addEventListener('click',()=>openPanel(''));
 
-// Nickname generator
-const brazilPlayers=[
-'Neymar Jr','Ronaldinho','Ronaldo Nazário','Pelé',
-'Vinícius Jr','Rodrygo','Kaká','Marcelo','Roberto Carlos',
-'Thiago Silva','Richarlison','Alisson Becker','Casemiro',
-'Raphinha','Gabriel Jesus','Endrick','Cafu','Rivaldo',
-'Romário','Adriano'
-];
-const proNames=[
-'Sultan','Raistar','Total Gaming','Sk Sabir','White444',
-'TSG','Desi Gamers','B2K','Nobru','Cerol','Mortal',
-'Jonathan','Scout','Viper','Dynamo','Clutch','Ace','Legend',
-'Xeno','Blaze','Phantom','Nova','Reaper','Sniper','Rusher',
-'Venom','Shadow','Frost','Ghost','Onyx','Rogue','Havoc',
-'Inferno','Titan','Wolf','Falcon','Dragon','Storm','Eclipse'
-];
-const prefixes=['亗','乂','么','꧁','『','彡','★','♛','ツ','⚡','メ','×','〆','۝','☯','♠','♣','✦','✧'];
-const suffixes=['亗','乂','么','ツ','★','♛','⚡','メ','〆','۝','☯','♠','✦','✧','YT','FF','PRO','OP','X','99','777'];
-const royal=['King','Queen','Prince','Royal','Emperor','Duke','Crown','Majesty'];
-const killer=['Killer','Deadshot','Death','Slayer','Hunter','Demon','Venom','Toxic'];
-const gaming=['Headshot','Rush','Clutch','Booyah','OneTap','Aim','Drop','Loot'];
-function basePool(cat){
-if(cat==='Brazil Player Names')return brazilPlayers;
-if(cat==='Pro Player Names')return proNames;
-if(cat==='Royal Names')return royal;
-if(cat==='Killer Names')return killer;
-if(cat==='Gaming Names')return gaming;
-if(cat==='Attitude Names')return ['No Mercy','Born Winner','Silent Boss','Fearless','Unstoppable','Savage Soul','Lone Wolf'];
-if(cat==='Free Fire Stylish Names')return proNames.concat(gaming,royal,killer);
-if(cat==='Custom Names')return ['Custom','MyName','Player','Original'];
-return proNames.concat(brazilPlayers,gaming,royal,killer);
+function home(){
+document.querySelectorAll(".panel").forEach(p=>p.hidden=true);
+window.scrollTo({top:0,behavior:"smooth"});
 }
-function styleName(name,style,i){
-const p=prefixes[(i*7+3)%prefixes.length];
-const s=suffixes[(i*11+5)%suffixes.length];
-if(style==='clean')return name;
-if(style==='royal')return '♛'+name+'♛';
-if(style==='pro')return '乂'+name+'ᵖʳᵒ';
-if(style==='small')return name.toUpperCase();
-if(style==='symbols')return p+name+s;
-return [p+name+s,name+'ツ','『'+name+'』','亗'+name+'亗'][i%4];
-}
-function generateNames(count){
-const name=$('nickName').value.trim()||'Player';
-const cat=$('nickCat').value;
-const style=$('nickStyle').value;
-const pool=basePool(cat);
-const out=new Set();
-let seed=Date.now()+name.length;
-for(let i=0;i<count*30&&out.size<count;i++){
-seed=(Math.imul(seed,1664525)+1013904223)>>>0;
-const base=pool[seed%pool.length];
-const variation=(seed>>>8)%10000;
-let raw=cat==='Brazil Player Names'?base:
-cat==='Custom Names'?name+['','YT','FF','X','OP'][variation%5]:
-[name,base,name+base,base+name,name+' '+base][variation%5];
-out.add(styleName(raw,style,variation));
-}
-return [...out];
-}
-function renderNickList(items){
-const list=$('nickList');list.innerHTML='';
-items.forEach(n=>{
-const row=document.createElement('div');row.className='name-item';
-const span=document.createElement('span');span.textContent=n;
-const b=document.createElement('button');b.className='btn';b.textContent='Copy';
-b.addEventListener('click',()=>copyText(n));
-row.append(span,b);list.append(row);
-});
-}
-$('genNick').addEventListener('click',()=>{
-const n=generateNames(1)[0];
-$('nickResult').textContent=n;renderNickList([n]);
-});
-$('randomNick').addEventListener('click',()=>{
-const n=generateNames(1)[0];
-$('nickResult').textContent=n;renderNickList([n]);
-});
-$('twentyNick').addEventListener('click',()=>{
-const items=generateNames(20);
-$('nickResult').textContent='Generated '+items.length+' nickname options.';
-renderNickList(items);
-});
-$('nickSearch').addEventListener('input',e=>{
-const q=e.target.value.toLowerCase();
-[...$('nickList').children].forEach(el=>
-el.hidden=!el.textContent.toLowerCase().includes(q)
-);
-});
 
-// Sensitivity generator
-const brands={
-Samsung:['Galaxy A05','Galaxy A15','Galaxy A25','Galaxy A35','Galaxy A55','Galaxy S23','Galaxy S24','Galaxy S25','Galaxy M14','Galaxy M34','Other / Custom Phone'],
-Vivo:['Y18','Y28','Y200','T3x','T3','V29','V30','V40','X100','X200','Other / Custom Phone'],
-OPPO:['A3x','A58','A78','A79','A98','Reno 11','Reno 12','Reno 13','Find X8','Other / Custom Phone'],
-Realme:['C53','C55','C65','C67','Narzo 60','Narzo 70','12 Pro','13 Pro','GT 6','Other / Custom Phone'],
-Redmi:['12C','13C','Note 12','Note 13','Note 13 Pro','Note 14','K50i','Other / Custom Phone'],
-Xiaomi:['12','13','13T','14','14T','15','Other / Custom Phone'],
-POCO:['C65','M6 Pro','X6','X6 Pro','X7','F5','F6','F6 Pro','Other / Custom Phone'],
-iQOO:['Z9','Z9x','Neo 9 Pro','Neo 10','12','13','Other / Custom Phone'],
-OnePlus:['Nord CE 3 Lite','Nord CE 4','Nord 4','12R','12','13R','13','Other / Custom Phone'],
-Motorola:['G34','G54','G64','Edge 50','Edge 50 Pro','Edge 60','Other / Custom Phone'],
-Infinix:['Hot 40','Hot 50','Note 40','Note 40 Pro','GT 20 Pro','GT 30 Pro','Other / Custom Phone'],
-Tecno:['Spark 20','Spark 30','Pova 6','Pova 7','Camon 30','Camon 40','Other / Custom Phone'],
-Nothing:['Phone (1)','Phone (2)','Phone (2a)','Phone (3a)','Other / Custom Phone'],
-iPhone:['iPhone 11','iPhone 12','iPhone 13','iPhone 14','iPhone 15','iPhone 16','iPhone 17','Other / Custom Phone']
+// Nickname Generator
+function generateNick(){
+let name=document.getElementById("nickName").value||"PLAYER";
+let style=document.getElementById("nickStyle").value;
+let symbols=["亗","乂","么","꧁","彡","♛","ツ","⚡"];
+let s=symbols[Math.floor(Math.random()*symbols.length)];
+document.getElementById("nickResult").textContent=
+s+name.toUpperCase()+s;
+}
+
+// Sensitivity Generator
+function generateSens(){
+let profile=document.getElementById("profile").value;
+let base=profile==="Sniper Settings"?65:95;
+let result=
+"General: "+base+
+"\nRed Dot: "+(base-5)+
+"\n2X Scope: "+(base-10)+
+"\n4X Scope: "+(base-15)+
+"\nSniper Scope: "+(base-30)+
+"\nFree Look: 75"+
+"\nFire Button: 50";
+document.getElementById("sensResult").textContent=result;
+}
+
+// Logo Maker
+function generateLogo(){
+let name=document.getElementById("logoName").value||"PLAYER";
+document.getElementById("logoResult").textContent="꧁༒ "+name+" ༒꧂";
+}
+
+// Bio Generator
+function generateBio(){
+let name=document.getElementById("bioName").value||"PLAYER";
+let type=document.getElementById("bioType").value;
+let bios={
+Attitude:"No rivals. Only levels.",
+"Pro Player":"Practice • Focus • Clutch",
+Killer:"Cold aim. Calm mind.",
+Royal:"Crown earned, never borrowed.",
+Stylish:"✦ Play your style ✦"
 };
-const brand=$('brand'),model=$('model');
-Object.keys(brands).forEach(b=>brand.add(new Option(b,b)));
-function fillModels(){
-model.innerHTML='';
-brands[brand.value].forEach(m=>model.add(new Option(m,m)));
+document.getElementById("bioResult").textContent=name+" | "+bios[type];
 }
-brand.addEventListener('change',fillModels);fillModels();
 
-const settingKeys=['General Sensitivity','Red Dot','2X Scope','4X Scope','Sniper Scope','Free Look','Fire Button Size','DPI Settings','HUD Settings'];
-const defaults=[95,90,85,80,50,75,50,420,'4 Finger'];
-function renderSens(vals){
-const root=$('sensValues');root.innerHTML='';
-settingKeys.forEach((k,i)=>{
-const f=document.createElement('div');f.className='field';
-const l=document.createElement('label');l.textContent=k;
-const inp=document.createElement('input');inp.value=vals[i];inp.dataset.index=i;
-if(i<6){inp.type='number';inp.min=0;inp.max=200}
-else if(i===6||i===7){inp.type='number';inp.min=0;inp.max=1000}
-else{inp.type='text'}
-f.append(l,inp);root.append(f);
-});
+// Copy helper
+function copyResult(id){
+let text=document.getElementById(id).textContent;
+navigator.clipboard.writeText(text)
+.then(()=>alert("Copied successfully!"))
+.catch(()=>alert("Please copy manually: "+text));
 }
-function makeSensitivity(){
-const perf=$('performance').value;
-const profile=$('profile').value;
-const base=perf==='Low-End Device'?90:perf==='Mid-Range Device'?95:100;
-const boost=profile==='One Tap Headshot'?8:
-profile==='Drag Headshot'?4:
-profile==='Sniper Settings'?-12:
-profile==='Rush Gameplay'?6:0;
-const vals=[
-base+boost,base+boost-5,base+boost-10,
-base+boost-15,profile==='Sniper Settings'?65:55,
-base-20,$('fireSize').value,
-perf==='Low-End Device'?360:perf==='Mid-Range Device'?440:520,
-$('fingers').value
-];
-return vals.map((v,i)=>i<6?Math.max(0,Math.min(200,Math.round(v))):v);
-}
-function readSens(){
-return [...$('sensValues').querySelectorAll('input')].map(i=>i.value);
-}
-$('genSens').addEventListener('click',()=>{
-renderSens(makeSensitivity());
-toast('Suggested settings generated');
-});
-$('copySens').addEventListener('click',()=>{
-copyText(settingKeys.map((k,i)=>k+': '+readSens()[i]).join('\n'));
-});
-$('resetSens').addEventListener('click',()=>{
-renderSens(defaults);
-$('performance').selectedIndex=0;
-$('profile').selectedIndex=0;
-$('fingers').selectedIndex=0;
-$('fireSize').value=50;
-$('fireLabel').textContent='50%';
-toast('Settings reset');
-});
-$('fireSize').addEventListener('input',e=>{
-$('fireLabel').textContent=e.target.value+'%';
-});
-renderSens(defaults);
 
-// Name & Logo Maker
-let currentLogo='';
-$('genLogo').addEventListener('click',()=>{
-const n=$('logoName').value.trim()||'PLAYER';
-const s=$('logoStyle').value;
-const dec=$('logoSymbol').value;
-const map={
-bold:`『${n.toUpperCase()}』`,
-royal:`♛ ꧁ ${n} ꧂ ♛`,
-bracket:`【 ${n} 】`,
-star:`★彡 ${n} 彡★`,
-flame:`⚡ ${n} 🔥`,
-minimal:`${dec} ${n} ${dec}`
-};
-currentLogo=map[s];
-$('logoResult').textContent=currentLogo;
+// Symbol library
+let symbols=["亗","乂","么","꧁","꧂","♛","ツ","彡","★","☆","✦","✧","⚡","☠","☯","♠","♣","♦","♥","〆"];
+let symbolList=document.getElementById("symbolList");
+symbols.forEach(s=>{
+let b=document.createElement("button");
+b.className="action";
+b.textContent=s;
+b.onclick=()=>navigator.clipboard.writeText(s);
+symbolList.appendChild(b);
 });
-$('copyLogo').addEventListener('click',()=>{
-copyText(currentLogo||$('logoResult').textContent);
-});
-
-// Gaming Bio Generator
-const bios={
-'Attitude Bio':['No rivals. Only levels.','Silent moves. Loud results.','Built different. Playing fearless.'],
-'Pro Player Bio':['Practice. Focus. Clutch. Repeat.','Aim sharp • Game smart • Win clean'],
-'Killer Bio':['Cold aim. Calm mind.','One move ahead.','Precision over noise.'],
-'Royal Bio':['Crown earned, never borrowed.','Royal mindset • humble heart'],
-'Stylish Bio':['✦ Play your style ✦','亗 Make every match count 亗'],
-'Custom Bio':['Your story. Your style.','Write your own legend.']
-};
-let currentBio='';
-$('genBio').addEventListener('click',()=>{
-const type=$('bioType').value;
-const name=$('bioName').value.trim();
-const custom=$('bioCustom').value.trim();
-const arr=bios[type];
-let b=arr[Math.floor(Math.random()*arr.length)];
-if(name)b=name+' • '+b;
-if(type==='Custom Bio'&&custom)b=custom+(name?' | '+name:'');
-currentBio=b;
-$('bioResult').textContent=b;
-});
-$('copyBio').addEventListener('click',()=>{
-copyText(currentBio||$('bioResult').textContent);
-});
-
-// Symbols Library
-const symbolSets={
-Royal:['♛','♕','♚','♔','♜','♖','♝','♗','♞','♘','♟','亗','么','〆','卍','卐'],
-Stars:['★','☆','✦','✧','✩','✪','✫','✬','✭','✮','✯','✰','⟡','⋆','⁂'],
-Gaming:['⚡','☠','☯','♠','♣','♦','♥','ツ','彡','乂','メ','〄','۝','々','丶'],
-Decorations:['꧁','꧂','『','』','【','】','《','》','〈','〉','〘','〙','༒','࿐','࿇'],
-Arrows:['➤','➜','➳','➵','➸','➺','⇢','↠','↣','➽','➥','⬈','⬊','⬆','⬇']
-};
-const symbolCat=$('symbolCat');
-function renderSymbols(){
-const cat=symbolCat.value;
-const arr=cat==='All Symbols'?Object.values(symbolSets).flat():symbolSets[cat];
-const grid=$('symbolGrid');grid.innerHTML='';
-arr.forEach(s=>{
-const b=document.createElement('button');
-b.className='symbol';b.textContent=s;
-b.addEventListener('click',()=>copyText(s));
-grid.append(b);
-});
-}
-symbolCat.addEventListener('change',renderSymbols);
-renderSymbols();
 
 // Bio color codes
-const colorCodes=[
-['Red','#FF0000'],['Green','#00FF00'],['Blue','#0000FF'],
-['Yellow','#FFFF00'],['Pink','#FF69B4'],['Purple','#A020F0'],
-['Cyan','#00FFFF'],['White','#FFFFFF'],['Orange','#FFA500']
-];
-colorCodes.forEach(([name,code])=>{
-const card=document.createElement('div');card.className='color-item';
-const chip=document.createElement('div');chip.className='color-chip';
-chip.style.background=code;
-const title=document.createElement('b');title.textContent=name;
-const br=document.createElement('br');
-const c=document.createElement('code');c.textContent=code;
-const btn=document.createElement('button');btn.className='btn';
-btn.textContent='Copy';btn.style.marginTop='8px';
-btn.addEventListener('click',()=>copyText(code));
-card.append(chip,title,br,c,btn);
-$('colorGrid').append(card);
+let colors=["#FF0000","#00FF00","#0000FF","#FFFF00","#FF69B4","#A020F0","#00FFFF","#FFFFFF","#FFA500"];
+let colorList=document.getElementById("colorList");
+colors.forEach(c=>{
+let b=document.createElement("button");
+b.className="action";
+b.textContent=c;
+b.onclick=()=>navigator.clipboard.writeText(c);
+colorList.appendChild(b);
 });
 
-// Theme Selector
-const themes={
-pink:['#c76cff','#54d8ff','#ff62cf'],
-ice:['#65e6ff','#8b9dff','#d7faff'],
-gold:['#ffb52e','#ff6a35','#ffe27a'],
-emerald:['#40f0ad','#4de2ff','#a2ffcb']
-};
-document.querySelectorAll('[data-theme]').forEach(b=>
-b.addEventListener('click',()=>{
-const t=themes[b.dataset.theme];
-document.documentElement.style.setProperty('--a',t[0]);
-document.documentElement.style.setProperty('--b',t[1]);
-document.documentElement.style.setProperty('--c',t[2]);
-toast('Theme changed');
-})
-);
+// Theme selector
+function setTheme(a,b){
+document.documentElement.style.setProperty("--glow",a);
+document.body.style.background=
+"radial-gradient(circle at top,"+a+"44,#080622 70%)";
+}
 
-// Exact text copy tool
-$('copyCode').addEventListener('click',()=>{
-copyText($('codeText').value);
-});
-$('clearCode').addEventListener('click',()=>{
-$('codeInput').value='';
-$('codeText').value='';
-$('codeResult').textContent='Cleared.';
-toast('Text cleared');
-});
-$('codeText').addEventListener('input',()=>{
-$('codeResult').textContent='Ready to copy '+$('codeText').value.length+' characters.';
-});
+// Exact text copy
+function copyCode(){
+let text=document.getElementById("codeText").value;
+navigator.clipboard.writeText(text)
+.then(()=>document.getElementById("codeResult").textContent="Copied successfully!")
+.catch(()=>document.getElementById("codeResult").textContent="Copy manually: "+text);
+}
+function clearCode(){
+document.getElementById("codeInput").value="";
+document.getElementById("codeText").value="";
+document.getElementById("codeResult").textContent="Cleared.";
+}
 </script>
+
 </body>
-</html>
+                                        </html>
+  
