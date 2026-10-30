@@ -1,474 +1,273 @@
 
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b0a">
-<meta name="description" content="VG-SVEG PRO Free Fire Stylish Names, Bio, Symbols and Sensitivity Tools">
-<title>VG-SVEG PRO | Ultimate Gaming Tools</title>
+<title>VG-SVEG-PRO Gaming</title>
 
 <style>
-:root{
- --bg:#070a08;
- --panel:#101712;
- --green:#a3ff12;
- --green2:#49f59b;
- --border:#293a2d;
- --muted:#a3b1a6;
-}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
  margin:0;
- background:radial-gradient(ellipse at 50% -10%,#1a3b23 0%,#080d09 45%,#050706 100%);
- color:#f5fff6;
- font-family:system-ui,Arial,sans-serif;
- min-height:100vh;
-}
-button,input,select{font:inherit}
-header{
- padding:34px 15px 29px;
- text-align:center;
- background:linear-gradient(140deg,#132b19,#080c09 75%);
- border-bottom:1px solid var(--border);
-}
-.badge{
- display:inline-block;
- border:1px solid #507e36;
- border-radius:30px;
- color:var(--green);
- padding:7px 13px;
- font-size:11px;
- letter-spacing:2px;
- background:#17281a;
-}
-.logo{
- margin:15px 0 5px;
- font-size:clamp(34px,9vw,50px);
- font-weight:1000;
- letter-spacing:1px;
-}
-.logo span{
- color:var(--green);
- text-shadow:0 0 25px #a3ff1266;
-}
-header p{
- color:var(--muted);
- font-size:13px;
- line-height:1.7;
-}
-.hero-button{
- display:inline-block;
- margin-top:9px;
- padding:12px 19px;
- background:linear-gradient(100deg,var(--green),var(--green2));
- color:#081008;
- font-weight:900;
- text-decoration:none;
- border-radius:12px;
- box-shadow:0 0 22px #8cff1825;
-}
-nav{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:8px;
- padding:12px 7px;
- position:sticky;
- top:0;
- z-index:10;
- background:#080c0bee;
- backdrop-filter:blur(12px);
- border-bottom:1px solid var(--border);
-}
-nav a{
- text-decoration:none;
- color:#e8f4e9;
- background:#141e16;
- border:1px solid #2b3d2e;
- border-radius:10px;
- padding:9px 11px;
- font-size:12px;
-}
-nav a:hover{border-color:var(--green);color:var(--green)}
-main{width:min(760px,100%);margin:auto;padding:12px}
-section{
- margin:17px 0;
- padding:19px;
- border:1px solid var(--border);
- border-radius:19px;
- background:linear-gradient(145deg,#131c16,#0b100d);
- box-shadow:0 12px 32px #0004;
- scroll-margin-top:80px;
-}
-.section-heading{
- display:flex;
- align-items:center;
- gap:12px;
- margin-bottom:18px;
-}
-.number{
- display:grid;
- place-items:center;
- flex-shrink:0;
- width:45px;
- height:45px;
- border:1px solid #547b3c;
- border-radius:14px;
- background:linear-gradient(145deg,#263e27,#111a13);
- color:var(--green);
- font-size:20px;
- font-weight:900;
- box-shadow:0 0 18px #a3ff1210;
-}
-h2{font-size:19px;margin:0 0 5px}
-.subtitle{color:var(--muted);font-size:12px;line-height:1.6;margin:0}
-label{
- display:block;
- margin:13px 0 7px;
- font-size:13px;
- color:#dbe8dd;
-}
-input,select{
- width:100%;
- min-width:0;
- background:#080d09;
+ background:#050713;
  color:white;
- border:1px solid #344739;
- border-radius:11px;
- padding:13px;
- outline:none;
+ font-family:Arial,sans-serif;
+ text-align:center;
+ overflow-x:hidden;
 }
-input:focus,select:focus{
- border-color:var(--green);
- box-shadow:0 0 0 2px #a3ff1219;
+:root{--neon:#00eaff}
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ background:radial-gradient(circle,#17265c,#050713 70%);
 }
-.actions{
- display:flex;
- gap:9px;
- flex-wrap:wrap;
- margin-top:13px;
+header{padding:35px 10px}
+.logo{
+ font-size:clamp(32px,8vw,55px);
+ font-weight:1000;
+ color:var(--neon);
+ text-shadow:0 0 15px var(--neon),0 0 35px purple;
+ animation:glow 2s infinite alternate;
 }
+@keyframes glow{
+ from{filter:brightness(.8)}
+ to{filter:brightness(1.7)}
+}
+.card{
+ background:#101b35;
+ border:1px solid var(--neon);
+ border-radius:15px;
+ padding:18px;
+ margin:15px auto;
+ max-width:500px;
+ box-shadow:0 0 15px #00eaff33;
+ animation:appear 1s ease;
+}
+@keyframes appear{
+ from{opacity:0;transform:translateY(25px)}
+ to{opacity:1;transform:translateY(0)}
+}
+h2{color:var(--neon)}
 button{
+ background:var(--neon);
+ color:#00121a;
  border:0;
- border-radius:11px;
- padding:12px 14px;
- background:linear-gradient(100deg,var(--green),#79f55a);
- color:#10170b;
- font-weight:850;
- font-size:13px;
- transition:transform .15s,filter .15s;
+ padding:11px 15px;
+ margin:5px;
+ border-radius:9px;
+ font-weight:bold;
+ cursor:pointer;
 }
-button:active{transform:scale(.97)}
-button:hover{filter:brightness(1.08)}
-.actions button{flex:1}
-.secondary{
- background:#202c23;
- color:#eff8ef;
- border:1px solid #3b4d3d;
+button:hover{box-shadow:0 0 18px var(--neon)}
+input,select{
+ width:90%;
+ padding:12px;
+ margin:8px;
+ border-radius:8px;
+ border:1px solid var(--neon);
+ background:#050713;
+ color:white;
 }
-.results{display:grid;gap:9px;margin-top:14px}
-.item{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
- min-width:0;
- padding:11px 12px;
- background:#090e0b;
- border:1px solid #293a2d;
- border-radius:12px;
+a{
+ display:inline-block;
+ text-decoration:none;
+ padding:13px 18px;
+ margin:7px;
+ border-radius:10px;
+ color:white;
+ font-weight:bold;
 }
-.item span{
- min-width:0;
+.youtube{background:#ed1235}
+.telegram{background:#168aca}
+.output{
+ padding:12px;
+ margin:10px;
+ background:#050713;
+ border-radius:8px;
  overflow-wrap:anywhere;
- font-size:14px;
- line-height:1.5;
 }
-.item button{flex-shrink:0;padding:9px 12px}
-.empty{
- text-align:center;
- padding:14px 8px;
- color:var(--muted);
- font-size:13px;
- border:1px dashed #344739;
- border-radius:11px;
-}
-.grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px;
-}
-.note{
- color:var(--muted);
- font-size:12px;
- line-height:1.7;
- margin:13px 0 0;
-}
-footer{
- text-align:center;
- padding:28px 12px;
- border-top:1px solid var(--border);
- color:var(--muted);
- font-size:12px;
- line-height:1.9;
-}
-footer strong{color:var(--green)}
-@media(max-width:420px){
- main{padding:9px}
- section{padding:14px}
- .grid{gap:8px}
- .section-heading{gap:9px}
- .number{width:40px;height:40px}
- nav a{font-size:11px;padding:8px}
-}
+footer{padding:25px;color:#8da4bc}
 </style>
 </head>
 
 <body>
+
 <header>
- <div class="badge">✦ THE ULTIMATE GAMING ZONE ✦</div>
- <div class="logo">VG-<span>SVEG</span> PRO</div>
- <p>Stylish Names · Gaming Bio · Symbols · Sensitivity<br>अपनी गेमिंग पहचान को नया स्टाइल दो!</p>
- <a class="hero-button" href="#names">EXPLORE TOOLS ↓</a>
+<div class="logo">VG-SVEG-PRO</div>
+<p>🔥 FREE FIRE GAMING TOOLKIT 🔥</p>
+<p>BIGGER • BETTER • PRO</p>
 </header>
 
-<nav>
- <a href="#names">① Names</a>
- <a href="#bio">② Bio</a>
- <a href="#symbols">③ Symbols</a>
- <a href="#sensitivity">④ Sensi</a>
-</nav>
+<div class="card">
+<h2>🎵 Background Music</h2>
+<button onclick="music()">PLAY / PAUSE MUSIC</button>
+</div>
 
-<main>
+<div class="card">
+<h2>🌐 Our Social Channels</h2>
+<a class="youtube"
+href="https://www.youtube.com/@Karan_live_ffx"
+target="_blank">▶ Subscribe to YouTube</a>
 
-<!-- 1. STYLISH NAME GENERATOR -->
-<section id="names">
- <div class="section-heading">
-  <div class="number">01</div>
-  <div>
-   <h2>🔥 Stylish Name Generator</h2>
-   <p class="subtitle">अपने नाम को प्रो गेमर स्टाइल में बदलो</p>
-  </div>
- </div>
- <label for="nameInput">अपना नाम लिखें</label>
- <input id="nameInput" maxlength="24" placeholder="जैसे Karan, Samar, Pro">
- <div class="actions">
-  <button onclick="makeNames()">✦ Generate Names</button>
-  <button class="secondary" onclick="clearNames()">Clear</button>
- </div>
- <div id="nameResults" class="results">
-  <div class="empty">आपके स्टाइलिश नाम यहाँ दिखेंगे</div>
- </div>
-</section>
+<a class="telegram"
+href="https://t.me/vgsvegpro"
+target="_blank">✈ Join Telegram</a>
+</div>
 
-<!-- 2. STYLISH BIO -->
-<section id="bio">
- <div class="section-heading">
-  <div class="number">02</div>
-  <div>
-   <h2>✨ Stylish Gaming Bio</h2>
-   <p class="subtitle">अपनी प्रोफाइल के लिए बायो कॉपी करें</p>
-  </div>
- </div>
- <div id="bioResults" class="results"></div>
-</section>
+<div class="card">
+<h2>👑 Stylish Name Generator</h2>
+<input id="name" placeholder="Enter Your Name">
+<button onclick="names()">Generate Names</button>
+<div class="output" id="nameout"></div>
+</div>
 
-<!-- 3. SYMBOLS LIBRARY -->
-<section id="symbols">
- <div class="section-heading">
-  <div class="number">03</div>
-  <div>
-   <h2>⚡ Symbols Library</h2>
-   <p class="subtitle">अपने नाम को खास बनाने वाले सिंबल</p>
-  </div>
- </div>
- <div id="symbolResults" class="results"></div>
-</section>
+<div class="card">
+<h2>🎮 Gaming Bio</h2>
+<div id="bioout" class="output">
+亗 Born To Play • Built To Win 亗
+</div>
+<button onclick="copy('bioout')">Copy Bio</button>
+</div>
 
-<!-- 4. SENSITIVITY GENERATOR: ALWAYS LAST -->
-<section id="sensitivity">
- <div class="section-heading">
-  <div class="number">04</div>
-  <div>
-   <h2>🎯 Sensitivity Generator</h2>
-   <p class="subtitle">फोन और गेमिंग स्टाइल के लिए शुरुआती sensi सुझाव</p>
-  </div>
- </div>
+<div class="card">
+<h2>⚡ Symbols Library</h2>
+<div id="symbols"></div>
+</div>
 
- <div class="grid">
-  <div>
-   <label for="phone">फोन की क्षमता</label>
-   <select id="phone">
-    <option value="low">Low-end</option>
-    <option value="mid" selected>Mid-range</option>
-    <option value="high">High-end</option>
-   </select>
-  </div>
-  <div>
-   <label for="style">गेमिंग स्टाइल</label>
-   <select id="style">
-    <option value="rush">Rush</option>
-    <option value="headshot">Headshot</option>
-    <option value="balanced">Balanced</option>
-    <option value="sniper">Sniper</option>
-   </select>
-  </div>
-  <div>
-   <label for="fingers">Finger Setup</label>
-   <select id="fingers">
-    <option value="2">2 Finger</option>
-    <option value="3" selected>3 Finger</option>
-    <option value="4">4 Finger</option>
-   </select>
-  </div>
-  <div>
-   <label for="touch">Touch Feel</label>
-   <select id="touch">
-    <option value="slow">Slow</option>
-    <option value="normal" selected>Normal</option>
-    <option value="smooth">Smooth</option>
-   </select>
-  </div>
- </div>
+<div class="card">
+<h2>🌈 Bio Color Codes</h2>
+<input id="biotext" value="VG-SVEG-PRO">
+<input type="color" id="color" value="#00eaff">
+<div class="output" id="colorout"></div>
+<button onclick="copy('colorout')">Copy Color Bio</button>
+</div>
 
- <label for="dpi">DPI (वैकल्पिक)</label>
- <input id="dpi" type="number" min="200" max="800" placeholder="पता नहीं तो खाली छोड़ें">
+<div class="card">
+<h2>🎯 Sensitivity Generator</h2>
+<select id="device">
+<option value="190">Low End Device</option>
+<option value="180">Medium Device</option>
+<option value="170">High End Device</option>
+</select>
+<button onclick="sensitivity()">Generate</button>
+<div class="output" id="sensout"></div>
+</div>
 
- <div class="actions">
-  <button onclick="makeSensi()">🎯 Generate Sensi</button>
-  <button class="secondary" onclick="copySensi()">▣ Copy All</button>
- </div>
- <div id="sensiResults" class="results">
-  <div class="empty">सेटिंग बनाने के लिए Generate Sensi दबाएँ</div>
- </div>
- <p class="note">⚠️ ये अनुमानित शुरुआती सुझाव हैं, गारंटीड हेडशॉट सेटिंग नहीं। Training Ground में टेस्ट करके एडजस्ट करें। यह टूल गेम की सेटिंग अपने आप नहीं बदलता।</p>
-</section>
+<div class="card">
+<h2>🌍 Country Names</h2>
+<button onclick="country('India')">🇮🇳 India</button>
+<button onclick="country('Brazil')">🇧🇷 Brazil</button>
+<button onclick="country('Japan')">🇯🇵 Japan</button>
+<div class="output" id="countryout"></div>
+</div>
 
-</main>
+<div class="card">
+<h2>🎨 Neon Theme Selector</h2>
+<button onclick="theme('#00eaff')">Cyan</button>
+<button onclick="theme('#39ff88')">Green</button>
+<button onclick="theme('#bd39ff')">Purple</button>
+<button onclick="theme('#ff4fb8')">Pink</button>
+<button onclick="theme('#ffd447')">Yellow</button>
+</div>
 
 <footer>
- <strong>VG-SVEG PRO</strong><br>
- MADE FOR GAMERS 🎮<br>
- © 2026 · All Rights Reserved
+VG-SVEG-PRO © 2026<br>
+BIGGER • BETTER • PRO
 </footer>
 
 <script>
-function copyText(text,button){
- const old=button.textContent;
- function success(){
-  button.textContent="✓ Copied";
-  setTimeout(()=>button.textContent=old,1300);
- }
- if(navigator.clipboard && window.isSecureContext){
-  navigator.clipboard.writeText(text).then(success).catch(()=>fallbackCopy(text,success));
- }else{
-  fallbackCopy(text,success);
- }
+function copy(id){
+ let text=document.getElementById(id).innerText;
+ navigator.clipboard.writeText(text)
+ .then(()=>alert("Copied Successfully!"))
+ .catch(()=>alert("Copy not supported"));
 }
-function fallbackCopy(text,success){
- const area=document.createElement("textarea");
- area.value=text;
- area.style.position="fixed";
- area.style.left="-9999px";
- document.body.appendChild(area);
- area.select();
- let ok=false;
- try{ok=document.execCommand("copy")}catch(e){}
- area.remove();
- if(ok){success()}
- else{alert("कॉपी नहीं हुआ। टेक्स्ट को चुनकर कॉपी करें:\n"+text)}
+
+function names(){
+ let n=document.getElementById("name").value||"PLAYER";
+ let styles=[
+ "亗 "+n+" 亗",
+ "꧁༒"+n+"༒꧂",
+ "『"+n+"』",
+ "乂"+n+"乂",
+ "★彡"+n+"彡★",
+ "ツ"+n+"ツ"
+ ];
+ document.getElementById("nameout").innerHTML=
+ styles.map(x=>`<p>${x}
+ <button onclick="navigator.clipboard.writeText('${x.replace(/'/g,"\\'")}')">Copy</button></p>`).join("");
 }
-function addItem(container,text){
- const row=document.createElement("div");
- row.className="item";
- const span=document.createElement("span");
- span.textContent=text;
- const btn=document.createElement("button");
- btn.textContent="Copy";
- btn.onclick=()=>copyText(text,btn);
- row.append(span,btn);
- container.appendChild(row);
+
+let symbols=["亗","么","乂","ツ","彡","꧁","꧂","༒","★","♛","⚡","☠","࿐","々"];
+document.getElementById("symbols").innerHTML=
+ symbols.map(s=>`<button onclick="navigator.clipboard.writeText('${s}')">${s}</button>`).join("");
+
+function theme(c){
+ document.documentElement.style.setProperty("--neon",c);
 }
-function makeNames(){
- const name=document.getElementById("nameInput").value.trim();
- const out=document.getElementById("nameResults");
- out.replaceChildren();
- if(!name){
-  out.innerHTML='<div class="empty">पहले अपना नाम लिखें</div>';
+
+function sensitivity(){
+ let v=Number(document.getElementById("device").value);
+ document.getElementById("sensout").innerHTML=
+ `General: ${v}<br>
+ Red Dot: ${v-5}<br>
+ 2X Scope: ${v-15}<br>
+ 4X Scope: ${v-30}<br>
+ Sniper: 85<br>
+ Free Look: 150`;
+}
+
+function country(c){
+ let data={
+ India:["亗 INDIAN 亗","『DESI KING』","꧁BHARAT꧂"],
+ Brazil:["亗 BRASIL 亗","『SAMURAI BR』","꧁LENDÁRIO꧂"],
+ Japan:["亗 SAMURAI 亗","『NINJA』","꧁東京꧂"]
+ };
+ document.getElementById("countryout").innerText=data[c].join("\n");
+}
+
+let audio=null,playing=false,loop=null,step=0;
+function music(){
+ if(playing){
+  playing=false;
+  clearTimeout(loop);
   return;
  }
- [
-  "亗 "+name+" 亗",
-  "꧁༒"+name+"༒꧂",
-  "『"+name+"』",
-  "乂"+name+"乂",
-  "★彡"+name+"彡★",
-  "ツ "+name+" ツ",
-  "么"+name+"么",
-  "〆"+name+"〆",
-  "♛ "+name+" ♛",
-  "꧁ঔৣ☬"+name+"☬ঔৣ꧂",
-  "⚡"+name+"⚡",
-  "◥꧁"+name+"꧂◤"
- ].forEach(x=>addItem(out,x));
-}
-function clearNames(){
- document.getElementById("nameInput").value="";
- document.getElementById("nameResults").innerHTML='<div class="empty">आपके स्टाइलिश नाम यहाँ दिखेंगे</div>';
+ let AC=window.AudioContext||window.webkitAudioContext;
+ if(!AC){alert("Audio not supported");return}
+ audio=audio||new AC();
+ audio.resume();
+ playing=true;
+ let notes=[110,164,220,196,146,220,261,196];
+ function play(){
+  if(!playing)return;
+  let osc=audio.createOscillator();
+  let gain=audio.createGain();
+  osc.type="triangle";
+  osc.frequency.value=notes[step++%notes.length];
+  gain.gain.setValueAtTime(.08,audio.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.3);
+  osc.connect(gain);
+  gain.connect(audio.destination);
+  osc.start();
+  osc.stop(audio.currentTime+.3);
+  loop=setTimeout(play,350);
+ }
+ play();
 }
 
-[
- "亗 PRO PLAYER 亗",
- "⚡ BORN TO WIN ⚡",
- "♛ KING OF GAME ♛",
- "꧁༒ NO MERCY ༒꧂",
- "🔥 HEADSHOT KING 🔥",
- "ツ SILENT BUT DANGEROUS",
- "亗 DREAM BIG PLAY HARD 亗"
-].forEach(x=>addItem(document.getElementById("bioResults"),x));
-
-[
- "꧁༒☬༒꧂","亗","乂","么","〆","ツ","♛","★","彡",
- "『』","♡","࿐","☯","⚡","✓","✿","ঔৣ","☠","々","么"
-].forEach(x=>addItem(document.getElementById("symbolResults"),x));
-
-let lastSensi="";
-function makeSensi(){
- const phone=document.getElementById("phone").value;
- const style=document.getElementById("style").value;
- const touch=document.getElementById("touch").value;
- const fingers=Number(document.getElementById("fingers").value);
- const dpi=Number(document.getElementById("dpi").value);
- const base={
-  low:[175,165,155,140,55,125],
-  mid:[185,175,165,150,60,135],
-  high:[190,180,170,155,65,140]
- };
- let vals=[...base[phone]];
- if(style==="rush"){vals[0]+=10;vals[1]+=7;vals[2]+=4}
- if(style==="headshot"){vals[0]+=8;vals[1]+=5}
- if(style==="balanced"){vals[0]-=5;vals[1]-=3}
- if(style==="sniper"){vals[0]-=12;vals[1]-=10;vals[2]-=8;vals[3]-=12;vals[4]-=8}
- if(touch==="slow"){vals[0]+=5;vals[1]+=4}
- if(touch==="smooth"){vals[0]-=3;vals[1]-=2}
- if(fingers===2){vals[0]+=2}
- if(fingers===4){vals[0]-=2}
- if(dpi>=500 && dpi<=800){vals[0]-=5;vals[1]-=3}
- else if(dpi>=200 && dpi<350){vals[0]+=3;vals[1]+=2}
- vals=vals.map(v=>Math.max(0,Math.min(200,v)));
- const labels=["General","Red Dot","2x Scope","4x Scope","Sniper Scope","Free Look"];
- const out=document.getElementById("sensiResults");
- out.replaceChildren();
- lastSensi=labels.map((x,i)=>x+": "+vals[i]).join("\n");
- labels.forEach((x,i)=>addItem(out,x+": "+vals[i]));
+function updateColor(){
+ let c=document.getElementById("color").value;
+ let t=document.getElementById("biotext").value;
+ document.getElementById("colorout").innerText=
+ "["+c.substring(1).toUpperCase()+"]"+t;
 }
-function copySensi(){
- if(!lastSensi){makeSensi()}
- const btn=document.querySelector("#sensitivity .actions button:nth-child(2)");
- copyText(lastSensi,btn);
-}
+document.getElementById("color").oninput=updateColor;
+document.getElementById("biotext").oninput=updateColor;
+updateColor();
 </script>
 </body>
 </html>
