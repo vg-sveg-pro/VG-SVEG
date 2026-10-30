@@ -5,465 +5,422 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080812">
-<meta name="description" content="VG-SVEG PRO Free Fire Gaming Tools">
 <title>VG-SVEG PRO | Gaming Tools</title>
 
 <style>
 :root{
   --bg:#080812;
-  --panel:#111122;
-  --panel2:#17172d;
-  --text:#f5f5ff;
-  --muted:#a4a4bd;
-  --purple:#8b5cf6;
-  --blue:#38bdf8;
+  --card:#141426;
+  --card2:#1b1b32;
   --gold:#f5c76b;
-  --line:#292943;
+  --purple:#9867ff;
+  --blue:#38bdf8;
+  --white:#fff;
+  --muted:#aaaac1;
+  --border:#34344e;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   background:var(--bg);
-  color:var(--text);
+  color:var(--white);
   font-family:Arial,sans-serif;
-  min-height:100vh;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
 header{
-  position:sticky;top:0;z-index:20;
-  background:#090916ed;
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-  padding:15px 5%;
-  display:flex;align-items:center;
-  justify-content:space-between;gap:15px;
+  padding:17px 15px;
+  background:#10101f;
+  border-bottom:1px solid var(--border);
+  text-align:center;
 }
 .logo{
-  font-size:21px;font-weight:900;
-  letter-spacing:1px;
-  color:var(--gold);
+  font-size:24px;font-weight:900;
+  color:var(--gold);letter-spacing:2px;
 }
 .logo span{color:var(--blue)}
-.menu-btn{
-  background:var(--panel2);color:white;
-  border:1px solid var(--line);
-  padding:9px 13px;border-radius:9px;
-}
+.tagline{font-size:12px;color:var(--muted);margin-top:6px}
 nav{
-  display:flex;gap:7px;flex-wrap:wrap;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  max-width:650px;
+  margin:auto;
 }
 nav button{
-  border:0;background:transparent;color:var(--muted);
-  padding:9px 11px;border-radius:8px;
-  font-size:13px;
+  width:100%;
+  padding:14px;
+  background:linear-gradient(100deg,#19192e,#111121);
+  border:1px solid var(--border);
+  color:#ddd;
+  border-radius:11px;
+  text-align:left;
+  font-weight:bold;
+  font-size:14px;
 }
-nav button.active,nav button:hover{
-  color:white;background:#292044;
+nav button.active{
+  background:linear-gradient(100deg,#39285e,#192d48);
+  border-color:var(--gold);
+  color:var(--gold);
 }
-main{max-width:1150px;margin:auto;padding:25px 5% 60px}
-.page{display:none;animation:show .3s ease}
-.page.active{display:block}
-@keyframes show{
+main{
+  max-width:650px;
+  padding:15px;
+  margin:auto;
+}
+.page{display:none}
+.page.active{display:block;animation:fade .3s ease}
+@keyframes fade{
   from{opacity:0;transform:translateY(8px)}
   to{opacity:1;transform:translateY(0)}
 }
-h1{font-size:clamp(30px,6vw,55px);line-height:1.12}
-h2{font-size:25px;margin-bottom:10px}
-p{color:var(--muted);line-height:1.7}
-.eyebrow{
-  color:var(--gold);font-size:12px;
-  letter-spacing:3px;font-weight:bold;margin-bottom:13px;
-}
 .hero{
-  min-height:420px;padding:55px 35px;
-  border:1px solid #39305c;border-radius:25px;
+  padding:32px 20px;
+  border-radius:20px;
+  border:1px solid #514079;
   background:
-    radial-gradient(ellipse at 90% 10%,#56339a66,transparent 45%),
-    radial-gradient(ellipse at 5% 100%,#07598555,transparent 40%),
-    linear-gradient(135deg,#17142c,#0c1020);
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
+    radial-gradient(circle at top right,#603b9d88,transparent 50%),
+    linear-gradient(145deg,#19152f,#0e1729);
+  text-align:center;
 }
-.hero-content{max-width:650px;position:relative;z-index:1}
-.hero h1 span{
-  background:linear-gradient(90deg,var(--gold),#fff,var(--blue));
-  -webkit-background-clip:text;color:transparent;
+.hero small{color:var(--gold);letter-spacing:3px}
+.hero h1{font-size:34px;margin:17px 0}
+.hero h1 span{color:var(--blue)}
+.hero p{font-size:14px;line-height:1.7;color:var(--muted)}
+.heading{
+  font-size:25px;
+  margin:20px 0 8px;
 }
-.hero p{margin:18px 0 25px;max-width:540px}
-.btn{
-  border:0;padding:12px 19px;border-radius:10px;
-  color:#080812;font-weight:bold;
-  background:linear-gradient(110deg,var(--gold),#ffe7a7);
-}
-.btn.secondary{
-  background:#24243c;color:white;
-  border:1px solid #41415d;
-}
-.btn.blue{
-  background:linear-gradient(110deg,#38bdf8,#818cf8);
-}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.section-head{margin:30px 0 18px}
-.section-head p{margin-top:5px}
-.grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:15px;margin-top:20px;
+.description{
+  color:var(--muted);font-size:14px;
+  line-height:1.6;margin-bottom:18px;
 }
 .card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:16px;padding:20px;
-  transition:.2s;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:18px;
+  margin-bottom:13px;
 }
-.card:hover{transform:translateY(-3px);border-color:#62518e}
-.card h3{margin-bottom:8px}
-.card p{font-size:14px}
-.card-icon{
-  width:43px;height:43px;border-radius:12px;
+.option{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.icon{
+  min-width:43px;height:43px;
   display:grid;place-items:center;
-  font-size:21px;margin-bottom:15px;
-  background:#292044;color:var(--gold);
+  border-radius:12px;
+  background:#30234b;color:var(--gold);
+  font-size:21px;
 }
-.page-title{margin:10px 0 22px}
-.page-title p{margin-top:8px}
-.field{margin:15px 0}
-.field label{
-  display:block;color:#c7c7dc;
-  font-size:13px;margin-bottom:8px;
+.option h3{font-size:16px;margin-bottom:5px}
+.option p{font-size:12px;color:var(--muted)}
+.btn{
+  width:100%;padding:13px;
+  background:linear-gradient(100deg,var(--gold),#ffe4a1);
+  color:#17101f;border:0;
+  border-radius:10px;font-weight:bold;
+  margin-top:12px;
+}
+.btn.blue{
+  background:linear-gradient(100deg,#38bdf8,#818cf8);
+}
+.btn.dark{
+  background:#292943;color:white;
+  border:1px solid #50506d;
+}
+.field{margin:16px 0}
+label{
+  display:block;font-size:13px;
+  color:#d5d5e5;margin-bottom:8px;
 }
 input,select{
   width:100%;padding:13px;
   background:#090918;color:white;
-  border:1px solid #363650;border-radius:10px;
-  outline:none;
+  border:1px solid #41415e;
+  border-radius:9px;outline:none;
 }
 input:focus,select:focus{border-color:var(--purple)}
-.output{
-  background:#090918;border:1px dashed #514879;
-  border-radius:12px;padding:17px;
-  min-height:55px;overflow-wrap:anywhere;
-  margin:15px 0;color:#fff;
-}
-.tool-panel{
-  max-width:720px;margin:20px auto;
-  background:linear-gradient(145deg,#15152a,#0e1020);
-  border:1px solid var(--line);
-  padding:25px;border-radius:19px;
-}
-.range-row{
-  display:flex;justify-content:space-between;
-  gap:10px;margin:18px 0 7px;font-size:14px;
-}
 input[type=range]{padding:0;accent-color:var(--purple)}
-.sensitivity-result{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:12px;margin-top:20px;
+input[type=color]{height:48px;padding:4px}
+.output{
+  padding:15px;
+  background:#090918;
+  border:1px dashed #66518e;
+  border-radius:11px;
+  margin:12px 0;
+  overflow-wrap:anywhere;
+  line-height:1.6;
 }
-.stat{
-  padding:16px;border-radius:12px;
-  background:#1b1b32;border:1px solid #343451;
-}
-.stat strong{display:block;color:var(--gold);font-size:24px;margin-top:7px}
-.name-output{
-  font-size:21px;text-align:center;
-  color:var(--gold);letter-spacing:1px;
-}
-.bio-list{display:grid;gap:12px}
-.bio-item{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:16px;
-  background:#17172a;border-left:3px solid var(--purple);
+.copy-btn{
+  background:#30234b;
+  color:var(--gold);
+  border:1px solid #5a4781;
   border-radius:8px;
+  padding:9px 13px;
+  font-weight:bold;
+  margin-top:9px;
 }
-.bio-item p{color:white;font-size:14px;overflow-wrap:anywhere}
-.small-btn{
-  flex-shrink:0;background:#292044;color:white;
-  border:1px solid #55427f;padding:8px 11px;
-  border-radius:8px;font-size:12px;
+.result-item{
+  padding:14px;
+  background:#1c1c33;
+  border:1px solid var(--border);
+  border-radius:11px;
+  margin-top:11px;
 }
+.result-item .value{
+  color:var(--gold);
+  font-size:20px;
+  overflow-wrap:anywhere;
+}
+.result-item button{width:100%}
+.stat{
+  background:#1c1c33;
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:11px;
+  margin-top:10px;
+}
+.stat strong{
+  display:block;color:var(--gold);
+  font-size:24px;margin-top:7px;
+}
+.bio-item{
+  padding:15px;
+  background:linear-gradient(110deg,#1c1c35,#111122);
+  border-left:4px solid var(--purple);
+  border-radius:10px;
+  margin-bottom:11px;
+}
+.bio-item p{line-height:1.6;overflow-wrap:anywhere}
 .color-preview{
-  border-radius:15px;padding:28px 15px;
-  text-align:center;font-size:23px;font-weight:bold;
-  background:linear-gradient(90deg,#8b5cf6,#38bdf8);
-  margin:18px 0;overflow-wrap:anywhere;
+  padding:27px 12px;
+  border-radius:13px;
+  text-align:center;
+  font-size:22px;font-weight:bold;
+  margin:15px 0;
+  overflow-wrap:anywhere;
 }
-.color-inputs{
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+.symbol-btn{
+  display:block;width:100%;
+  padding:13px;
+  margin:9px 0;
+  color:var(--gold);
+  font-size:21px;
+  background:#1a1a30;
+  border:1px solid var(--border);
+  border-radius:10px;
 }
-input[type=color]{
-  height:48px;padding:4px;cursor:pointer;
-}
-.symbol-grid{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  gap:10px;margin-top:20px;
-}
-.symbol{
-  background:#17172c;border:1px solid #353550;
-  border-radius:10px;padding:15px 5px;
-  color:var(--gold);font-size:22px;
-}
-.symbol:hover{background:#30234b}
-.social-card{
-  padding:25px;border-radius:18px;
-  border:1px solid var(--line);
-  background:linear-gradient(135deg,#19172e,#101020);
-}
-.social-card.youtube{border-top:3px solid #ef4444}
-.social-card.telegram{border-top:3px solid #38bdf8}
-.social-card .big{font-size:35px;margin-bottom:15px}
-.social-card a{
-  display:inline-block;margin-top:15px;
-  text-decoration:none;color:#080812;
-  background:var(--gold);padding:11px 16px;
-  border-radius:9px;font-weight:bold;
+.social-link{
+  display:block;text-align:center;
+  padding:14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  color:#080812;
+  background:var(--gold);
+  margin-top:15px;
 }
 footer{
-  text-align:center;padding:25px;
-  color:#77778f;border-top:1px solid var(--line);
-  font-size:13px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  padding:25px 15px;
+  color:var(--muted);
+  font-size:12px;
 }
 .toast{
-  position:fixed;bottom:20px;left:50%;
+  display:none;position:fixed;
+  bottom:20px;left:50%;
   transform:translateX(-50%);
-  background:#24243c;border:1px solid #62518e;
-  padding:12px 20px;border-radius:10px;
-  display:none;z-index:50;
-}
-@media(max-width:760px){
-  header{flex-wrap:wrap}
-  nav{width:100%;display:none}
-  nav.open{display:flex}
-  nav button{flex:1 1 28%}
-  .grid{grid-template-columns:1fr 1fr}
-  .hero{padding:38px 22px;min-height:360px}
-}
-@media(max-width:480px){
-  main{padding:20px 4% 45px}
-  .grid{grid-template-columns:1fr}
-  .symbol-grid{grid-template-columns:repeat(4,1fr)}
-  .tool-panel{padding:17px}
-  .bio-item{align-items:flex-start}
+  background:#292943;
+  border:1px solid var(--gold);
+  color:white;padding:12px 20px;
+  border-radius:10px;z-index:99;
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="logo">VG-SVEG <span>PRO</span></div>
-  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
-  <nav id="nav">
-    <button class="active" data-page="home" onclick="showPage('home',this)">Home</button>
-    <button data-page="sensitivity" onclick="showPage('sensitivity',this)">Sensitivity</button>
-    <button data-page="names" onclick="showPage('names',this)">Names</button>
-    <button data-page="bio" onclick="showPage('bio',this)">Bio</button>
-    <button data-page="color" onclick="showPage('color',this)">Color Bio</button>
-    <button data-page="symbols" onclick="showPage('symbols',this)">Symbols</button>
-    <button data-page="social" onclick="showPage('social',this)">Social</button>
-  </nav>
+  <div class="tagline">ULTIMATE FREE FIRE GAMING TOOLS</div>
 </header>
+
+<nav>
+  <button class="active" onclick="showPage('home',this)">🏠 &nbsp; HOME</button>
+  <button onclick="showPage('sensitivity',this)">🎯 &nbsp; SENSITIVITY SETTINGS</button>
+  <button onclick="showPage('names',this)">⚡ &nbsp; STYLISH NAME GENERATOR</button>
+  <button onclick="showPage('bio',this)">✍️ &nbsp; BIO COLLECTION</button>
+  <button onclick="showPage('color',this)">🎨 &nbsp; COLOR BIO MAKER</button>
+  <button onclick="showPage('symbols',this)">✦ &nbsp; SYMBOL COLLECTION</button>
+  <button onclick="showPage('social',this)">🌐 &nbsp; SOCIAL LINKS</button>
+</nav>
 
 <main>
 
 <!-- HOME -->
 <section class="page active" id="home">
   <div class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">THE GAMING TOOLKIT</div>
-      <h1>LEVEL UP YOUR <span>GAME.</span></h1>
-      <p>Free Fire players ke liye stylish names, gaming sensitivity suggestions, bio aur useful symbols — sab ek hi jagah.</p>
-      <div class="actions">
-        <button class="btn" onclick="showPage('sensitivity')">Explore Tools →</button>
-        <button class="btn secondary" onclick="showPage('names')">Create Nickname</button>
-      </div>
-    </div>
+    <small>WELCOME TO VG-SVEG PRO</small>
+    <h1>LEVEL UP YOUR <span>GAME</span></h1>
+    <p>Free Fire players ke liye stylish names, sensitivity, bio, color bio aur symbols. Sabhi tools ek hi jagah!</p>
   </div>
 
-  <div class="section-head">
-    <h2>Gaming Tools</h2>
-    <p>Apne game ko apne style mein customize karo.</p>
-  </div>
+  <h2 class="heading">🔥 All Gaming Tools</h2>
+  <p class="description">Neeche apna favourite tool select karo.</p>
 
-  <div class="grid">
-    <div class="card" onclick="showPage('sensitivity')">
-      <div class="card-icon">🎯</div>
-      <h3>Sensitivity</h3>
-      <p>Device aur play style ke hisaab se starting settings.</p>
-    </div>
-    <div class="card" onclick="showPage('names')">
-      <div class="card-icon">⚡</div>
-      <h3>Name Studio</h3>
-      <p>Stylish gaming nicknames generate karo.</p>
-    </div>
-    <div class="card" onclick="showPage('bio')">
-      <div class="card-icon">✍️</div>
-      <h3>Bio Collection</h3>
-      <p>Profile ke liye attitude aur gaming bios.</p>
-    </div>
-    <div class="card" onclick="showPage('color')">
-      <div class="card-icon">🎨</div>
-      <h3>Color Bio</h3>
-      <p>Color codes ke saath apna bio design karo.</p>
-    </div>
-    <div class="card" onclick="showPage('symbols')">
-      <div class="card-icon">✦</div>
-      <h3>Symbols</h3>
-      <p>Names aur bios ke liye cool symbols.</p>
-    </div>
-    <div class="card" onclick="showPage('social')">
-      <div class="card-icon">🌐</div>
-      <h3>Connect</h3>
-      <p>VG-SVEG PRO ke social channels.</p>
-    </div>
+  <div class="card option" onclick="showPage('sensitivity')">
+    <div class="icon">🎯</div>
+    <div><h3>Sensitivity Settings</h3><p>Custom sensitivity suggestions</p></div>
+  </div>
+  <div class="card option" onclick="showPage('names')">
+    <div class="icon">⚡</div>
+    <div><h3>Name Generator</h3><p>Stylish gaming nicknames</p></div>
+  </div>
+  <div class="card option" onclick="showPage('bio')">
+    <div class="icon">✍️</div>
+    <div><h3>Bio Collection</h3><p>Attitude and gaming bios</p></div>
+  </div>
+  <div class="card option" onclick="showPage('color')">
+    <div class="icon">🎨</div>
+    <div><h3>Color Bio Maker</h3><p>Custom color bio preview</p></div>
+  </div>
+  <div class="card option" onclick="showPage('symbols')">
+    <div class="icon">✦</div>
+    <div><h3>Symbols Collection</h3><p>Cool symbols for names</p></div>
+  </div>
+  <div class="card option" onclick="showPage('social')">
+    <div class="icon">🌐</div>
+    <div><h3>Social Media</h3><p>Connect with VG-SVEG PRO</p></div>
   </div>
 </section>
 
 <!-- SENSITIVITY -->
 <section class="page" id="sensitivity">
-  <div class="page-title">
-    <div class="eyebrow">CONTROL CENTER / 01</div>
-    <h1>Sensitivity Setup</h1>
-    <p>Apne device ke liye ek starting sensitivity profile generate karo.</p>
-  </div>
-  <div class="tool-panel">
+  <h2 class="heading">🎯 Sensitivity Settings</h2>
+  <p class="description">Apne phone aur play style ke according starting settings banao.</p>
+  <div class="card">
     <div class="field">
-      <label>Device type</label>
+      <label>📱 Select Device</label>
       <select id="device">
-        <option value="0">Normal phone</option>
-        <option value="5">Gaming phone</option>
-        <option value="-5">Low-end phone</option>
+        <option value="0">Normal Phone</option>
+        <option value="5">Gaming Phone</option>
+        <option value="-5">Low End Phone</option>
         <option value="2">Tablet</option>
       </select>
     </div>
     <div class="field">
-      <label>Play style</label>
+      <label>🎮 Play Style</label>
       <select id="style">
         <option value="0">Balanced</option>
-        <option value="5">Fast drag / Headshot</option>
-        <option value="-5">Stable aim</option>
+        <option value="5">Fast Drag Headshot</option>
+        <option value="-5">Stable Aim</option>
       </select>
     </div>
     <div class="field">
-      <label>General preference: <span id="prefValue">50</span></label>
+      <label>⚙️ Sensitivity Preference: <span id="prefValue">50</span></label>
       <input type="range" min="1" max="100" value="50" id="preference"
-        oninput="document.getElementById('prefValue').textContent=this.value">
+       oninput="document.getElementById('prefValue').textContent=this.value">
     </div>
-    <button class="btn blue" onclick="generateSensitivity()">Generate Settings</button>
-    <div id="sensitivityOutput" class="sensitivity-result">
-      <div class="stat">General<strong>--</strong></div>
-      <div class="stat">Red Dot<strong>--</strong></div>
-      <div class="stat">2x Scope<strong>--</strong></div>
-      <div class="stat">4x Scope<strong>--</strong></div>
-      <div class="stat">Sniper Scope<strong>--</strong></div>
-      <div class="stat">Free Look<strong>--</strong></div>
-    </div>
-    <p style="font-size:12px;margin-top:15px">Note: Ye estimated starting values hain, guaranteed headshot settings nahi. Training Ground mein test karke adjust karein.</p>
+    <button class="btn blue" onclick="generateSensitivity()">GENERATE SETTINGS</button>
   </div>
+  <h3 class="heading">Your Settings</h3>
+  <div id="sensitivityOutput">
+    <div class="stat">General <strong>--</strong></div>
+    <div class="stat">Red Dot <strong>--</strong></div>
+    <div class="stat">2x Scope <strong>--</strong></div>
+    <div class="stat">4x Scope <strong>--</strong></div>
+    <div class="stat">Sniper Scope <strong>--</strong></div>
+    <div class="stat">Free Look <strong>--</strong></div>
+  </div>
+  <button class="btn dark" onclick="copySensitivity()">COPY ALL SETTINGS</button>
+  <p class="description" style="margin-top:12px">Note: Ye estimated starting values hain. Training Ground mein test karke apne hisaab se adjust karein.</p>
 </section>
 
 <!-- NAMES -->
 <section class="page" id="names">
-  <div class="page-title">
-    <div class="eyebrow">IDENTITY WORKSHOP / 02</div>
-    <h1>Name Studio</h1>
-    <p>Apni gaming identity ko ek stylish look do.</p>
-  </div>
-  <div class="tool-panel">
+  <h2 class="heading">⚡ Stylish Name Generator</h2>
+  <p class="description">Apna naam likho aur stylish nickname banao.</p>
+  <div class="card">
     <div class="field">
-      <label>Apna naam likho</label>
-      <input id="nameInput" maxlength="18" placeholder="Example: Karan">
+      <label>ENTER YOUR NAME</label>
+      <input id="nameInput" maxlength="18" placeholder="Example: KARAN">
     </div>
     <div class="field">
-      <label>Style select karo</label>
+      <label>SELECT STYLE</label>
       <select id="nameStyle">
-        <option value="0">Royal</option>
-        <option value="1">Killer</option>
-        <option value="2">Pro Player</option>
-        <option value="3">Minimal</option>
-        <option value="4">Dark</option>
+        <option value="0">Royal Style</option>
+        <option value="1">Killer Style</option>
+        <option value="2">Pro Player Style</option>
+        <option value="3">Minimal Style</option>
+        <option value="4">Dark Style</option>
       </select>
     </div>
-    <button class="btn" onclick="generateNames()">Generate Names</button>
-    <div id="nameResults"></div>
+    <button class="btn" onclick="generateNames()">GENERATE NAMES</button>
   </div>
+  <h3 class="heading">✨ Generated Names</h3>
+  <div id="nameResults"></div>
 </section>
 
 <!-- BIO -->
 <section class="page" id="bio">
-  <div class="page-title">
-    <div class="eyebrow">PROFILE COLLECTION / 03</div>
-    <h1>Bio Collection</h1>
-    <p>Apni profile ke liye ek perfect line choose karo.</p>
-  </div>
-  <div class="bio-list" id="bioList"></div>
+  <h2 class="heading">✍️ Bio Collection</h2>
+  <p class="description">Apni profile ke liye bio select karo. Har bio ke neeche Copy button hai.</p>
+  <div id="bioList"></div>
 </section>
 
 <!-- COLOR BIO -->
 <section class="page" id="color">
-  <div class="page-title">
-    <div class="eyebrow">CREATIVE LAB / 04</div>
-    <h1>Color Bio Maker</h1>
-    <p>Text aur color choose karke apna bio preview banao.</p>
-  </div>
-  <div class="tool-panel">
+  <h2 class="heading">🎨 Color Bio Maker</h2>
+  <p class="description">Apna text aur color select karke bio design karo.</p>
+  <div class="card">
     <div class="field">
-      <label>Bio text</label>
+      <label>ENTER BIO TEXT</label>
       <input id="colorText" maxlength="60" value="VG-SVEG PRO" oninput="updateColorBio()">
     </div>
-    <div class="color-inputs">
-      <div class="field">
-        <label>Start color</label>
-        <input type="color" id="colorOne" value="#8b5cf6" oninput="updateColorBio()">
-      </div>
-      <div class="field">
-        <label>End color</label>
-        <input type="color" id="colorTwo" value="#38bdf8" oninput="updateColorBio()">
-      </div>
+    <div class="field">
+      <label>SELECT FIRST COLOR</label>
+      <input type="color" id="colorOne" value="#8b5cf6" oninput="updateColorBio()">
     </div>
+    <div class="field">
+      <label>SELECT SECOND COLOR</label>
+      <input type="color" id="colorTwo" value="#38bdf8" oninput="updateColorBio()">
+    </div>
+    <h3>LIVE PREVIEW</h3>
     <div class="color-preview" id="colorPreview">VG-SVEG PRO</div>
-    <div class="output" id="colorCode">[color code] VG-SVEG PRO</div>
-    <button class="btn" onclick="copyColorBio()">Copy Bio</button>
-    <p style="font-size:12px;margin-top:13px">Preview is a visual guide. Game mein color-code support alag ho sakta hai.</p>
+    <div class="output" id="colorCode"></div>
+    <button class="btn" onclick="copyColorBio()">COPY COLOR BIO</button>
   </div>
+  <p class="description">Note: Preview visual hai. Game mein color code support game ke rules par depend karta hai.</p>
 </section>
 
 <!-- SYMBOLS -->
 <section class="page" id="symbols">
-  <div class="page-title">
-    <div class="eyebrow">SYMBOL LIBRARY / 05</div>
-    <h1>Symbol Vault</h1>
-    <p>Kisi bhi symbol par tap karo, wo copy ho jayega.</p>
-  </div>
+  <h2 class="heading">✦ Symbol Collection</h2>
+  <p class="description">Har symbol alag option mein hai. Symbol par tap karke copy karo.</p>
+  <div id="symbolList"></div>
   <div class="card">
-    <h3>Royal Symbols</h3>
-    <div class="symbol-grid" id="symbolGrid"></div>
-  </div>
-  <div class="card" style="margin-top:18px">
-    <h3>Your Selected Symbol</h3>
-    <div class="output" id="selectedSymbol">Yahan symbol dikhega</div>
-    <button class="btn secondary" onclick="copyText(document.getElementById('selectedSymbol').textContent)">Copy Selected</button>
+    <h3>YOUR SELECTED SYMBOL</h3>
+    <div class="output" id="selectedSymbol">Select any symbol above</div>
+    <button class="btn" onclick="copyText(document.getElementById('selectedSymbol').textContent)">COPY SELECTED SYMBOL</button>
   </div>
 </section>
 
 <!-- SOCIAL -->
 <section class="page" id="social">
-  <div class="page-title">
-    <div class="eyebrow">JOIN THE COMMUNITY / 06</div>
-    <h1>Stay Connected</h1>
-    <p>VG-SVEG PRO ke saath connected raho.</p>
+  <h2 class="heading">🌐 Social Media Links</h2>
+  <p class="description">VG-SVEG PRO ko follow aur join karo.</p>
+  <div class="card">
+    <div class="icon">▶️</div>
+    <h3>YouTube Channel</h3>
+    <p class="description">Gaming videos aur latest updates ke liye channel visit karo.</p>
+    <a class="social-link" href="https://www.youtube.com/@Karan_live_ffx" target="_blank" rel="noopener">VISIT YOUTUBE CHANNEL</a>
   </div>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-    <div class="social-card youtube">
-      <div class="big">▶️</div>
-      <h2>YouTube Channel</h2>
-      <p>Gaming videos aur latest updates ke liye channel visit karo.</p>
-      <a href="https://www.youtube.com/@Karan_live_ffx" target="_blank" rel="noopener">Visit YouTube →</a>
-    </div>
-    <div class="social-card telegram">
-      <div class="big">✈️</div>
-      <h2>Telegram Channel</h2>
-      <p>Community updates aur announcements ke liye join karo.</p>
-      <a href="https://t.me/vgsvegpro" target="_blank" rel="noopener">Join Telegram →</a>
-    </div>
+  <div class="card">
+    <div class="icon">✈️</div>
+    <h3>Telegram Channel</h3>
+    <p class="description">VG-SVEG PRO community se connect raho.</p>
+    <a class="social-link" href="https://t.me/vgsvegpro" target="_blank" rel="noopener">JOIN TELEGRAM CHANNEL</a>
   </div>
 </section>
 
@@ -471,42 +428,43 @@ footer{
 
 <footer>
   <div class="logo">VG-SVEG <span>PRO</span></div>
-  <p style="margin-top:8px">Made for gamers. Play smart. Play stylish.</p>
+  <p style="margin-top:10px">Made for Free Fire Gamers</p>
   <p style="margin-top:8px">© <span id="year"></span> VG-SVEG PRO</p>
 </footer>
 
-<div class="toast" id="toast">Copied successfully!</div>
+<div class="toast" id="toast">Copied Successfully!</div>
 
 <script>
-const $ = id => document.getElementById(id);
+const $=id=>document.getElementById(id);
 
-function showPage(page,btn){
+function showPage(id,button){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  $(page).classList.add('active');
+  $(id).classList.add('active');
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  const activeBtn=btn || document.querySelector('nav button[data-page="'+page+'"]');
-  if(activeBtn) activeBtn.classList.add('active');
-  $('nav').classList.remove('open');
+  if(button) button.classList.add('active');
+  else{
+    const buttons=[...document.querySelectorAll('nav button')];
+    const index=['home','sensitivity','names','bio','color','symbols','social'].indexOf(id);
+    if(buttons[index])buttons[index].classList.add('active');
+  }
   window.scrollTo({top:0,behavior:'smooth'});
-}
-function toggleMenu(){
-  $('nav').classList.toggle('open');
 }
 
 let toastTimer;
-function notify(message){
-  $('toast').textContent=message;
+function notify(msg){
+  $('toast').textContent=msg;
   $('toast').style.display='block';
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>$('toast').style.display='none',1800);
 }
+
 async function copyText(value){
-  if(!value || value==='Yahan symbol dikhega'){
+  if(!value || value==='Select any symbol above'){
     notify('Pehle content select karo');return;
   }
   try{
     await navigator.clipboard.writeText(value);
-    notify('Copied successfully!');
+    notify('Copied Successfully!');
   }catch(e){
     const area=document.createElement('textarea');
     area.value=value;
@@ -514,57 +472,65 @@ async function copyText(value){
     area.select();
     try{
       document.execCommand('copy');
-      notify('Copied successfully!');
-    }catch(err){notify('Copy nahi hua, manually select karo');}
+      notify('Copied Successfully!');
+    }catch(err){notify('Copy failed');}
     area.remove();
   }
 }
 
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
 /* Sensitivity */
+let lastSettings='';
 function generateSensitivity(){
   const base=Number($('preference').value);
   const device=Number($('device').value);
   const style=Number($('style').value);
   const general=Math.max(1,Math.min(200,Math.round(80+base*.75+device+style)));
-  const values=[
-    general,
-    general-8,
-    general-18,
-    general-28,
-    general-42,
-    general-5
-  ].map(v=>Math.max(1,Math.min(200,v)));
   const labels=['General','Red Dot','2x Scope','4x Scope','Sniper Scope','Free Look'];
-  $('sensitivityOutput').innerHTML=labels.map((label,i)=>
-    `<div class="stat">${label}<strong>${values[i]}</strong></div>`
+  const values=[
+    general,general-8,general-18,
+    general-28,general-42,general-5
+  ].map(v=>Math.max(1,Math.min(200,v)));
+  lastSettings=labels.map((l,i)=>l+': '+values[i]).join('\n');
+  $('sensitivityOutput').innerHTML=labels.map((l,i)=>
+    `<div class="stat">${l}<strong>${values[i]}</strong></div>`
   ).join('');
+}
+function copySensitivity(){
+  if(!lastSettings){notify('Pehle settings generate karo');return;}
+  copyText(lastSettings);
 }
 
 /* Name generator */
-const nameStyles=[
+const styles=[
   ['亗','么','乂','ツ','々','〆'],
   ['☠','乂','メ','⚡','亗','〆'],
   ['ᴾᴿᴼ','᭄','么','★','乂','ツ'],
   ['•','_','×','々','〆',''],
-  ['꧁','』','༒','『','꧂','']
+  ['꧁','꧂','༒','『','』','']
 ];
 function generateNames(){
-  const raw=$('nameInput').value.trim();
-  if(!raw){notify('Pehle naam likho');return;}
-  const style=Number($('nameStyle').value);
-  const s=nameStyles[style];
+  const name=$('nameInput').value.trim();
+  if(!name){notify('Pehle apna naam likho');return;}
+  const s=styles[Number($('nameStyle').value)];
   const results=[
-    s[0]+raw+s[1],
-    s[2]+raw+s[3],
-    s[4]+raw+s[5],
-    raw+'々PRO',
-    '『'+raw+'』'
+    s[0]+name+s[1],
+    s[2]+name+s[3],
+    s[4]+name+s[5],
+    '『'+name+'』',
+    '亗'+name+'々PRO'
   ];
-  $('nameResults').innerHTML='<h3 style="margin-top:22px">Generated Names</h3>'+
-    results.map(name=>`<div class="output name-output">${escapeHTML(name)} <button class="small-btn" onclick="copyText(this.parentElement.firstChild.textContent.trim())">Copy</button></div>`).join('');
-}
-function escapeHTML(str){
-  return str.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  $('nameResults').innerHTML=results.map(n=>
+    `<div class="result-item">
+      <div class="value">${escapeHTML(n)}</div>
+      <button class="copy-btn" onclick="copyText(this.parentElement.querySelector('.value').textContent)">COPY NAME</button>
+    </div>`
+  ).join('');
 }
 
 /* Bio collection */
@@ -578,20 +544,28 @@ const bios=[
   '🎮 Eat. Sleep. Game. Repeat.',
   '🏆 Focus on the goal, not the noise.',
   '✨ Creating my own legacy.',
-  '⚔️ Legends never chase attention.'
+  '⚔️ Legends never chase attention.',
+  '🥷 My silence is my power.',
+  '💎 Different mindset, different level.',
+  '🚀 Dream big, play bigger.',
+  '👑 Respect is earned, not demanded.',
+  '⚡ No luck, only hard work.'
 ];
 $('bioList').innerHTML=bios.map(b=>
-  `<div class="bio-item"><p>${escapeHTML(b)}</p><button class="small-btn" onclick="copyText(${JSON.stringify(b).replace(/</g,'\\u003c')})">Copy</button></div>`
+  `<div class="bio-item">
+    <p>${escapeHTML(b)}</p>
+    <button class="copy-btn" onclick="copyText(this.parentElement.querySelector('p').textContent)">COPY BIO</button>
+  </div>`
 ).join('');
 
 /* Color bio */
 function updateColorBio(){
-  const text=$('colorText').value || 'Your Bio';
+  const text=$('colorText').value||'Your Bio';
   const c1=$('colorOne').value;
   const c2=$('colorTwo').value;
   $('colorPreview').textContent=text;
   $('colorPreview').style.background=`linear-gradient(90deg,${c1},${c2})`;
-  $('colorCode').textContent=`${c1} → ${c2} | ${text}`;
+  $('colorCode').textContent=`${c1} → ${c2}\n${text}`;
 }
 function copyColorBio(){
   copyText($('colorCode').textContent);
@@ -603,16 +577,16 @@ const symbols=[
   '⚡','☠','༒','꧁','꧂','『','』','彡','メ','×',
   '♠','♣','♦','♥','➤','➳','✦','✧','𖤍','♚'
 ];
-$('symbolGrid').innerHTML=symbols.map(s=>
-  `<button class="symbol" onclick="selectSymbol('${s}')">${s}</button>`
+$('symbolList').innerHTML=symbols.map((s,i)=>
+  `<div class="result-item">
+    <div class="value">${s}</div>
+    <button class="copy-btn" onclick="copyText('${s}')">COPY SYMBOL</button>
+  </div>`
 ).join('');
-function selectSymbol(symbol){
-  $('selectedSymbol').textContent=symbol;
-  copyText(symbol);
-}
 
 $('year').textContent=new Date().getFullYear();
 updateColorBio();
 </script>
 </body>
-</html>
+  </html>
+                                                                         
