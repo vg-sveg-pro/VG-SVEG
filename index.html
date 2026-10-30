@@ -4,744 +4,924 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080a12">
-<meta name="description" content="VG-SVEG PRO Free Fire Gaming Tools">
-<title>VG-SVEG PRO | Ultimate Gaming Tools</title>
+<meta name="theme-color" content="#090d18">
+<title>VG-SVEG PRO | 3D Gaming Tools</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 :root{
- --bg:#080a12;
- --panel:#111522;
- --panel2:#171d2c;
- --gold:#f5c76b;
- --purple:#8b5cf6;
- --blue:#38bdf8;
- --text:#f5f5ff;
- --muted:#a4abc0;
- --border:#2b3448;
+  --bg:#090d18;
+  --card:#131b2b;
+  --card2:#19243a;
+  --white:#f5f7ff;
+  --muted:#91a0ba;
+  --blue:#64b5ff;
+  --purple:#a58bff;
+  --gold:#ffce78;
+  --green:#65e5b0;
+  --border:rgba(255,255,255,.09);
 }
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- background:var(--bg);
- color:var(--text);
- font-family:Arial,sans-serif;
+  font-family:Poppins,sans-serif;
+  color:var(--white);
+  background:
+  radial-gradient(ellipse at 15% 5%,rgba(75,114,210,.18),transparent 35%),
+  radial-gradient(ellipse at 90% 30%,rgba(142,93,210,.15),transparent 35%),
+  radial-gradient(ellipse at 50% 90%,rgba(42,143,155,.12),transparent 40%),
+  var(--bg);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 button,input,select{font:inherit}
 button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+/* Background */
+.background-orb{
+  position:fixed;
+  width:250px;height:250px;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:.16;
+  pointer-events:none;
+  z-index:-1;
+  animation:float 9s ease-in-out infinite alternate;
+}
+.orb1{background:#477cff;top:10%;left:-120px}
+.orb2{background:#a66aff;right:-120px;top:55%;animation-delay:2s}
+.orb3{background:#37c9b2;bottom:-150px;left:35%;animation-delay:4s}
+@keyframes float{
+  to{transform:translate(50px,-60px) scale(1.3)}
+}
+
+/* Header */
 header{
- position:sticky;top:0;z-index:50;
- padding:15px 5%;
- display:flex;align-items:center;
- justify-content:space-between;gap:12px;
- background:#090c15ed;
- backdrop-filter:blur(15px);
- border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
+  background:rgba(9,13,24,.83);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  max-width:1150px;margin:auto;
+  padding:13px 18px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:12px;
 }
 .logo{
- font-size:22px;font-weight:900;
- letter-spacing:1px;color:var(--gold);
+  font-family:Rajdhani,sans-serif;
+  font-size:25px;font-weight:800;
+  letter-spacing:1px;
 }
 .logo span{color:var(--blue)}
-.menu-toggle{
- padding:10px 14px;border-radius:9px;
- color:white;background:#1b2031;
- border:1px solid var(--border);
+.menu-btn{
+  background:var(--card2);
+  border:1px solid var(--border);
+  color:white;padding:9px 13px;
+  border-radius:12px;
 }
-nav{
- display:flex;gap:7px;flex-wrap:wrap;
+.navlinks{
+  display:flex;gap:7px;flex-wrap:wrap;
 }
-nav button{
- background:transparent;color:var(--muted);
- border:1px solid transparent;
- padding:9px 11px;border-radius:8px;
- font-size:12px;font-weight:bold;
+.navlinks a{
+  font-size:12px;color:#bdc9dc;
+  padding:8px 11px;border-radius:10px;
+  transition:.25s;
 }
-nav button.active,nav button:hover{
- background:#28213e;color:var(--gold);
- border-color:#57447a;
+.navlinks a:hover{
+  background:#273651;color:white;
 }
-main{max-width:1100px;margin:auto;padding:25px 5% 55px}
-.page{display:none;animation:appear .3s ease}
-.page.active{display:block}
-@keyframes appear{
- from{opacity:0;transform:translateY(8px)}
- to{opacity:1;transform:translateY(0)}
-}
+
+/* Hero */
+.container{max-width:1050px;margin:auto;padding:20px 15px}
 .hero{
- min-height:390px;padding:48px 28px;
- display:flex;align-items:center;
- border:1px solid #514079;border-radius:23px;
- background:
- radial-gradient(circle at 90% 10%,#7442b466,transparent 40%),
- radial-gradient(circle at 5% 100%,#07598555,transparent 40%),
- linear-gradient(135deg,#1b1732,#0d1727);
+  margin-top:20px;
+  min-height:280px;
+  padding:32px 22px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:27px;
+  position:relative;overflow:hidden;
+  background:
+  linear-gradient(120deg,rgba(35,56,91,.96),rgba(24,30,57,.93) 55%,rgba(63,48,91,.8));
+  box-shadow:0 25px 70px rgba(0,0,0,.35),
+  inset 0 1px 1px rgba(255,255,255,.12);
 }
-.hero-content{max-width:650px}
-.eyebrow{
- color:var(--gold);font-size:11px;
- letter-spacing:3px;font-weight:bold;
- margin-bottom:14px;
+.hero:before{
+  content:"";position:absolute;
+  width:230px;height:230px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;right:-45px;top:-65px;
+  box-shadow:0 0 0 25px rgba(255,255,255,.025),
+  0 0 0 55px rgba(255,255,255,.02);
+}
+.hero-tag{
+  display:inline-block;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.12);
+  padding:7px 13px;border-radius:30px;
+  font-size:11px;letter-spacing:1px;
+  color:#b9d8ff;
 }
 .hero h1{
- font-size:clamp(32px,6vw,58px);
- line-height:1.1;
+  font-family:Rajdhani,sans-serif;
+  font-size:clamp(36px,8vw,62px);
+  line-height:1.05;margin:17px 0 10px;
+  font-weight:800;
 }
 .hero h1 span{
- color:var(--blue);
+  background:linear-gradient(90deg,#86caff,#c6a7ff,#ffdb9b);
+  -webkit-background-clip:text;
+  color:transparent;
 }
-.hero p{
- color:var(--muted);line-height:1.8;
- margin:16px 0 23px;max-width:540px;
-}
+.hero p{color:#bdc9dc;font-size:13px;max-width:520px;line-height:1.8}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
 .btn{
- border:0;border-radius:10px;
- padding:13px 18px;font-weight:bold;
- background:linear-gradient(110deg,var(--gold),#ffe5a2);
- color:#15101e;
+  border:0;padding:12px 19px;
+  border-radius:12px;font-weight:700;
+  font-size:12px;transition:.25s;
 }
-.btn.blue{
- background:linear-gradient(110deg,#38bdf8,#818cf8);
+.btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.primary{
+  background:linear-gradient(120deg,#69baff,#927aff);
+  color:#101729;
+  box-shadow:0 8px 22px rgba(91,145,255,.25);
 }
-.btn.dark{
- background:#252b40;color:white;
- border:1px solid #46516c;
+.secondary{
+  color:white;background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
 }
-.btn.full{width:100%;margin-top:12px}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.section-title{margin:30px 0 16px}
-.section-title h2{font-size:25px}
-.section-title p{
- color:var(--muted);font-size:13px;
- margin-top:7px;line-height:1.6;
-}
-.grid{display:grid;grid-template-columns:1fr;gap:13px}
-.card{
- padding:19px;border:1px solid var(--border);
- border-radius:15px;background:var(--panel);
- margin-bottom:13px;
- transition:.2s;
-}
-.card:hover{border-color:#62518e}
-.tool-card{
- display:flex;gap:14px;align-items:center;
- cursor:pointer;
- background:linear-gradient(110deg,#171b2b,#111522);
-}
-.tool-icon{
- min-width:45px;height:45px;
- display:grid;place-items:center;
- border-radius:12px;background:#292343;
- color:var(--gold);font-size:22px;
-}
-.tool-card h3{font-size:16px;margin-bottom:5px}
-.tool-card p{color:var(--muted);font-size:12px}
-.arrow{margin-left:auto;color:var(--gold);font-size:20px}
-.page-head{margin:10px 0 22px}
-.page-head h1{font-size:clamp(28px,5vw,40px)}
-.page-head p{
- color:var(--muted);font-size:14px;
- line-height:1.7;margin-top:8px;
-}
-.field{margin:16px 0}
-.field label{
- display:block;font-size:13px;
- color:#d7d8e7;margin-bottom:8px;
-}
-input,select,textarea{
- width:100%;padding:13px;
- background:#090d17;color:white;
- border:1px solid #3a4359;
- border-radius:10px;outline:none;
-}
-input:focus,select:focus,textarea:focus{
- border-color:var(--purple);
-}
-input[type=range]{
- padding:0;accent-color:var(--purple);
- cursor:pointer;
-}
-input[type=color]{
- height:48px;padding:4px;cursor:pointer;
-}
-.output{
- padding:15px;background:#090d17;
- border:1px dashed #5c4b83;
- border-radius:11px;margin:12px 0;
- overflow-wrap:anywhere;line-height:1.6;
-}
-.copy-btn{
- background:#302544;color:var(--gold);
- border:1px solid #604d83;
- border-radius:8px;padding:9px 13px;
- font-size:12px;font-weight:bold;
- margin-top:10px;
-}
-.result-item{
- background:#171d2d;
- border:1px solid var(--border);
- border-radius:11px;padding:15px;
- margin:11px 0;
-}
-.result-value{
- font-size:20px;color:var(--gold);
- overflow-wrap:anywhere;
-}
-.preset{
- width:100%;padding:14px;
- text-align:left;margin:6px 0;
- border-radius:10px;
- background:#1a2030;color:#ddd;
- border:1px solid #3b465e;
-}
-.preset.active{
- background:#332849;color:var(--gold);
- border-color:var(--gold);
-}
-.preset small{
- display:block;color:var(--muted);
- margin-top:5px;font-weight:normal;
-}
-.slider-box{
- background:#1a2030;border:1px solid #354056;
- border-radius:11px;padding:14px;margin:11px 0;
-}
-.slider-top{
- display:flex;justify-content:space-between;
- align-items:center;gap:10px;margin-bottom:13px;
-}
-.slider-top label{font-size:14px;font-weight:bold}
-.slider-value{color:var(--gold);font-size:20px;font-weight:bold}
-.slider-scale{
- display:flex;justify-content:space-between;
- color:#929bb0;font-size:10px;margin-top:8px;
-}
+
+/* Stats */
 .stats{
- background:linear-gradient(135deg,#252044,#14283a);
- border:1px solid #514a7c;border-radius:14px;
- padding:17px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;margin:16px 0 28px;
 }
-.stat-row{
- display:flex;justify-content:space-between;
- padding:12px 0;border-bottom:1px solid #ffffff18;
+.stat{
+  padding:15px 8px;text-align:center;
+  background:rgba(23,34,54,.8);
+  border:1px solid var(--border);
+  border-radius:16px;
 }
-.stat-row:last-child{border:0}
-.stat-row span{color:#c3c7d8}
-.stat-row strong{font-size:19px;color:var(--gold)}
-.bio-item{
- background:linear-gradient(110deg,#1a1e30,#121725);
- border-left:4px solid var(--purple);
- border-radius:10px;padding:15px;margin-bottom:11px;
+.stat strong{display:block;font-size:19px;color:#9acbff}
+.stat span{font-size:10px;color:var(--muted)}
+
+/* Sections */
+.section{margin:30px 0;scroll-margin-top:85px}
+.section-title{
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:16px;
 }
-.bio-item p{line-height:1.6}
-.bio-item button{width:100%}
-.color-preview{
- padding:28px 12px;border-radius:14px;
- text-align:center;font-size:23px;
- font-weight:bold;margin:17px 0;
- overflow-wrap:anywhere;
+.section-icon{
+  width:42px;height:42px;
+  display:grid;place-items:center;
+  background:linear-gradient(140deg,#304d79,#29304f);
+  border:1px solid var(--border);
+  border-radius:13px;font-size:20px;
+  box-shadow:0 7px 18px rgba(0,0,0,.2);
 }
-.symbol-item{
- padding:14px;background:#181e2d;
- border:1px solid var(--border);
- border-radius:10px;margin:9px 0;
- display:flex;align-items:center;
- justify-content:space-between;
+.section-title h2{
+  font-family:Rajdhani,sans-serif;
+  font-size:25px;line-height:1.1;
 }
-.symbol-item strong{font-size:23px;color:var(--gold)}
-.social-card{
- padding:23px;border-radius:17px;
- background:linear-gradient(135deg,#1a2030,#111522);
- border:1px solid var(--border);
- margin-bottom:15px;
+.section-title p{font-size:10px;color:var(--muted);margin-top:3px}
+
+.card{
+  background:linear-gradient(145deg,rgba(26,39,62,.95),rgba(15,23,39,.96));
+  border:1px solid var(--border);
+  border-radius:21px;padding:19px;
+  box-shadow:0 14px 35px rgba(0,0,0,.23),
+  inset 0 1px rgba(255,255,255,.055);
+  transition:.3s;
 }
-.social-card.youtube{border-top:3px solid #ef4444}
-.social-card.telegram{border-top:3px solid #38bdf8}
-.social-card .big{font-size:34px;margin-bottom:13px}
-.social-link{
- display:block;text-align:center;
- padding:13px;border-radius:10px;
- background:var(--gold);color:#111;
- text-decoration:none;font-weight:bold;
- margin-top:16px;
+.card:hover{
+  border-color:rgba(132,176,255,.3);
+  transform:translateY(-2px);
 }
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{
+  display:block;color:#bdc9dc;
+  font-size:11px;font-weight:600;
+  margin:0 0 7px;
+}
+input,select{
+  width:100%;padding:12px;
+  background:#0d1525;
+  color:white;border:1px solid #34415a;
+  border-radius:11px;outline:none;
+  font-size:12px;
+}
+input:focus,select:focus{border-color:#80baff}
+select option{background:#111c30;color:white}
+.field{margin-bottom:14px}
+.full{grid-column:1/-1}
+.result{
+  margin-top:15px;padding:14px;
+  background:#0c1423;border:1px solid var(--border);
+  border-radius:13px;display:none;
+}
+.result.show{display:block}
+.result-item{
+  padding:11px 0;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;
+  align-items:center;gap:10px;
+}
+.result-item:last-child{border:0}
+.result-item span{font-size:11px;color:#aebbd0}
+.result-item strong{font-size:13px;color:#a8d4ff}
+.copy-btn{
+  padding:7px 10px;border-radius:8px;
+  border:1px solid #435879;
+  color:#b9d8ff;background:#1b2b43;
+  font-size:10px;
+}
+.small-note{font-size:10px;color:var(--muted);line-height:1.7;margin-top:10px}
+
+/* Name and bio options */
+.preset-list{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.preset{
+  padding:8px 12px;border:1px solid var(--border);
+  background:#111c30;color:#cbd7ea;
+  border-radius:9px;font-size:10px;
+}
+.preset.active{background:#304d79;color:white;border-color:#81baff}
+.output{
+  padding:14px;margin-top:13px;
+  background:#0a1220;border:1px dashed #4c6384;
+  border-radius:12px;word-break:break-word;
+  font-size:14px;line-height:1.8;
+}
+.symbols{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:8px;margin-top:12px;
+}
+.symbol{
+  padding:13px 5px;background:#0d1728;
+  border:1px solid var(--border);
+  border-radius:10px;color:white;
+  font-size:19px;transition:.2s;
+}
+.symbol:hover{background:#30466c;transform:scale(1.05)}
+
+/* Sensitivity */
+.sensi-header{
+  padding:17px;border-radius:16px;
+  background:linear-gradient(120deg,#273e65,#3c3262);
+  margin-bottom:17px;border:1px solid var(--border);
+}
+.sensi-header h3{font-family:Rajdhani;font-size:24px}
+.sensi-header p{font-size:10px;color:#c4d2e8;margin-top:5px}
+.range-line{display:flex;justify-content:space-between;align-items:center}
+.range-line output{color:#9ecbff;font-weight:700;font-size:12px}
+input[type=range]{padding:0;accent-color:#8dbdff}
+.sensi-results{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-top:16px;
+}
+.sensi-value{
+  padding:14px;background:#0b1526;
+  border:1px solid #354760;border-radius:13px;
+}
+.sensi-value span{font-size:10px;color:#9baac2}
+.sensi-value strong{
+  display:block;font-family:Rajdhani;
+  font-size:28px;color:#a8d4ff;margin-top:4px;
+}
+.sensi-value small{font-size:9px;color:#71849f}
+
+/* Music */
+.music-card{
+  background:linear-gradient(130deg,#283b60,#282d4d);
+  border-radius:18px;padding:20px;
+  border:1px solid var(--border);
+}
+.music-row{display:flex;align-items:center;gap:14px}
+.album{
+  width:58px;height:58px;flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:15px;font-size:26px;
+  background:linear-gradient(140deg,#6f9edc,#a08bda);
+  box-shadow:0 8px 22px #101a33;
+}
+.music-info h3{font-size:13px}
+.music-info p{font-size:10px;color:#b6c6df;margin-top:4px}
+.music-controls{display:flex;gap:9px;margin-top:17px}
+.music-controls button{
+  padding:10px 16px;border-radius:10px;
+  border:1px solid var(--border);
+  background:#17253e;color:white;font-size:11px;
+}
+
+/* Social */
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.social{
+  padding:17px;border-radius:16px;
+  background:linear-gradient(140deg,#1c3151,#182238);
+  border:1px solid var(--border);
+}
+.social h3{font-size:13px}
+.social p{font-size:10px;color:var(--muted);margin:7px 0 12px}
+.social a{
+  display:inline-block;background:#304d79;
+  padding:9px 13px;border-radius:9px;font-size:10px;
+}
+
+/* Footer */
 footer{
- border-top:1px solid var(--border);
- padding:25px 15px;text-align:center;
- color:var(--muted);font-size:13px;
+  text-align:center;padding:28px 12px;
+  border-top:1px solid var(--border);
+  color:#8392aa;font-size:10px;line-height:2;
 }
+footer strong{color:#a7ceff}
 .toast{
- display:none;position:fixed;z-index:100;
- bottom:20px;left:50%;transform:translateX(-50%);
- background:#242b3d;color:white;
- border:1px solid var(--gold);
- padding:12px 20px;border-radius:10px;
+  position:fixed;bottom:20px;left:50%;
+  transform:translate(-50%,100px);
+  background:#d5e9ff;color:#0c1930;
+  padding:12px 20px;border-radius:12px;
+  font-size:12px;font-weight:700;
+  z-index:300;transition:.3s;
+  box-shadow:0 8px 25px #0008;
 }
-@media(max-width:760px){
- header{flex-wrap:wrap}
- nav{width:100%;display:none;flex-direction:column}
- nav.open{display:flex}
- nav button{text-align:left;width:100%;padding:12px}
- .hero{min-height:350px;padding:35px 20px}
- main{padding:20px 4% 45px}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:650px){
+  .nav{flex-wrap:wrap}
+  .navlinks{width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .navlinks a{white-space:nowrap}
+  .container{padding:14px 12px}
+  .hero{padding:25px 18px;min-height:270px}
+  .card{padding:15px}
+  .grid2{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .sensi-results{grid-template-columns:1fr 1fr}
+}
+@media(max-width:360px){
+  .symbols{grid-template-columns:repeat(3,1fr)}
+  .stats{gap:6px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="background-orb orb1"></div>
+<div class="background-orb orb2"></div>
+<div class="background-orb orb3"></div>
+
 <header>
- <div class="logo">VG-SVEG <span>PRO</span></div>
- <button class="menu-toggle" onclick="toggleMenu()">☰ MENU</button>
- <nav id="nav">
-  <button class="active" onclick="showPage('home',this)">HOME</button>
-  <button onclick="showPage('sensitivity',this)">SENSITIVITY</button>
-  <button onclick="showPage('names',this)">STYLISH NAMES</button>
-  <button onclick="showPage('bio',this)">BIO</button>
-  <button onclick="showPage('color',this)">COLOR BIO</button>
-  <button onclick="showPage('symbols',this)">SYMBOLS</button>
-  <button onclick="showPage('social',this)">SOCIAL</button>
- </nav>
+<nav class="nav">
+  <div class="logo">VG-SVEG <span>PRO</span></div>
+  <button class="menu-btn" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">☰ TOOLS</button>
+  <div class="navlinks">
+    <a href="#names">Names</a>
+    <a href="#bio">Bio</a>
+    <a href="#colorbio">Color Bio</a>
+    <a href="#symbols">Symbols</a>
+    <a href="#sensitivity">Sensitivity</a>
+    <a href="#music">Music</a>
+  </div>
+</nav>
 </header>
 
-<main>
+<main class="container">
 
-<!-- HOME -->
-<section class="page active" id="home">
- <div class="hero">
-  <div class="hero-content">
-   <div class="eyebrow">THE ULTIMATE GAMING TOOLKIT</div>
-   <h1>LEVEL UP YOUR <span>GAME.</span></h1>
-   <p>Free Fire players ke liye stylish names, sensitivity settings, attitude bios, color bio aur gaming symbols. Sab kuch ek hi jagah.</p>
-   <div class="actions">
-    <button class="btn" onclick="showPage('sensitivity')">EXPLORE TOOLS →</button>
-    <button class="btn dark" onclick="showPage('names')">CREATE NAME</button>
-   </div>
+<section class="hero">
+  <div class="hero-tag">✦ NEXT GENERATION GAMING TOOLKIT</div>
+  <h1>VG-SVEG <span>PRO</span></h1>
+  <p>Welcome to your ultimate gaming zone. Create stylish names, customize your bio, explore gaming symbols and generate your Free Fire sensitivity setup.</p>
+  <div class="hero-buttons">
+    <button class="btn primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">EXPLORE TOOLS ↗</button>
+    <button class="btn secondary" onclick="document.getElementById('sensitivity').scrollIntoView({behavior:'smooth'})">SENSI GENERATOR</button>
   </div>
- </div>
-
- <div class="section-title">
-  <h2>🔥 Gaming Tools</h2>
-  <p>Apna favourite tool choose karo. Sabhi options ek ke neeche ek hain.</p>
- </div>
-
- <div class="card tool-card" onclick="showPage('sensitivity')">
-  <div class="tool-icon">🎯</div>
-  <div><h3>Sensitivity Settings</h3><p>Custom controls and presets</p></div>
-  <span class="arrow">›</span>
- </div>
- <div class="card tool-card" onclick="showPage('names')">
-  <div class="tool-icon">⚡</div>
-  <div><h3>Stylish Name Generator</h3><p>Unique gaming nicknames</p></div>
-  <span class="arrow">›</span>
- </div>
- <div class="card tool-card" onclick="showPage('bio')">
-  <div class="tool-icon">✍️</div>
-  <div><h3>Bio Collection</h3><p>Attitude and pro bios</p></div>
-  <span class="arrow">›</span>
- </div>
- <div class="card tool-card" onclick="showPage('color')">
-  <div class="tool-icon">🎨</div>
-  <div><h3>Color Bio Maker</h3><p>Custom color preview</p></div>
-  <span class="arrow">›</span>
- </div>
- <div class="card tool-card" onclick="showPage('symbols')">
-  <div class="tool-icon">✦</div>
-  <div><h3>Symbol Collection</h3><p>Stylish symbols library</p></div>
-  <span class="arrow">›</span>
- </div>
- <div class="card tool-card" onclick="showPage('social')">
-  <div class="tool-icon">🌐</div>
-  <div><h3>Social Links</h3><p>Join our community</p></div>
-  <span class="arrow">›</span>
- </div>
 </section>
 
-<!-- SENSITIVITY -->
-<section class="page" id="sensitivity">
- <div class="page-head">
-  <div class="eyebrow">VG-SVEG PRO / CONTROL CENTER</div>
-  <h1>🎯 Sensitivity Studio</h1>
-  <p>Apne device, DPI aur gameplay ke hisaab se settings customize karo.</p>
- </div>
+<div class="stats">
+  <div class="stat"><strong>8+</strong><span>Name Styles</span></div>
+  <div class="stat"><strong>23+</strong><span>Gaming Symbols</span></div>
+  <div class="stat"><strong>PRO</strong><span>Gaming Tools</span></div>
+</div>
 
- <div class="card">
-  <h3>⚡ Quick Presets</h3>
-  <p style="color:var(--muted);font-size:12px;margin:7px 0 12px">One tap mein starting profile select karo.</p>
-  <button class="preset active" onclick="setPreset('headshot',this)">🔥 Headshot Drag <small>Fast drag gameplay</small></button>
-  <button class="preset" onclick="setPreset('balanced',this)">⚖️ Balanced <small>All-round gameplay</small></button>
-  <button class="preset" onclick="setPreset('stable',this)">🎯 Stable Aim <small>Controlled aiming</small></button>
- </div>
+<div id="tools"></div>
 
- <div class="card">
-  <h3>📱 Device Configuration</h3>
-  <div class="field">
-   <label>Device Category</label>
-   <select id="device">
-    <option value="normal">Normal Phone</option>
-    <option value="gaming">Gaming Phone</option>
-    <option value="low">Low-End Phone</option>
-    <option value="tablet">Tablet</option>
-   </select>
+<!-- NAME GENERATOR -->
+<section class="section" id="names">
+  <div class="section-title">
+    <div class="section-icon">👑</div>
+    <div><h2>Stylish Name Generator</h2><p>CREATE YOUR UNIQUE GAMING ID</p></div>
   </div>
-  <div class="field">
-   <label>Gameplay Preference</label>
-   <select id="gameplay">
-    <option value="headshot">Headshot Drag</option>
-    <option value="balanced">Balanced</option>
-    <option value="stable">Stable Aim</option>
-   </select>
+  <div class="card">
+    <div class="field">
+      <label>Enter Your Gaming Name</label>
+      <input id="nameInput" placeholder="Enter your name..." maxlength="20">
+    </div>
+    <label>Choose Name Style</label>
+    <div class="preset-list" id="nameStyles">
+      <button class="preset active" data-style="0">VIP</button>
+      <button class="preset" data-style="1">King</button>
+      <button class="preset" data-style="2">Shadow</button>
+      <button class="preset" data-style="3">Pro</button>
+      <button class="preset" data-style="4">Royal</button>
+      <button class="preset" data-style="5">Killer</button>
+      <button class="preset" data-style="6">Legend</button>
+      <button class="preset" data-style="7">Elite</button>
+    </div>
+    <button class="btn primary" onclick="generateName()">GENERATE NAME ✦</button>
+    <div class="output" id="nameOutput">Your stylish name will appear here...</div>
+    <button class="btn secondary" style="margin-top:10px" onclick="copyText('nameOutput')">COPY NAME</button>
   </div>
-  <div class="field">
-   <label>DPI (Optional)</label>
-   <input type="number" id="dpi" value="400" min="100" max="1000">
-  </div>
-  <div class="field">
-   <label>Fire Button Size: <b id="fireValue">50%</b></label>
-   <input type="range" id="fire" min="1" max="100" value="50" oninput="document.getElementById('fireValue').textContent=this.value+'%'">
-  </div>
- </div>
-
- <div class="card">
-  <h3>🎮 Sensitivity Controls</h3>
-  <p style="color:var(--muted);font-size:12px;margin:7px 0 15px">Slider move karke apni values set karo.</p>
-  <div id="sensitivitySliders"></div>
- </div>
-
- <div class="card">
-  <h3>🏆 Final Settings Preview</h3>
-  <p style="color:var(--muted);font-size:12px;margin:7px 0 15px">Yahan aapki live settings dikhenge.</p>
-  <div class="stats" id="sensitivityResult"></div>
-  <button class="btn full" onclick="copySensitivity()">📋 COPY ALL SETTINGS</button>
-  <button class="btn dark full" onclick="resetSensitivity()">↻ RESET SETTINGS</button>
-  <p style="color:var(--muted);font-size:11px;line-height:1.7;margin-top:13px">Note: Ye customizable starting suggestions hain, guaranteed headshots nahi. Game version, device, FPS aur personal control ke hisaab se settings test karke adjust karein. DPI badalne se phone ke overall touch behaviour par asar ho sakta hai.</p>
- </div>
-</section>
-
-<!-- NAMES -->
-<section class="page" id="names">
- <div class="page-head">
-  <div class="eyebrow">IDENTITY WORKSHOP</div>
-  <h1>⚡ Stylish Name Studio</h1>
-  <p>Apne gaming name ko ek unique look do.</p>
- </div>
- <div class="card">
-  <div class="field">
-   <label>Enter Your Name</label>
-   <input id="nameInput" maxlength="18" placeholder="Example: KARAN">
-  </div>
-  <div class="field">
-   <label>Select Name Style</label>
-   <select id="nameStyle">
-    <option value="royal">Royal Style</option>
-    <option value="killer">Killer Style</option>
-    <option value="pro">Pro Player Style</option>
-    <option value="dark">Dark Style</option>
-    <option value="simple">Minimal Style</option>
-    <option value="king">King Style</option>
-   </select>
-  </div>
-  <button class="btn full" onclick="generateNames()">GENERATE STYLISH NAMES</button>
- </div>
- <div class="section-title"><h2>✨ Your Names</h2></div>
- <div id="nameResults"></div>
 </section>
 
 <!-- BIO -->
-<section class="page" id="bio">
- <div class="page-head">
-  <div class="eyebrow">PROFILE COLLECTION</div>
-  <h1>✍️ Bio Collection</h1>
-  <p>Apne profile ke liye best gaming aur attitude bio choose karo.</p>
- </div>
- <div class="field">
-  <input id="bioSearch" placeholder="Search bio..." oninput="renderBios()">
- </div>
- <div id="bioList"></div>
+<section class="section" id="bio">
+  <div class="section-title">
+    <div class="section-icon">📝</div>
+    <div><h2>Gaming Bio Generator</h2><p>MAKE YOUR PROFILE LOOK PRO</p></div>
+  </div>
+  <div class="card">
+    <label>Choose Bio Style</label>
+    <div class="preset-list" id="bioStyles">
+      <button class="preset active" data-bio="0">Attitude</button>
+      <button class="preset" data-bio="1">Royal</button>
+      <button class="preset" data-bio="2">Killer</button>
+      <button class="preset" data-bio="3">Silent</button>
+      <button class="preset" data-bio="4">Pro Player</button>
+      <button class="preset" data-bio="5">Love</button>
+      <button class="preset" data-bio="6">Legend</button>
+      <button class="preset" data-bio="7">Danger</button>
+    </div>
+    <button class="btn primary" onclick="generateBio()">GENERATE BIO</button>
+    <div class="output" id="bioOutput">Your gaming bio will appear here...</div>
+    <button class="btn secondary" style="margin-top:10px" onclick="copyText('bioOutput')">COPY BIO</button>
+  </div>
 </section>
 
 <!-- COLOR BIO -->
-<section class="page" id="color">
- <div class="page-head">
-  <div class="eyebrow">CREATIVE DESIGN LAB</div>
-  <h1>🎨 Color Bio Maker</h1>
-  <p>Apne text aur colors se custom bio preview banao.</p>
- </div>
- <div class="card">
-  <div class="field">
-   <label>Enter Your Bio</label>
-   <input id="colorText" maxlength="60" value="VG-SVEG PRO" oninput="updateColor()">
+<section class="section" id="colorbio">
+  <div class="section-title">
+    <div class="section-icon">🎨</div>
+    <div><h2>Color Bio Generator</h2><p>CREATE COLOR CODE TEXT</p></div>
   </div>
-  <div class="field">
-   <label>First Color</label>
-   <input type="color" id="colorOne" value="#8b5cf6" oninput="updateColor()">
+  <div class="card">
+    <div class="field">
+      <label>Enter Your Bio Text</label>
+      <input id="colorText" placeholder="Write your bio here...">
+    </div>
+    <div class="field">
+      <label>Choose Color</label>
+      <select id="bioColor">
+        <option value="FF0000">Red</option>
+        <option value="00FF00">Green</option>
+        <option value="0000FF">Blue</option>
+        <option value="FFFF00">Yellow</option>
+        <option value="FF00FF">Pink</option>
+        <option value="00FFFF">Cyan</option>
+        <option value="FFFFFF">White</option>
+      </select>
+    </div>
+    <button class="btn primary" onclick="generateColorBio()">GENERATE COLOR BIO</button>
+    <div class="output" id="colorOutput">Your color code will appear here...</div>
+    <button class="btn secondary" style="margin-top:10px" onclick="copyText('colorOutput')">COPY COLOR CODE</button>
+    <p class="small-note">Note: Color codes are formatted for games that support color-coded bio text. Display support may vary by game.</p>
   </div>
-  <div class="field">
-   <label>Second Color</label>
-   <input type="color" id="colorTwo" value="#38bdf8" oninput="updateColor()">
-  </div>
-  <h3>Live Preview</h3>
-  <div class="color-preview" id="colorPreview">VG-SVEG PRO</div>
-  <div class="output" id="colorOutput"></div>
-  <button class="btn full" onclick="copyColor()">COPY COLOR BIO</button>
- </div>
- <p style="color:var(--muted);font-size:12px;line-height:1.7">Note: Color preview website par dikhta hai. Free Fire mein color codes ki support game ke current rules par depend karti hai.</p>
 </section>
 
 <!-- SYMBOLS -->
-<section class="page" id="symbols">
- <div class="page-head">
-  <div class="eyebrow">SYMBOL VAULT</div>
-  <h1>✦ Symbol Collection</h1>
-  <p>Apne nickname aur bio ke liye symbols copy karo.</p>
- </div>
- <div class="field">
-  <input id="symbolSearch" placeholder="Search symbol..." oninput="renderSymbols()">
- </div>
- <div id="symbolList"></div>
+<section class="section" id="symbols">
+  <div class="section-title">
+    <div class="section-icon">✧</div>
+    <div><h2>Gaming Symbols Library</h2><p>TAP ANY SYMBOL TO COPY</p></div>
+  </div>
+  <div class="card">
+    <div class="symbols" id="symbolGrid"></div>
+    <p class="small-note">Tap a symbol to copy it instantly.</p>
+  </div>
+</section>
+
+<!-- SENSITIVITY -->
+<section class="section" id="sensitivity">
+  <div class="section-title">
+    <div class="section-icon">🎯</div>
+    <div><h2>Advanced Sensi Generator</h2><p>PERSONALIZED FREE FIRE SETTINGS</p></div>
+  </div>
+
+  <div class="card">
+    <div class="sensi-header">
+      <h3>⚡ SENSI AI PRO</h3>
+      <p>Build a starting sensitivity profile based on your device and playstyle.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Phone Brand</label>
+        <select id="brand">
+          <option>Samsung</option><option>Realme</option>
+          <option>Redmi</option><option>POCO</option>
+          <option>Vivo</option><option>OPPO</option>
+          <option>OnePlus</option><option>iPhone</option>
+          <option>Motorola</option><option>Infinix</option>
+          <option>TECNO</option><option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Phone Model</label>
+        <input id="model" placeholder="e.g. Narzo 70 Pro">
+      </div>
+
+      <div class="field">
+        <label>RAM</label>
+        <select id="ram">
+          <option value="2">2 GB</option>
+          <option value="3">3 GB</option>
+          <option value="4">4 GB</option>
+          <option value="6" selected>6 GB</option>
+          <option value="8">8 GB</option>
+          <option value="12">12 GB</option>
+          <option value="16">16 GB</option>
+          <option value="24">24 GB</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Processor Category</label>
+        <select id="processor">
+          <option value="1">Entry Level</option>
+          <option value="2" selected>Mid Range</option>
+          <option value="3">High Performance</option>
+          <option value="4">Flagship</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Refresh Rate</label>
+        <select id="refresh">
+          <option value="60">60 Hz</option>
+          <option value="90">90 Hz</option>
+          <option value="120" selected>120 Hz</option>
+          <option value="144">144 Hz</option>
+          <option value="165">165 Hz</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Play Style</label>
+        <select id="style">
+          <option value="rush">Rush</option>
+          <option value="headshot" selected>Headshot</option>
+          <option value="onetap">One Tap</option>
+          <option value="balanced">Balanced</option>
+          <option value="sniper">Sniper</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Finger Setup</label>
+        <select id="fingers">
+          <option value="2">2 Finger</option>
+          <option value="3">3 Finger</option>
+          <option value="4" selected>4 Finger</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Touch Feel</label>
+        <select id="touch">
+          <option value="slow">Slow</option>
+          <option value="normal" selected>Normal</option>
+          <option value="smooth">Smooth</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <div class="range-line">
+          <label>DPI (Optional)</label>
+          <output id="dpiValue">480</output>
+        </div>
+        <input type="range" id="dpi" min="200" max="800" value="480" step="10"
+          oninput="document.getElementById('dpiValue').textContent=this.value">
+      </div>
+
+      <div class="field full">
+        <div class="range-line">
+          <label>Fire Button Size</label>
+          <output id="fireValue">50</output>
+        </div>
+        <input type="range" id="fire" min="30" max="70" value="50"
+          oninput="document.getElementById('fireValue').textContent=this.value">
+      </div>
+    </div>
+
+    <button class="btn primary" style="width:100%" onclick="generateSensi()">⚡ GENERATE MY SENSITIVITY</button>
+
+    <div class="result" id="sensiResult">
+      <h3 style="font-family:Rajdhani;font-size:23px;color:#acd3ff">YOUR SENSITIVITY PROFILE</h3>
+      <p id="deviceSummary" class="small-note"></p>
+      <div class="sensi-results" id="sensiValues"></div>
+      <div class="result-item">
+        <span>Fire Button Size</span><strong id="fireResult"></strong>
+      </div>
+      <div class="result-item">
+        <span>Recommended DPI</span><strong id="dpiResult"></strong>
+      </div>
+      <button class="btn primary" style="width:100%;margin-top:15px" onclick="copySensi()">COPY ALL SETTINGS</button>
+    </div>
+
+    <p class="small-note">
+      Important: These are suggested starting values generated from your selections, not official game settings or guaranteed headshot results. Adjust them in training mode to suit your device and comfort.
+    </p>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="section" id="music">
+  <div class="section-title">
+    <div class="section-icon">🎵</div>
+    <div><h2>VG-SVEG Music Zone</h2><p>YOUR GAMING MUSIC CORNER</p></div>
+  </div>
+  <div class="music-card">
+    <div class="music-row">
+      <div class="album">♫</div>
+      <div class="music-info">
+        <h3>VG-SVEG PRO ORIGINAL SONG</h3>
+        <p>Official Gaming Music Player</p>
+      </div>
+    </div>
+    <audio id="musicAudio" src="VG-SVEG-PRO-SONG.m4a" loop></audio>
+    <div class="music-controls">
+      <button onclick="playMusic()">▶ PLAY</button>
+      <button onclick="pauseMusic()">Ⅱ PAUSE</button>
+    </div>
+    <p class="small-note">Place VG-SVEG-PRO-SONG.m4a in the same folder as this HTML file.</p>
+  </div>
 </section>
 
 <!-- SOCIAL -->
-<section class="page" id="social">
- <div class="page-head">
-  <div class="eyebrow">JOIN OUR COMMUNITY</div>
-  <h1>🌐 Stay Connected</h1>
-  <p>VG-SVEG PRO ke saath connected raho.</p>
- </div>
- <div class="social-card youtube">
-  <div class="big">▶️</div>
-  <h2>YouTube Channel</h2>
-  <p style="color:var(--muted);line-height:1.7;margin-top:8px">Gaming videos, gameplay aur latest updates ke liye channel visit karo.</p>
-  <a class="social-link" href="https://www.youtube.com/@Karan_live_ffx" target="_blank" rel="noopener">VISIT YOUTUBE →</a>
- </div>
- <div class="social-card telegram">
-  <div class="big">✈️</div>
-  <h2>Telegram Channel</h2>
-  <p style="color:var(--muted);line-height:1.7;margin-top:8px">Community updates aur announcements ke liye join karo.</p>
-  <a class="social-link" href="https://t.me/vgsvegpro" target="_blank" rel="noopener">JOIN TELEGRAM →</a>
- </div>
+<section class="section" id="social">
+  <div class="section-title">
+    <div class="section-icon">🌐</div>
+    <div><h2>Join Our Community</h2><p>FOLLOW VG-SVEG PRO</p></div>
+  </div>
+  <div class="social-grid">
+    <div class="social">
+      <h3>▶ YouTube Channel</h3>
+      <p>Watch gaming videos and updates.</p>
+      <a href="#" id="youtubeLink" target="_blank">VISIT CHANNEL ↗</a>
+    </div>
+    <div class="social">
+      <h3>✈ Telegram Channel</h3>
+      <p>Join our gaming community.</p>
+      <a href="#" id="telegramLink" target="_blank">JOIN CHANNEL ↗</a>
+    </div>
+  </div>
+  <p class="small-note">Add your own YouTube and Telegram URLs in the JavaScript section below.</p>
 </section>
 
 </main>
 
 <footer>
- <div class="logo">VG-SVEG <span>PRO</span></div>
- <p style="margin-top:9px">Made for Gamers | Play Smart. Play Stylish.</p>
- <p style="margin-top:9px">© <span id="year"></span> VG-SVEG PRO</p>
+  <strong>VG-SVEG PRO</strong><br>
+  PREMIUM GAMING TOOLS<br>
+  Made for Gamers • Play Smart • Play Fair
 </footer>
 
-<div class="toast" id="toast">Copied Successfully!</div>
+<div class="toast" id="toast">Copied Successfully ✓</div>
 
 <script>
-const $=id=>document.getElementById(id);
+// ADD YOUR CHANNEL LINKS HERE
+const YOUTUBE_URL = "YOUR_YOUTUBE_CHANNEL_LINK";
+const TELEGRAM_URL = "YOUR_TELEGRAM_CHANNEL_LINK";
 
-/* Navigation */
-function showPage(id,button){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- $(id).classList.add('active');
- document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
- if(button)button.classList.add('active');
- else{
-  const ids=['home','sensitivity','names','bio','color','symbols','social'];
-  const index=ids.indexOf(id);
-  const buttons=document.querySelectorAll('nav button');
-  if(buttons[index])buttons[index].classList.add('active');
- }
- $('nav').classList.remove('open');
- window.scrollTo({top:0,behavior:'smooth'});
-}
-function toggleMenu(){ $('nav').classList.toggle('open'); }
+document.getElementById("youtubeLink").href = YOUTUBE_URL;
+document.getElementById("telegramLink").href = TELEGRAM_URL;
 
-/* Copy */
-let toastTimer;
-function notify(message){
- $('toast').textContent=message;
- $('toast').style.display='block';
- clearTimeout(toastTimer);
- toastTimer=setTimeout(()=>$('toast').style.display='none',1800);
+// COPY FUNCTION
+function showToast(message="Copied Successfully ✓"){
+  const t=document.getElementById("toast");
+  t.textContent=message;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),1800);
 }
-async function copyText(value){
- if(!value){notify('Nothing to copy');return}
- try{
-  await navigator.clipboard.writeText(value);
-  notify('Copied Successfully!');
- }catch(e){
-  const area=document.createElement('textarea');
-  area.value=value;
-  document.body.appendChild(area);
-  area.select();
+
+async function copyValue(value){
   try{
-   document.execCommand('copy');
-   notify('Copied Successfully!');
-  }catch(err){notify('Please copy manually');}
-  area.remove();
- }
-}
-function safe(s){
- return String(s).replace(/[&<>"']/g,c=>({
-  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
- }[c]));
-}
-
-/* Sensitivity */
-const sensNames=['General','Red Dot','2X Scope','4X Scope','Sniper Scope','Free Look'];
-const sensIds=['general','red','two','four','sniper','free'];
-const presets={
- headshot:[190,185,175,165,110,160],
- balanced:[180,170,160,150,100,150],
- stable:[165,150,140,125,85,135]
-};
-let sensValues=[...presets.headshot];
-
-function buildSensitivity(){
- $('sensitivitySliders').innerHTML=sensNames.map((name,i)=>`
-  <div class="slider-box">
-   <div class="slider-top">
-    <label>${name}</label>
-    <span class="slider-value" id="value-${sensIds[i]}">${sensValues[i]}</span>
-   </div>
-   <input type="range" min="0" max="200" value="${sensValues[i]}"
-    id="slider-${sensIds[i]}" oninput="changeSensitivity(${i},this.value)">
-   <div class="slider-scale"><span>0</span><span>100</span><span>200</span></div>
-  </div>
- `).join('');
- renderSensitivity();
-}
-function changeSensitivity(index,value){
- sensValues[index]=Number(value);
- $('value-'+sensIds[index]).textContent=value;
- renderSensitivity();
- document.querySelectorAll('.preset').forEach(b=>b.classList.remove('active'));
-}
-function renderSensitivity(){
- $('sensitivityResult').innerHTML=sensNames.map((name,i)=>`
-  <div class="stat-row">
-   <span>${name}</span><strong>${sensValues[i]}</strong>
-  </div>
- `).join('');
-}
-function setPreset(type,button){
- sensValues=[...presets[type]];
- $('gameplay').value=type;
- document.querySelectorAll('.preset').forEach(b=>b.classList.remove('active'));
- button.classList.add('active');
- buildSensitivity();
-}
-function copySensitivity(){
- const device=$('device').selectedOptions[0].text;
- const style=$('gameplay').selectedOptions[0].text;
- const dpi=$('dpi').value;
- const fire=$('fire').value;
- const result=
- `VG-SVEG PRO SENSITIVITY\nDevice: ${device}\nStyle: ${style}\nDPI: ${dpi}\nFire Button: ${fire}%\n\n`+
- sensNames.map((n,i)=>`${n}: ${sensValues[i]}`).join('\n');
- copyText(result);
-}
-function resetSensitivity(){
- sensValues=[...presets.balanced];
- $('device').value='normal';
- $('gameplay').value='balanced';
- $('dpi').value=400;
- $('fire').value=50;
- $('fireValue').textContent='50%';
- document.querySelectorAll('.preset').forEach(b=>b.classList.remove('active'));
- document.querySelectorAll('.preset')[1].classList.add('active');
- buildSensitivity();
- notify('Settings Reset!');
-}
-buildSensitivity();
-
-/* Name Generator */
-const nameStyles={
- royal:['亗{n}亗','♛{n}♛','꧁{n}꧂','『{n}』','么{n}么','★{n}★'],
- killer:['☠{n}☠','乂{n}乂','メ{n}メ','⚡{n}⚡','༒{n}༒'],
- pro:['ᴾᴿᴼ {n}','{n}᭄','亗{n}PRO','{n}々','{n}ツ'],
- dark:['༒{n}༒','☠『{n}』','꧁༒{n}༒꧂','乂{n}〆'],
- simple:['•{n}•','_{n}_','×{n}×','{n}々'],
- king:['♛{n}KING','👑{n}👑','꧁KING {n}꧂','亗{n}亗']
-};
-function generateNames(){
- const name=$('nameInput').value.trim();
- if(!name){notify('Pehle apna naam likho');return}
- const style=$('nameStyle').value;
- const results=nameStyles[style].map(x=>x.replaceAll('{n}',name));
- $('nameResults').innerHTML=results.map(n=>`
-  <div class="result-item">
-   <div class="result-value">${safe(n)}</div>
-   <button class="copy-btn" onclick="copyText(this.parentElement.querySelector('.result-value').textContent)">COPY NAME</button>
-  </div>
- `).join('');
+    await navigator.clipboard.writeText(value);
+    showToast();
+  }catch(e){
+    const area=document.createElement("textarea");
+    area.value=value;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+    showToast();
+  }
 }
 
-/* Bios */
+function copyText(id){
+  const el=document.getElementById(id);
+  copyValue(el.dataset.copy || el.innerText);
+}
+
+// NAME GENERATOR
+let nameStyle=0;
+const nameFormats=[
+  n=>"꧁༺ "+n+" ༻꧂",
+  n=>"亗 "+n+" 亗",
+  n=>"『"+n+"』",
+  n=>"乂 "+n+" 乂",
+  n=>"♛ "+n+" ♛",
+  n=>"☠ "+n+" ☠",
+  n=>"★彡 "+n+" 彡★",
+  n=>"么 "+n+" 么"
+];
+
+document.querySelectorAll("[data-style]").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll("[data-style]").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    nameStyle=Number(btn.dataset.style);
+  };
+});
+
+function generateName(){
+  const n=document.getElementById("nameInput").value.trim();
+  if(!n){showToast("Enter your name first!");return}
+  const result=nameFormats[nameStyle](n);
+  const out=document.getElementById("nameOutput");
+  out.textContent=result;
+  out.dataset.copy=result;
+}
+
+// BIO GENERATOR
+let bioStyle=0;
 const bios=[
- '👑 Born to rule, not to follow.',
- '🎯 Aim high. Stay humble.',
- '⚡ Silent player, deadly game.',
- '🔥 My game, my rules.',
- '亗 Never give up. Never back down.',
- '💀 Fear none. Respect all.',
- '🎮 Eat. Sleep. Game. Repeat.',
- '🏆 Focus on the goal, not the noise.',
- '✨ Creating my own legacy.',
- '⚔️ Legends never chase attention.',
- '🥷 My silence is my power.',
- '💎 Different mindset, different level.',
- '🚀 Dream big, play bigger.',
- '👑 Respect is earned, not demanded.',
- '⚡ No luck, only hard work.',
- '🔥 Play hard, stay humble.',
- '🎯 One tap, one dream.',
- '💀 Danger is my middle name.',
- '亗 Loyalty above everything.',
- '🏆 Work hard. Win big.',
- '🖤 Less talk, more action.',
- '⚡ Born different, built stronger.'
+  "👑 Born to rule | Never to follow\n🔥 Headshot is my language",
+  "♛ Royal attitude | Silent moves\n⚡ Respect everyone",
+  "☠ Fear none | Challenge accepted\n🎯 One tap, one finish",
+  "🖤 Silent player | Deadly skills\n亗 Watch my gameplay",
+  "🎮 Pro mindset | Daily grind\n🏆 Skill over luck",
+  "❤️ Heart is pure | Game is fire\n✨ Stay real",
+  "🌟 Not famous, just different\n👑 Creating my own legacy",
+  "⚠ Danger zone | No mercy\n🔥 Game on"
 ];
-function renderBios(){
- const search=$('bioSearch').value.toLowerCase();
- const filtered=bios.filter(b=>b.toLowerCase().includes(search));
- $('bioList').innerHTML=filtered.length?filtered.map(b=>`
-  <div class="bio-item">
-   <p>${safe(b)}</p>
-   <button class="copy-btn" onclick="copyText(this.parentElement.querySelector('p').textContent)">COPY BIO</button>
-  </div>
- `).join(''):'<div class="card">No bio found.</div>';
-}
-renderBios();
 
-/* Color Bio */
-function updateColor(){
- const text=$('colorText').value||'Your Bio';
- const c1=$('colorOne').value;
- const c2=$('colorTwo').value;
- $('colorPreview').textContent=text;
- $('colorPreview').style.background=`linear-gradient(90deg,${c1},${c2})`;
- $('colorOutput').textContent=`Color 1: ${c1}\nColor 2: ${c2}\nText: ${text}`;
-}
-function copyColor(){copyText($('colorOutput').textContent)}
-updateColor();
+document.querySelectorAll("[data-bio]").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll("[data-bio]").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    bioStyle=Number(btn.dataset.bio);
+  };
+});
 
-/* Symbols */
+function generateBio(){
+  const out=document.getElementById("bioOutput");
+  out.textContent=bios[bioStyle];
+  out.dataset.copy=bios[bioStyle];
+}
+
+// COLOR BIO
+function generateColorBio(){
+  const txt=document.getElementById("colorText").value.trim();
+  const color=document.getElementById("bioColor").value;
+  if(!txt){showToast("Enter your bio first!");return}
+  const code="["+color+"]"+txt;
+  const out=document.getElementById("colorOutput");
+  out.textContent=code;
+  out.dataset.copy=code;
+}
+
+// SYMBOL LIBRARY
 const symbols=[
- '亗','么','乂','ツ','々','〆','★','☆','♛','♕',
- '⚡','☠','༒','꧁','꧂','『','』','彡','メ','×',
- '♠','♣','♦','♥','➤','➳','✦','✧','𖤍','♚',
- '♔','♖','♜','♟','☯','⚔','✪','✯','❖','✵'
+"亗","꧁","꧂","༺","༻","么","乂","『","』","★","☆",
+"♛","♕","♔","☠","⚡","🔥","✿","✧","彡","ツ","✓","〆"
 ];
-function renderSymbols(){
- const search=$('symbolSearch').value;
- const filtered=symbols.filter(s=>s.includes(search));
- $('symbolList').innerHTML=filtered.length?filtered.map(s=>`
-  <div class="symbol-item">
-   <strong>${safe(s)}</strong>
-   <button class="copy-btn" onclick="copyText('${s}')">COPY SYMBOL</button>
-  </div>
- `).join(''):'<div class="card">No symbol found.</div>';
-}
-renderSymbols();
 
-$('year').textContent=new Date().getFullYear();
+const symbolGrid=document.getElementById("symbolGrid");
+symbols.forEach(symbol=>{
+  const b=document.createElement("button");
+  b.className="symbol";
+  b.textContent=symbol;
+  b.onclick=()=>copyValue(symbol);
+  symbolGrid.appendChild(b);
+});
+
+// SENSITIVITY GENERATOR
+function clamp(v,min,max){
+  return Math.max(min,Math.min(max,Math.round(v)));
+}
+
+let lastSensi={};
+
+function generateSensi(){
+  const brand=document.getElementById("brand").value;
+  const model=document.getElementById("model").value.trim() || "Custom Device";
+  const ram=Number(document.getElementById("ram").value);
+  const processor=Number(document.getElementById("processor").value);
+  const refresh=Number(document.getElementById("refresh").value);
+  const style=document.getElementById("style").value;
+  const fingers=Number(document.getElementById("fingers").value);
+  const touch=document.getElementById("touch").value;
+  const dpi=Number(document.getElementById("dpi").value);
+  const fire=Number(document.getElementById("fire").value);
+
+  let base=165;
+  base += (ram-4)*1.2;
+  base += (processor-2)*3;
+  base += (refresh-60)*.12;
+  base += (dpi-480)*.025;
+
+  if(touch==="smooth")base+=5;
+  if(touch==="slow")base-=7;
+  if(fingers===3)base+=2;
+  if(fingers===4)base+=4;
+
+  const styles={
+    rush:[12,8,3,0,-12,-4],
+    headshot:[8,4,-2,-8,-15,-4],
+    onetap:[5,-2,-8,-12,-18,-6],
+    balanced:[0,0,0,0,0,0],
+    sniper:[-10,-12,-15,-12,8,-5]
+  };
+
+  base+=styles[style][0];
+
+  const values={
+    "General":clamp(base,80,200),
+    "Red Dot":clamp(base-8+styles[style][1],70,200),
+    "2X Scope":clamp(base-22+styles[style][2],60,200),
+    "4X Scope":clamp(base-38+styles[style][3],50,200),
+    "Sniper Scope":clamp(base-65+styles[style][4],30,150),
+    "Free Look":clamp(base-10+styles[style][5],50,200)
+  };
+
+  lastSensi={
+    device:brand+" "+model,
+    ram:ram+" GB",
+    processor:document.getElementById("processor").selectedOptions[0].text,
+    refresh:refresh+" Hz",
+    style:style,
+    fingers:fingers+" Finger",
+    touch:touch,
+    values:values,
+    fire:fire,
+    dpi:dpi
+  };
+
+  document.getElementById("deviceSummary").textContent=
+    brand+" "+model+" • "+ram+" GB RAM • "+refresh+" Hz • "+fingers+" Finger";
+
+  const result=document.getElementById("sensiValues");
+  result.innerHTML="";
+
+  Object.entries(values).forEach(([key,value])=>{
+    const item=document.createElement("div");
+    item.className="sensi-value";
+    const label=document.createElement("span");
+    label.textContent=key;
+    const number=document.createElement("strong");
+    number.textContent=value;
+    const hint=document.createElement("small");
+    hint.textContent="Suggested value";
+    item.append(label,number,hint);
+    result.appendChild(item);
+  });
+
+  document.getElementById("fireResult").textContent=fire+"%";
+  document.getElementById("dpiResult").textContent=dpi;
+  document.getElementById("sensiResult").classList.add("show");
+  document.getElementById("sensiResult").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function copySensi(){
+  if(!lastSensi.values){showToast("Generate settings first!");return}
+  let text="VG-SVEG PRO SENSITIVITY\n";
+  text+="Device: "+lastSensi.device+"\n";
+  text+="RAM: "+lastSensi.ram+"\n";
+  text+="Processor: "+lastSensi.processor+"\n";
+  text+="Refresh Rate: "+lastSensi.refresh+"\n";
+  text+="Playstyle: "+lastSensi.style+"\n";
+  text+="Finger Setup: "+lastSensi.fingers+"\n";
+  text+="Touch Feel: "+lastSensi.touch+"\n\n";
+  Object.entries(lastSensi.values).forEach(([k,v])=>{
+    text+=k+": "+v+"\n";
+  });
+  text+="Fire Button: "+lastSensi.fire+"%\n";
+  text+="DPI: "+lastSensi.dpi+"\n";
+  text+="\nSuggested starting values. Adjust in training mode.";
+  copyValue(text);
+}
+
+// MUSIC PLAYER
+function playMusic(){
+  const audio=document.getElementById("musicAudio");
+  audio.play().catch(()=>showToast("Check music file location"));
+}
+function pauseMusic(){
+  document.getElementById("musicAudio").pause();
+  showToast("Music Paused");
+}
 </script>
 
 </body>
