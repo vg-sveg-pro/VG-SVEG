@@ -3,178 +3,448 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VG-SVEG PRO</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>VG-SVEG PRO | Gaming Zone</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#070a12;color:#fff;font-family:Arial,sans-serif}
-header{text-align:center;padding:28px 12px;background:#101a2d}
-h1{color:#00eaff;text-shadow:0 0 15px #00eaff}
-button{background:#00d9ff;color:#001018;border:0;border-radius:10px;padding:12px 16px;font-weight:bold;cursor:pointer}
-section{padding:16px;margin:14px;background:#111c30;border:1px solid #17465d;border-radius:15px}
-input,select{width:100%;padding:12px;margin:8px 0;background:#07101e;color:white;border:1px solid #00cfff;border-radius:9px}
-.item{display:flex;gap:8px;align-items:center;margin:8px 0}
-.item span{flex:1;overflow-wrap:anywhere}
-#home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column}
-#app{display:none}
-nav{position:sticky;bottom:0;background:#08101d;padding:12px;display:flex;justify-content:space-around}
-nav button{padding:10px;font-size:12px}
+:root{--red:#ff3030;--gold:#ffc857}
+html{scroll-behavior:smooth}
+body{
+ margin:0;padding-bottom:80px;
+ background:#050507;color:white;
+ font-family:Arial,sans-serif;
+ background-image:
+ radial-gradient(ellipse at 20% 20%,rgba(255,0,50,.16),transparent 45%),
+ radial-gradient(ellipse at 80% 70%,rgba(255,170,0,.12),transparent 45%);
+ background-attachment:fixed;overflow-x:hidden;
+}
+body::before{
+ content:"";position:fixed;inset:0;z-index:-2;
+ pointer-events:none;
+ background-image:
+ linear-gradient(rgba(255,40,40,.07) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,40,40,.07) 1px,transparent 1px);
+ background-size:38px 38px;
+ animation:gridMove 12s linear infinite;
+}
+@keyframes gridMove{
+ from{background-position:0 0}
+ to{background-position:38px 38px}
+}
+#particles{
+ position:fixed;inset:0;z-index:-1;
+ pointer-events:none;overflow:hidden;
+}
+.particle{
+ position:absolute;bottom:-20px;width:4px;height:4px;
+ background:#ff4b4b;border-radius:50%;
+ box-shadow:0 0 12px #ff2525;
+ animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+ from{transform:translateY(0) scale(.5);opacity:0}
+ 15%{opacity:1}
+ to{transform:translateY(-110vh) scale(1.5);opacity:0}
+}
+header{
+ padding:22px 15px;text-align:center;
+ background:linear-gradient(135deg,#260000,#111,#291600);
+ border-bottom:2px solid var(--red);
+}
+header h1{
+ margin:0;color:var(--gold);font-size:29px;
+ text-shadow:0 0 15px #ff3030;
+}
+header p{color:#aaa;font-size:12px;letter-spacing:3px}
+#home{
+ min-height:100vh;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;text-align:center;
+ background:radial-gradient(circle,#401010,#090909 65%);
+ padding:20px;
+}
+.logo{
+ font-size:42px;color:var(--gold);font-weight:900;
+ text-shadow:0 0 25px red;
+ animation:logoGlow 2s ease-in-out infinite alternate;
+}
+@keyframes logoGlow{
+ from{text-shadow:0 0 8px red}
+ to{text-shadow:0 0 30px red,0 0 45px orange}
+}
+.start{
+ background:linear-gradient(90deg,#ff2424,#ff9c24);
+ border:0;border-radius:30px;padding:16px 45px;
+ font-size:17px;font-weight:bold;color:white;
+ box-shadow:0 0 25px #ff3030;cursor:pointer;
+}
+section{
+ position:relative;margin:14px;padding:17px;
+ background:rgba(19,15,18,.91);
+ border:1px solid rgba(255,65,65,.55);
+ border-radius:17px;overflow:hidden;
+ animation:borderGlow 4s ease-in-out infinite alternate;
+}
+@keyframes borderGlow{
+ from{box-shadow:0 0 5px rgba(255,30,30,.12)}
+ to{box-shadow:0 0 18px rgba(255,30,30,.4)}
+}
+h2{font-size:19px;color:var(--gold);margin-top:0}
+input,select{
+ width:100%;padding:13px;margin:7px 0;
+ border:1px solid #754040;border-radius:10px;
+ background:#090909;color:white;font-size:14px;
+}
+button{
+ background:linear-gradient(90deg,#e52b2b,#ff8a25);
+ color:white;border:0;border-radius:9px;
+ padding:11px 15px;font-weight:bold;cursor:pointer;
+ transition:transform .25s,box-shadow .25s;
+}
+button:hover{
+ transform:translateY(-2px);
+ box-shadow:0 0 18px #ff3939;
+}
+button:active{transform:scale(.97)}
+.full{width:100%;margin-top:8px}
+.item{
+ display:flex;align-items:center;gap:8px;
+ background:#202020;padding:10px;margin:8px 0;
+ border-radius:9px;border-left:3px solid var(--red);
+}
+.item span{flex:1;overflow-wrap:anywhere;font-size:14px}
+.result{background:#0b0b0b;padding:12px;border-radius:10px;margin-top:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{
+ background:#211414;padding:13px;border-radius:10px;
+ border:1px solid #542626;
+}
+.stat small{color:#aaa}
+.stat b{display:block;color:var(--gold);margin-top:6px}
+nav{
+ position:fixed;bottom:0;left:0;width:100%;
+ display:flex;justify-content:space-around;
+ background:#111;border-top:1px solid #633;
+ padding:10px 3px;z-index:10;
+}
+nav button{font-size:11px;padding:10px 9px}
+a{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  scroll-behavior:auto!important;
+ }
+}
 </style>
 </head>
+
 <body>
+<div id="particles"></div>
 
 <div id="home">
-<h1>VG-SVEG PRO</h1>
-<p>FREE FIRE GAMING TOOLS</p>
-<button onclick="startApp()">START NOW</button>
+ <div class="logo">VG-SVEG</div>
+ <h2>PRO GAMING ZONE</h2>
+ <p>YOUR GAME • YOUR STYLE • YOUR POWER</p>
+ <button class="start" onclick="startApp()">▶ START GAME</button>
+ <p style="color:#aaa;font-size:12px">Tap START to enter gaming zone</p>
 </div>
 
-<div id="app">
+<div id="app" style="display:none">
 <header>
-<h1>VG-SVEG PRO</h1>
-<p>ULTIMATE GAMING TOOLS</p>
+ <h1>VG-SVEG PRO</h1>
+ <p>ULTIMATE GAMING DASHBOARD</p>
 </header>
 
+<section id="sensitivity">
+ <h2>🎯 ADVANCED SENSITIVITY GENERATOR</h2>
+
+ <label>📱 Phone RAM</label>
+ <select id="ram">
+  <option value="2">2 GB RAM</option>
+  <option value="3">3 GB RAM</option>
+  <option value="4" selected>4 GB RAM</option>
+  <option value="6">6 GB RAM</option>
+  <option value="8">8 GB RAM</option>
+  <option value="12">12 GB RAM</option>
+  <option value="16">16 GB RAM</option>
+ </select>
+
+ <label>⚡ Processor Type</label>
+ <select id="processor">
+  <option value="basic">Basic Processor</option>
+  <option value="mid" selected>Mid Range Processor</option>
+  <option value="gaming">Gaming Processor</option>
+  <option value="flagship">Flagship Processor</option>
+ </select>
+
+ <label>📺 Screen Refresh Rate</label>
+ <select id="refresh">
+  <option value="60">60 Hz</option>
+  <option value="90">90 Hz</option>
+  <option value="120">120 Hz</option>
+  <option value="144">144 Hz</option>
+ </select>
+
+ <label>🎮 Gameplay Style</label>
+ <select id="playstyle">
+  <option value="headshot">Headshot King</option>
+  <option value="onetap">One Tap</option>
+  <option value="rush">Rush Gameplay</option>
+  <option value="balanced">Balanced Gameplay</option>
+  <option value="sniper">Sniper Player</option>
+ </select>
+
+ <label>🔥 Aim Preference</label>
+ <select id="aim">
+  <option value="smooth">Smooth Aim</option>
+  <option value="fast">Fast Drag</option>
+  <option value="control">Maximum Control</option>
+ </select>
+
+ <button class="full" onclick="generateSensitivity()">GENERATE MY SENSITIVITY</button>
+
+ <div id="sensResult" class="result">
+  <p style="color:#aaa">अपना फोन चुनकर Generate दबाओ।</p>
+ </div>
+</section>
+
 <section id="names">
-<h2>🔥 Stylish Name Generator</h2>
-<input id="playerName" placeholder="अपना नाम लिखो">
-<button onclick="makeNames()">Generate Names</button>
-<div id="nameResults"></div>
+ <h2>👑 STYLISH NAME GENERATOR</h2>
+ <input id="playerName" placeholder="अपना गेमिंग नाम लिखो">
+ <button class="full" onclick="makeNames()">GENERATE NAME</button>
+ <div id="nameResults"></div>
 </section>
 
 <section id="bio">
-<h2>💎 Gaming Bio</h2>
-<div id="bioResults"></div>
+ <h2>💀 PRO GAMING BIO</h2>
+ <div id="bioResults"></div>
 </section>
 
 <section>
-<h2>🌍 Country Name Styles</h2>
-<div id="countryResults"></div>
+ <h2>🌈 COLOR BIO GENERATOR</h2>
+ <select id="color">
+  <option value="[FF0000]">Red</option>
+  <option value="[00FF00]">Green</option>
+  <option value="[00FFFF]">Cyan</option>
+  <option value="[FFFF00]">Yellow</option>
+  <option value="[FF00FF]">Pink</option>
+  <option value="[FFFFFF]">White</option>
+ </select>
+ <input id="bioText" placeholder="अपना Bio लिखो">
+ <button class="full" onclick="makeColorBio()">CREATE COLOR BIO</button>
+ <div id="colorResult"></div>
+</section>
+
+<section id="symbols">
+ <h2>✨ GAMING SYMBOLS</h2>
+ <div id="symbolResults"></div>
 </section>
 
 <section>
-<h2>🎨 Bio Color Codes</h2>
-<select id="color">
-<option value="[FF0000]">Red</option>
-<option value="[00FF00]">Green</option>
-<option value="[00FFFF]">Cyan</option>
-<option value="[FFFF00]">Yellow</option>
-<option value="[FF00FF]">Pink</option>
-<option value="[FFFFFF]">White</option>
-</select>
-<input id="bioText" placeholder="अपना Bio लिखो">
-<button onclick="makeColorBio()">Create Bio</button>
-<div id="colorResult"></div>
+ <h2>🎵 MUSIC CONTROL</h2>
+ <p id="musicStatus">Music is ready</p>
+ <button onclick="toggleMusic()" class="full" id="musicButton">▶ PLAY MUSIC</button>
 </section>
 
 <section>
-<h2>🎯 Sensitivity Settings</h2>
-<select id="device">
-<option>Low End Phone</option>
-<option>Mid Range Phone</option>
-<option>High End Phone</option>
-</select>
-<select id="style">
-<option>Headshot</option>
-<option>Balanced</option>
-<option>Rush Gameplay</option>
-</select>
-<button onclick="getSensitivity()">Get Settings</button>
-<div id="sensitivityResult"></div>
-</section>
-
-<section>
-<h2>✨ Gaming Symbols</h2>
-<div id="symbols"></div>
-</section>
-
-<section>
-<h2>🔗 Follow Us</h2>
-<p><a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">YouTube Channel</a></p>
-<p><a href="https://t.me/vgsvegpro" target="_blank">Telegram Channel</a></p>
+ <h2>🔗 FOLLOW VG-SVEG</h2>
+ <p><a href="https://www.youtube.com/@Karan_live_ffx" target="_blank">▶ YouTube Channel</a></p>
+ <p><a href="https://t.me/vgsvegpro" target="_blank">✈ Telegram Channel</a></p>
 </section>
 
 <nav>
-<button onclick="go('names')">Names</button>
-<button onclick="go('bio')">Bio</button>
-<button onclick="go('symbols')">Symbols</button>
-<button onclick="go('sensitivityResult')">Settings</button>
+ <button onclick="go('sensitivity')">🎯 Sensitivity</button>
+ <button onclick="go('names')">👑 Names</button>
+ <button onclick="go('bio')">💀 Bio</button>
+ <button onclick="go('symbols')">✨ Symbols</button>
 </nav>
 </div>
 
 <script>
-function startApp(){
- document.getElementById('home').style.display='none';
- document.getElementById('app').style.display='block';
+/* ANIMATED PARTICLES */
+const particleBox=document.getElementById("particles");
+for(let i=0;i<35;i++){
+ const p=document.createElement("div");
+ p.className="particle";
+ p.style.left=Math.random()*100+"%";
+ p.style.animationDuration=(5+Math.random()*9)+"s";
+ p.style.animationDelay=(-Math.random()*12)+"s";
+ p.style.opacity=Math.random();
+ particleBox.appendChild(p);
 }
+
+/* BACKGROUND MUSIC */
+let audioCtx=null,musicOn=false,musicTimer;
+function startMusic(){
+ try{
+  const AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC)return;
+  if(!audioCtx)audioCtx=new AC();
+  audioCtx.resume();
+  if(musicOn)return;
+  musicOn=true;
+  const notes=[110,130.81,164.81,196,164.81,130.81];
+  let index=0;
+  function beat(){
+   if(!musicOn)return;
+   let osc=audioCtx.createOscillator();
+   let gain=audioCtx.createGain();
+   osc.type="sawtooth";
+   osc.frequency.value=notes[index%notes.length];
+   gain.gain.setValueAtTime(.0001,audioCtx.currentTime);
+   gain.gain.exponentialRampToValueAtTime(.035,audioCtx.currentTime+.03);
+   gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.24);
+   osc.connect(gain);gain.connect(audioCtx.destination);
+   osc.start();osc.stop(audioCtx.currentTime+.25);
+   index++;
+   musicTimer=setTimeout(beat,260);
+  }
+  beat();
+  document.getElementById("musicStatus").textContent="🎵 Music Playing";
+  document.getElementById("musicButton").textContent="⏸ STOP MUSIC";
+ }catch(e){}
+}
+function stopMusic(){
+ musicOn=false;clearTimeout(musicTimer);
+ document.getElementById("musicStatus").textContent="Music Paused";
+ document.getElementById("musicButton").textContent="▶ PLAY MUSIC";
+}
+function toggleMusic(){musicOn?stopMusic():startMusic()}
+
+function startApp(){
+ document.getElementById("home").style.display="none";
+ document.getElementById("app").style.display="block";
+ startMusic();
+}
+
+/* COPY SYSTEM */
 function copyText(text){
- if(navigator.clipboard){
-  navigator.clipboard.writeText(text).then(()=>alert('Copied!'));
- }else{
-  let t=document.createElement('textarea');
-  t.value=text;document.body.appendChild(t);
-  t.select();document.execCommand('copy');t.remove();
-  alert('Copied!');
- }
+ if(navigator.clipboard && window.isSecureContext){
+  navigator.clipboard.writeText(text)
+   .then(()=>alert("Copied!"))
+   .catch(()=>fallbackCopy(text));
+ }else fallbackCopy(text);
+}
+function fallbackCopy(text){
+ let t=document.createElement("textarea");
+ t.value=text;document.body.appendChild(t);
+ t.select();document.execCommand("copy");t.remove();
+ alert("Copied!");
 }
 function addItem(parent,text){
- let div=document.createElement('div');
- div.className='item';
- let span=document.createElement('span');
+ let div=document.createElement("div");
+ div.className="item";
+ let span=document.createElement("span");
  span.textContent=text;
- let btn=document.createElement('button');
- btn.textContent='COPY';
+ let btn=document.createElement("button");
+ btn.textContent="COPY";
  btn.onclick=()=>copyText(text);
  div.append(span,btn);
  parent.appendChild(div);
 }
-function makeNames(){
- let n=document.getElementById('playerName').value.trim();
- if(!n)return alert('नाम लिखो');
- let box=document.getElementById('nameResults');
- box.innerHTML='';
- ['꧁༒'+n+'༒꧂','亗'+n+'亗','『'+n+'』','★彡'+n+'彡★','乂'+n+'乂','么'+n+'么'].forEach(x=>addItem(box,x));
+
+/* SENSITIVITY GENERATOR */
+function generateSensitivity(){
+ let ram=Number(document.getElementById("ram").value);
+ let proc=document.getElementById("processor").value;
+ let hz=Number(document.getElementById("refresh").value);
+ let style=document.getElementById("playstyle").value;
+ let aim=document.getElementById("aim").value;
+
+ let score=ram*1.4+(hz-60)/20+
+ ({basic:0,mid:3,gaming:5,flagship:7}[proc]);
+ let base=Math.min(195,Math.max(145,165+score));
+
+ let styles={
+  headshot:[12,5,0,-8,-35,0],
+  onetap:[17,10,2,-10,-38,2],
+  rush:[18,13,5,-5,-30,5],
+  balanced:[0,-3,-8,-15,-40,-5],
+  sniper:[-12,-15,-18,-5,5,-10]
+ };
+ let adjustment=styles[style];
+ let aimAdjust={smooth:-5,fast:7,control:-10}[aim];
+
+ let names=["General","Red Dot","2X Scope","4X Scope","Sniper Scope","Free Look"];
+ let values=[
+  base+adjustment[0]+aimAdjust,
+  base-10+adjustment[1]+aimAdjust,
+  base-22+adjustment[2]+aimAdjust,
+  base-35+adjustment[3]+aimAdjust,
+  base-60+adjustment[4],
+  base-5+adjustment[5]
+ ].map(x=>Math.round(Math.max(0,Math.min(200,x))));
+
+ let box=document.getElementById("sensResult");
+ box.innerHTML="";
+ let summary=document.createElement("div");
+ summary.className="grid";
+ summary.innerHTML=
+ '<div class="stat"><small>PHONE RAM</small><b>'+ram+' GB</b></div>'+
+ '<div class="stat"><small>REFRESH RATE</small><b>'+hz+' Hz</b></div>'+
+ '<div class="stat"><small>PROCESSOR</small><b>'+proc.toUpperCase()+'</b></div>'+
+ '<div class="stat"><small>PLAY STYLE</small><b>'+style.toUpperCase()+'</b></div>';
+ box.appendChild(summary);
+
+ let results=[];
+ names.forEach((n,i)=>{
+  results.push(n+": "+values[i]);
+  addItem(box,n+": "+values[i]);
+ });
+ let copy=document.createElement("button");
+ copy.className="full";
+ copy.textContent="📋 COPY ALL SENSITIVITY";
+ copy.onclick=()=>copyText(results.join("\n"));
+ box.appendChild(copy);
+
+ let note=document.createElement("p");
+ note.style.color="#aaa";
+ note.style.fontSize="12px";
+ note.textContent="ये शुरुआती सुझाव हैं। अपने फोन, गेम अपडेट और आराम के हिसाब से Training Ground में टेस्ट करके एडजस्ट करें।";
+ box.appendChild(note);
 }
-let bios=[
-'亗 NO MERCY 亗','⚡ BORN TO WIN ⚡',
-'꧁ KING OF HEADSHOT ꧂','🔥 NEVER GIVE UP 🔥',
-'『 PRO PLAYER 』','亗 ONE TAP MASTER 亗'
-];
-bios.forEach(x=>addItem(document.getElementById('bioResults'),x));
 
-['🇮🇳 INDIA','🇧🇷 BRAZIL','🇯🇵 JAPAN'].forEach(x=>addItem(document.getElementById('countryResults'),x));
+/* NAME GENERATOR */
+function makeNames(){
+ let n=document.getElementById("playerName").value.trim();
+ if(!n)return alert("अपना नाम लिखो");
+ let box=document.getElementById("nameResults");
+ box.innerHTML="";
+ ["꧁༒"+n+"༒꧂","亗"+n+"亗","『"+n+"』","★彡"+n+"彡★","乂"+n+"乂","么"+n+"么","♛"+n+"♛"]
+ .forEach(x=>addItem(box,x));
+}
 
+/* BIO */
+[
+ "亗 NO MERCY 亗",
+ "⚡ BORN TO WIN ⚡",
+ "꧁ KING OF HEADSHOT ꧂",
+ "🔥 NEVER GIVE UP 🔥",
+ "『 PRO PLAYER 』",
+ "亗 ONE TAP MASTER 亗"
+].forEach(x=>addItem(document.getElementById("bioResults"),x));
+
+/* COLOR BIO */
 function makeColorBio(){
- let text=document.getElementById('bioText').value;
- let color=document.getElementById('color').value;
- if(!text)return alert('Bio लिखो');
- let result=color+text;
- let box=document.getElementById('colorResult');
- box.innerHTML='';
+ let text=document.getElementById("bioText").value.trim();
+ if(!text)return alert("Bio लिखो");
+ let result=document.getElementById("color").value+text;
+ let box=document.getElementById("colorResult");
+ box.innerHTML="";
  addItem(box,result);
 }
-function getSensitivity(){
- let d=document.getElementById('device').value;
- let s=document.getElementById('style').value;
- let values={
- 'Low End Phone':[185,180,170,160,100],
- 'Mid Range Phone':[190,185,175,165,100],
- 'High End Phone':[195,190,180,170,100]
- };
- let v=values[d];
- if(s==='Rush Gameplay')v=[195,190,185,175,100];
- if(s==='Balanced')v=[180,175,165,155,100];
- let labels=['General','Red Dot','2x Scope','4x Scope','Free Look'];
- let box=document.getElementById('sensitivityResult');
- box.innerHTML='<p>Starter settings — अपने गेम में टेस्ट करके एडजस्ट करें।</p>';
- labels.forEach((x,i)=>addItem(box,x+': '+v[i]));
-}
-let symbols=['亗','么','乂','〆','彡','★','☆','ツ','࿐','꧁','꧂','༒','♛','♕','⚡','🔥','『','』','✿','✓'];
-symbols.forEach(x=>addItem(document.getElementById('symbols'),x));
+
+/* SYMBOLS */
+[
+ "亗","么","乂","〆","彡","★","☆","ツ","࿐","꧁",
+ "꧂","༒","♛","♕","⚡","🔥","『","』","✿","✓",
+ "☠","ঔৣ","×͜×","〆"
+].forEach(x=>addItem(document.getElementById("symbolResults"),x));
 
 function go(id){
- let el=document.getElementById(id);
- if(el)el.scrollIntoView({behavior:'smooth'});
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 </script>
 </body>
